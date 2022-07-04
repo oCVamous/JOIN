@@ -1,25 +1,30 @@
 function init() {
-    loadNavbar();
+    loadContent();
 }
-function loadNavbar() {
-    document.getElementById('navbar').innerHTML += /*html*/`
-        <img id="joinlogo" src="img/joinlogo.png" onclick="history.go(0)">
-        <ul id="menulist">
-            <li>
-                <div class="active-s" id="menuBoard-1"></div>
-                <a href="">BOARD</a>
-            </li>
-            <li>
-                <div class="active-s" id="menuBoard-2"></div>
-                <a href="">BACKLOG</a></li>
-            <li>
-                <div class="active-s" id="menuBoard-3"></div>
-                <a href="">ADD TASK</a>
-            </li>
-            <li>
-                <div class="active-s" id="menuBoard-4"></div>
-                <a href="">HELP</a>
-            </li>
-        </ul>
-    `;
+
+
+function loadContent() {
+    document.getElementById('content').innerHTML += /*html*/`
+        <div class="animation">
+                <div id="animation-1">
+                    <img class="joinlogo" src="img/logo.png" alt="">
+                    <h1>Best Kanban-System of the World</h1>
+                </div>
+                
+                <div id="werbetext">
+                    <p><img src="img/bullet-point.png" style="height: 10px;"> Easy Peasy per DRAG & DROP</p>
+                    <p><img src="img/bullet-point.png" style="height: 10px;"> Koordination der Task für das ganze Team</p>
+                    <p><img src="img/bullet-point.png" style="height: 10px;"> Den Task einzelnen Bearbeitungsschritten geben</p>
+                </div>
+                
+                 <br>
+                <div id="we">
+                    <h2>This code was made with passion</h2>
+                        <a class="ourName" href="https://github.com/oCVamous" target="_blank"><h2>© by Patrick Sterz <img src="img/github-icon.svg" style="height: 30px;" alt=""></h2></a> 
+                        <a class="ourName" href="https://github.com/ZZDome" target="_blank"><h2>© by Dominik Waldow <img src="img/github-icon.svg" style="height: 30px;" alt=""></h2></a>
+                
+                </div>
+                
+            </div>
+            `;
 }
