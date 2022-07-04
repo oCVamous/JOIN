@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#main-container {
+    display: flex;
+}
+.visibility-none {
+    visibility: hidden;
+}
+#navbar {
+    width: 10%;
+    height: 100vh;
+    background-color: #22318B;
+}
+#menulist {
+    padding-top: 20px;
+    padding-left: 10px;
+}
+#menulist a {
+    color: white;
+    text-decoration: none;
+    padding-left: 20px;
+    padding: 20px;
+}
+#menulist li{
+    display: flex;
+    padding-left: 0;
+    align-items: center;
+}
+#content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+#content h1 {
+    padding-left: 20px;
+}
+.joinlogo {
+    height: 40px;
+}
+#joinlogo {
+    height: 50px;
+    padding-left: 35%;
+    padding-top: 50px;
+    width: fit-content;
+}
+.active-s {
+    min-height: 28px;
+    min-width: 6px;
+    background-color: transparent;
+}
+li:hover > .active-s {
+    font-size: 30px;
+    background-color: white;
+  }
+.animation {
+    animation: reveal 3s ease-in-out;
+}
+#animation-1 {
+    display: flex;
+    align-items: center;
+}
+@keyframes reveal {
+    0% {
+        margin-top: -60px;
+        opacity: 0;
+    }
+    20% {
+        margin-top: 0px;
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    50% {
+        margin-top: 0px;
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#werbetext {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30%;
+}
+.ourName {
+    color: #484848;
+    text-decoration: none;
+    height: 20px;
+}
+#we {
+    padding-top: 125px;
+    text-align:center;
+}
