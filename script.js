@@ -47,19 +47,33 @@ function templateContent(){
 
 function templateBoard(){
     return /*html*/ `
-    <div class="boardPage">
+    <div class="boardPage animation">
         <h1 class="boardHeadline">Taskboard</h1>	
+        <div class="boardField">
         <div class="boardContainer">
             <h2>ToDo</h2>
+            <div class="boardContainerField">
+
+            </div>
         </div>
         <div class="boardContainer">
             <h2>In Progress</h2>
+            <div class="boardContainerField">
+
+            </div>
         </div>
         <div class="boardContainer">
             <h2>In Testing</h2>
+            <div class="boardContainerField">
+
+            </div>
         </div>
         <div class="boardContainer">
             <h2>Done</h2>
+            <div class="boardContainerField">
+                
+            </div>
+        </div>
         </div>
     </div>
     `;
