@@ -129,10 +129,12 @@ li:hover > .active-s {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 14rem;
+    width: 24%;
     height: 80vh;
     background-color: antiquewhite;
     margin: 2rem, 1rem, 1rem, 2rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
 }
 
 .boardContainerField{
@@ -143,4 +145,6 @@ li:hover > .active-s {
     flex-direction: column;
     align-items: center;
     justify-self: flex-start;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
 }
