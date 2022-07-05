@@ -59,7 +59,17 @@ function templateBoard(){
         <div class="boardContainer">
             <h3>ToDo</h3>
             <div id="todoField" class="boardContainerField">
-
+                <div class="taskContainer">
+                    <h5>Task</h5>
+                    <div class="taskHeadline">
+                        <img src="#">
+                        <span>Name</span>
+                        <span>Time</span>
+                    </div>
+                    <div class="taskDescription">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="boardContainer">
