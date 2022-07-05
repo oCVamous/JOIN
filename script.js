@@ -8,7 +8,7 @@ function init() {
 function loadContent() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
-    content.innerHTML = templateContent();
+    content.innerHTML += templateContent();
 }
 
 function loadBoard(){
