@@ -4,7 +4,7 @@ function init() {
 
 
 function loadContent() {
-    document.getElementById('content').innerHTML += /*html*/`
+    document.getElementById('content').innerHTML = /*html*/`
         <div class="animation">
                 <div id="animation-1">
                     <img class="joinlogo" src="img/logo.png" alt="">

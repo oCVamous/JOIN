@@ -2,13 +2,13 @@ body {
     margin: 0;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
 }
-#main-container {
+#p-main-container {
     display: flex;
 }
 .visibility-none {
     visibility: hidden;
 }
-#navbar {
+#p-navbar {
     width: 10%;
     height: 100vh;
     background-color: #22318B;
@@ -48,6 +48,7 @@ body {
     padding-top: 50px;
     width: fit-content;
     cursor: pointer;
+    box-sizing: unset !important;
 }
 .active-s {
     min-height: 28px;
