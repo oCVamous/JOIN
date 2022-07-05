@@ -58,25 +58,25 @@ function templateBoard(){
         <div class="boardField">
         <div class="boardContainer">
             <h3>ToDo</h3>
-            <div class="boardContainerField">
+            <div id="todoField" class="boardContainerField">
 
             </div>
         </div>
         <div class="boardContainer">
             <h3>In Progress</h3>
-            <div class="boardContainerField">
+            <div id="inProgressField" class="boardContainerField">
 
             </div>
         </div>
         <div class="boardContainer">
             <h3>In Testing</h3>
-            <div class="boardContainerField">
+            <div id="inTestingField" class="boardContainerField">
 
             </div>
         </div>
         <div class="boardContainer">
             <h3>Done</h3>
-            <div class="boardContainerField">
+            <div id="doneField" class="boardContainerField">
                 
             </div>
         </div>
