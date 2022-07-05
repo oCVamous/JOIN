@@ -14,6 +14,9 @@ function loadContent() {
     content.innerHTML += templateContent();
 }
 
+/**
+ * This function let show you the taskboard.
+ */
 function loadBoard(){
     let content = document.getElementById('content');
     content.innerHTML = ``;
