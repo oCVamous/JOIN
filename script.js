@@ -1,4 +1,4 @@
-
+let backend = setURL('http://gruppe-273.developerakademie.net/smallest_backend_ever');
 
 function init() {
     loadContent();
