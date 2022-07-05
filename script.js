@@ -1,5 +1,8 @@
 setURL('http://gruppe-273.developerakademie.net/smallest_backend_ever');
 
+let users = {};
+let tasks = {};
+
 function init() {
     loadContent();
 }
