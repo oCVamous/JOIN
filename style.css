@@ -10,6 +10,7 @@ body {
 }
 #p-navbar {
     width: 10%;
+    min-width: 8rem;
     height: 100vh;
     background-color: #22318B;
 }
