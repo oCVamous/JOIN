@@ -1,7 +1,24 @@
-setURL('http://gruppe-273.developerakademie.net/smallest_backend_ever');
+/* let url = setURL('http://gruppe-273.developerakademie.net/smallest_backend_ever'); */
 
 let users = {};
-let tasks = {};
+let tasks = [
+    {
+        'id': 0,
+        'level': 'todo',
+        'task': 'Test',
+        'description': 'Lorem ipsum.',
+        'user': 'Dominik',
+        'dueDate': '20.09.2022'
+    },
+    {
+        'id': 1,
+        'level': 'inProgress',
+        'task': 'Test2',
+        'description': 'Lorem ipsum.',
+        'user': 'Patrick',
+        'dueDate': '22.10.2022'
+    }
+];
 
 function init() {
     loadContent();
@@ -17,29 +34,45 @@ function loadContent() {
 /**
  * This function let show you the taskboard.
  */
-function loadBoard(){
+function loadBoard() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
-    content.innerHTML += templateBoard();
+    content.innerHTML += templateBoard();  
+    loadTasks(); 
+}
+
+function loadTasks(){
+    for (let i=0; i < tasks.length; i++){
+        let currentTask = tasks[i];
+        if(currentTask.level == 'todo'){
+            document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask);
+        }else if(currentTask.level == 'inProgress'){
+            document.getElementById('inProgressField').innerHTML += templateLoadTasks(currentTask);
+        }else if(currentTask.level == 'inTesting'){
+            document.getElementById('inTestingField').innerHTML += templateLoadTasks(currentTask);
+        }else if(currentTask.level == 'done'){
+            document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask);
+        }
+    }
 }
 
 /**
  * This function let show you AddTask.
  */
 
-function loadAddTask(){
+function loadAddTask() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateAddTask();
 }
 
-function loadImpressum(){
+function loadImpressum() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateImpressum();
 }
 
-function loadDatenschutz(){
+function loadDatenschutz() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateDatenschutz();
@@ -47,7 +80,7 @@ function loadDatenschutz(){
 
 // Templates//////////////////////////////////////////////
 
-function templateContent(){
+function templateContent() {
     return /*html*/ `
     <div class="animation">
             <div id="animation-1">
@@ -73,7 +106,7 @@ function templateContent(){
         `;
 }
 
-function templateBoard(){
+function templateBoard() {
     return /*html*/ `
     <div class="boardPage animation">
         <h1 class="boardHeadline">Taskboard</h1>	
@@ -81,17 +114,7 @@ function templateBoard(){
         <div class="boardContainer">
             <h3>ToDo</h3>
             <div id="todoField" class="boardContainerField">
-                <div class="taskContainer">
-                    <h5>Task</h5>
-                    <div class="taskHeadline">
-                        <img src="#">
-                        <span>Name</span>
-                        <span>Time</span>
-                    </div>
-                    <div class="taskDescription">
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="boardContainer">
@@ -114,6 +137,22 @@ function templateBoard(){
         </div>
         </div>
     </div>
+    `;
+}
+
+function templateLoadTasks(task){
+    return /*html*/ `
+        <div class="taskContainer">
+                    <h5>${task.task}</h5>
+                    <div class="taskHeadline">
+                        <img src="#">
+                        <span>${task.user}</span>
+                        <span>Time</span>
+                    </div>
+                    <div class="taskDescription">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                </div>
     `;
 }
 
