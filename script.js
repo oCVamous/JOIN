@@ -27,10 +27,22 @@ function loadBoard(){
  * This function let show you AddTask.
  */
 
- function loadAddTask(){
+function loadAddTask(){
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateAddTask();
+}
+
+function loadImpressum(){
+    let content = document.getElementById('content');
+    content.innerHTML = ``;
+    content.innerHTML += templateImpressum();
+}
+
+function loadDatenschutz(){
+    let content = document.getElementById('content');
+    content.innerHTML = ``;
+    content.innerHTML += templateDatenschutz();
 }
 
 // Templates//////////////////////////////////////////////
@@ -172,5 +184,27 @@ function templateAddTask() {
                 </div>
             </div>
         </div>
+    `;
+}
+
+function templateImpressum() {
+    return /*html*/ `
+    <div class="impressum-main">
+        <h1>Impressum</h1>
+
+        <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+        <p>Patrick Sterz<br />Spinnereistraße 1A<br /> 30449 Hannover</p>
+        <p>Dominik Waldow<br /> Gleis 9 3/4<br /> 55555 Hogwarts</p>
+
+        <h2>Kontakt</h2>
+        <p>Telefon: 0041763668033<br /> E-Mail: jhildbrand@pm.me</p>
+
+        <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+
+        <p>Quelle: <a class="impressum" href="https://www.e-recht24.de/impressum-generator.html">https://www.e-recht24.de/impressum-generator.html</a>
+        </p>
+    </div>
     `;
 }
