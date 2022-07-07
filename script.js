@@ -109,7 +109,6 @@ function templateAddTask() {
     return /*html*/ `
     <div class="addTask-main">
         <div id="addTask-left">
-            /**Title */
 
             <div class="input">
                 <div class="mb-3">
@@ -118,7 +117,6 @@ function templateAddTask() {
                 </div>
             </div>
 
-            /**Category */
             <label for="category">CATERGORY</label>
             <div class="input">
                 <div class="form-floating">
@@ -132,7 +130,6 @@ function templateAddTask() {
                 </div>
             </div>
 
-            /**Description */
             <label for="floatingTextarea2">Description</label>
             <div class="input">
                 <div class="form-floating">
@@ -145,13 +142,11 @@ function templateAddTask() {
 
         <div id="addTask-right">
 
-            /**Due Date */
             <div class="input">
                 <label for="due date">DUE DATE</label>
                 <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
             </div>
 
-            /**Urgency */
             <label for="urgency">URGENCY</label>
                     
                 <div class="form-floating">
@@ -165,7 +160,6 @@ function templateAddTask() {
 
                 
             <div class="assigned">
-            /**assingments */
                 <label for="formGroupExampleInput" class="form-label">ASSIGNED</label>
 
                 <div id="btn-box">
