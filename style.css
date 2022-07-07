@@ -236,12 +236,25 @@ li:hover > .active-s {
     width: 450px;
 }
 
+.assigned {
+    flex-direction: column;
+    display: flex;
+}
+
 label,
 h2 {
     color: rgb(34, 49, 139);
     font-weight: bold;
     margin: 15px 0px 15px 0px
 }
+
+#btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+
 
 
 

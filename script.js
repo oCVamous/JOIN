@@ -107,67 +107,75 @@ function templateBoard(){
 
 function templateAddTask() {
     return /*html*/ `
-        <div class="addTask-main">
-            <div id="addTask-left">
-                /**Title */
+    <div class="addTask-main">
+        <div id="addTask-left">
+            /**Title */
 
-                <div class="input">
-                    <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">TITLE</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
-                    </div>
+            <div class="input">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">TITLE</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
+            </div>
 
-                /**Category */
-                <label for="category">CATERGORY</label>
+            /**Category */
+            <label for="category">CATERGORY</label>
+            <div class="input">
+                <div class="form-floating">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <option value="1">Management</option>
+                        <option value="2">Software Development</option>
+                        <option value="3">UX/UI Desing</option>
+                        <option value="3">Human Resources</option>
+                    </select>
+                    <label for="floatingSelect">Welche Abteilung?</label>
+                </div>
+            </div>
 
-                    <div class="input">
-                        <div class="form-floating">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option value="1">Management</option>
-                                <option value="2">Software Development</option>
-                                <option value="3">UX/UI Desing</option>
-                                <option value="3">Human Resources</option>
-                            </select>
-                            <label for="floatingSelect">Welche Abteilung?</label>
-                        </div>
-                    </div>
+            /**Description */
+            <label for="floatingTextarea2">Description</label>
+            <div class="input">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
+                </div>
+            </div>
 
-                /**Description */
+                
+        </div>
 
-                <label for="floatingTextarea2">Description</label>
-                <div class="input">
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
-                    </div>
+        <div id="addTask-right">
+
+            /**Due Date */
+            <div class="input">
+                <label for="due date">DUE DATE</label>
+                <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+            </div>
+
+            /**Urgency */
+            <label for="urgency">URGENCY</label>
+                    
+                <div class="form-floating">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <option value="1">High</option>
+                        <option value="2">Intermediate</option>
+                        <option value="3">Low</option>
+                    </select>
+                    <label for="floatingSelect">Wie hoch ist die Priorität?</label>
                 </div>
 
                 
-            </div>
-
-            <div id="addTask-right">
-
-                /**Due Date */
-                <div class="input">
-                    <label for="due date">DUE DATE</label>
-                    <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
-                </div>
-
-                /**Urgency */
-                <label for="urgency">URGENCY</label>
-                    
-                    <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option value="1">High</option>
-                            <option value="2">Intermediate</option>
-                            <option value="3">Low</option>
-                        </select>
-                        <label for="floatingSelect">Wie hoch ist die Priorität?</label>
-                    </div>
-
-                /**assingments */
+            <div class="assigned">
+            /**assingments */
                 <label for="formGroupExampleInput" class="form-label">ASSIGNED</label>
 
+                <div id="btn-box">
+                    <img src="img/icon plus.png" style="padding-right:10px">
+                        
+                    <div>
+                        <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                        <button type="button" class="btn btn-primary btn-lg">Add task</button>
+                    </div>
+                </div>
             </div>
         </div>
     `;
