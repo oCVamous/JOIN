@@ -229,6 +229,30 @@ li:hover > .active-s {
     padding: 10rem;
     width: 100%;
     max-height: 90vh;
+    color: white;
+}
+
+#login-box {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#login-box-left {
+    background-color: #22318B;
+    border-radius: 10px 0 0 10px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+#login-box-right {
+    background-color: #F4F3FB;
+    border: 2px solid lightgrey;
+    border-radius: 0px 10px 10px 0px;
+    width: 500px;
+    padding: 10px;
 }
 
 

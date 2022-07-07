@@ -177,17 +177,28 @@ function templateContent() {
 function templateLogin() {
     return /*html*/ `
     <div class="login">
-        <h2>Login</h2>
-    <div class="mb-3">
-        <label class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-        <div class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" id="password">
-    </div>
-    <button onclick="login()" class="btn btn-primary">Login</button>
+        <div id="login-box">
+
+            <div id="login-box-left">
+                <img src="img/logo.png" style="height: 50px">
+            </div>
+
+            <div id="login-box-right">
+                <h2 style="text-align: center;">Login</h2>
+                <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <div class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+             
+            <button onclick="login()" class="btn btn-primary">Login</button>
+        </div>
+            
+        
     </div>
     `;
 }
