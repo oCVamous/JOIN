@@ -113,25 +113,25 @@ function templateBoard() {
         <div class="boardField">
         <div class="boardContainer">
             <h3>ToDo</h3>
-            <div id="todoField" class="boardContainerField">
+            <div id="todoField" class="boardContainerField" >
                 
             </div>
         </div>
         <div class="boardContainer">
             <h3>In Progress</h3>
-            <div id="inProgressField" class="boardContainerField">
+            <div id="inProgressField" class="boardContainerField" >
 
             </div>
         </div>
         <div class="boardContainer">
             <h3>In Testing</h3>
-            <div id="inTestingField" class="boardContainerField">
+            <div id="inTestingField" class="boardContainerField" >
 
             </div>
         </div>
         <div class="boardContainer">
             <h3>Done</h3>
-            <div id="doneField" class="boardContainerField">
+            <div id="doneField" class="boardContainerField" >
                 
             </div>
         </div>
@@ -142,15 +142,15 @@ function templateBoard() {
 
 function templateLoadTasks(task){
     return /*html*/ `
-        <div class="taskContainer">
+        <div draggable="true" class="taskContainer">
                     <h5>${task.task}</h5>
                     <div class="taskHeadline">
                         <img src="#">
                         <span>${task.user}</span>
-                        <span>Time</span>
+                        <span>${task.dueDate}</span>
                     </div>
                     <div class="taskDescription">
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                        <span>${task.description}</span>
                     </div>
                 </div>
     `;
