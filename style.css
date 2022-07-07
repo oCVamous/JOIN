@@ -222,7 +222,14 @@ li:hover > .active-s {
     cursor: pointer;
   }
 
+  /*Login*/
 
+.login{
+    z-index: 999;
+    padding: 10rem;
+    width: 100%;
+    max-height: 90vh;
+}
 
 
 

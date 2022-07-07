@@ -1,4 +1,14 @@
-let users = {};
+let users = [
+    {
+        'id': 0,
+        'firstname': 'rger',
+        'lastname': 'regweg',
+        'email': 'test@join.com',
+        'password': '0123456789',
+        'category': 'management',
+        'avatar': 'img/avatar/1.png'
+    }
+];
 let tasks = [
     {
         'id': 0,
@@ -19,26 +29,54 @@ let tasks = [
 ];
 
 let dragTaskId;
+let currentUser;
 
 function init() {
-    loadContent();
+    loadLogin();
+    /* loadContent(); */
 }
 
-
-function loadContent() {
+function loadLogin(){
     let content = document.getElementById('content');
     content.innerHTML = ``;
-    content.innerHTML += templateContent();
+    content.innerHTML += templateLogin();
+}
+
+function login(){
+    let setEmail = document.getElementById('email').value;
+    let setPassword = document.getElementById('password').value;
+    for(let i = 0; i < users.length; i++){
+        if(users[i].email == setEmail){
+            if(users[i].password == setPassword){
+                currentUser = users[i];
+                loadContent();
+            }
+        }
+    }
+}
+
+function loadContent() {
+    if(!currentUser){
+        alert('please Login')
+    }else{
+        let content = document.getElementById('content');
+        content.innerHTML = ``;
+        content.innerHTML += templateContent();
+    }
 }
 
 /**
  * This function let show you the taskboard.
  */
 function loadBoard() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateBoard();  
-    loadTasks(); 
+    if(!currentUser){
+        alert('please Login')
+    }else{
+        let content = document.getElementById('content');
+        content.innerHTML = ``;
+        content.innerHTML += templateBoard();  
+        loadTasks(); 
+    }
 }
 
 function loadTasks(){
@@ -87,9 +125,13 @@ function drop(dropzone){
  */
 
 function loadAddTask() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateAddTask();
+    if(!currentUser){
+        alert('please Login')
+    }else{
+        let content = document.getElementById('content');
+        content.innerHTML = ``;
+        content.innerHTML += templateAddTask();
+    }
 }
 
 function loadImpressum() {
@@ -130,6 +172,24 @@ function templateContent() {
             
         </div>
         `;
+}
+
+function templateLogin() {
+    return /*html*/ `
+    <div class="login">
+        <h2>Login</h2>
+    <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        <div class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="password">
+    </div>
+    <button onclick="login()" class="btn btn-primary">Login</button>
+    </div>
+    `;
 }
 
 function templateBoard() {
