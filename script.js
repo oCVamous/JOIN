@@ -20,6 +20,8 @@ let tasks = [
     }
 ];
 
+let dragTaskId;
+
 function init() {
     loadContent();
 }
@@ -54,6 +56,32 @@ function loadTasks(){
             document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask);
         }
     }
+}
+
+function resetTasks(){
+    document.getElementById('todoField').innerHTML = ``;
+    document.getElementById('inProgressField').innerHTML = ``;
+    document.getElementById('inTestingField').innerHTML = ``;
+    document.getElementById('doneField').innerHTML = ``;
+    loadTasks();
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+function drag(id){
+    dragTaskId = id;
+}
+
+function drop(dropzone){
+    for(let i=0;i<tasks.length;i++){
+        if(tasks[i].id == dragTaskId){
+            tasks[i].level = dropzone;
+            break;
+        }
+    }
+    resetTasks();
 }
 
 /**
@@ -113,25 +141,25 @@ function templateBoard() {
         <div class="boardField">
         <div class="boardContainer">
             <h3>ToDo</h3>
-            <div id="todoField" class="boardContainerField" >
+            <div id="todoField" class="boardContainerField" ondrop="drop('todo')" ondragover="allowDrop(event)">
                 
             </div>
         </div>
         <div class="boardContainer">
             <h3>In Progress</h3>
-            <div id="inProgressField" class="boardContainerField" >
+            <div id="inProgressField" class="boardContainerField" ondrop="drop('inProgress')" ondragover="allowDrop(event)">
 
             </div>
         </div>
         <div class="boardContainer">
             <h3>In Testing</h3>
-            <div id="inTestingField" class="boardContainerField" >
+            <div id="inTestingField" class="boardContainerField" ondrop="drop('inTesting')" ondragover="allowDrop(event)">
 
             </div>
         </div>
         <div class="boardContainer">
             <h3>Done</h3>
-            <div id="doneField" class="boardContainerField" >
+            <div id="doneField" class="boardContainerField" ondrop="drop('done')" ondragover="allowDrop(event)">
                 
             </div>
         </div>
@@ -142,7 +170,7 @@ function templateBoard() {
 
 function templateLoadTasks(task){
     return /*html*/ `
-        <div draggable="true" class="taskContainer">
+        <div draggable="true" ondragstart="drag(${task.id})" class="taskContainer">
                     <h5>${task.task}</h5>
                     <div class="taskHeadline">
                         <img src="#">
