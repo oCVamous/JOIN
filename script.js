@@ -111,30 +111,35 @@ function templateAddTask() {
             <div id="addTask-left">
                 /**Title */
 
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">TITLE</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                <div class="input">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">TITLE</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                    </div>
                 </div>
 
                 /**Category */
                 <label for="category">CATERGORY</label>
 
-                    <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option value="1">Management</option>
-                            <option value="2">Software Development</option>
-                            <option value="3">UX/UI Desing</option>
-                            <option value="3">Human Resources</option>
-                        </select>
-                        <label for="floatingSelect">Welche Abteilung?</label>
+                    <div class="input">
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option value="1">Management</option>
+                                <option value="2">Software Development</option>
+                                <option value="3">UX/UI Desing</option>
+                                <option value="3">Human Resources</option>
+                            </select>
+                            <label for="floatingSelect">Welche Abteilung?</label>
+                        </div>
                     </div>
 
                 /**Description */
 
                 <label for="floatingTextarea2">Description</label>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
-               
+                <div class="input">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
+                    </div>
                 </div>
 
                 
@@ -145,7 +150,7 @@ function templateAddTask() {
                 /**Due Date */
                 <div class="input">
                     <label for="due date">DUE DATE</label>
-                    <input class="inputfield" type="date" id="date" value="">
+                    <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
 
                 /**Urgency */
