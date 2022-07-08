@@ -1,12 +1,30 @@
 let users = [
     {
         'id': 0,
-        'firstname': 'rger',
-        'lastname': 'regweg',
-        'email': 'test@join.com',
-        'password': '0123456789',
-        'category': 'management',
+        'firstname': 'Dominik',
+        'lastname': 'Waldow',
+        'email': 'dominik@join.com',
+        'password': '01234',
+        'category': 2,
         'avatar': 'img/avatar/1.png'
+    },
+    {
+        'id': 1,
+        'firstname': 'Patrick',
+        'lastname': 'Sterz',
+        'email': 'patrick@join.com',
+        'password': '12345',
+        'category': 3,
+        'avatar': 'img/avatar/2.png'
+    },
+    {
+        'id': 2,
+        'firstname': 'Mentor',
+        'lastname': 'Mentor',
+        'email': 'mentor@join.com',
+        'password': '56789',
+        'category': 1,
+        'avatar': 'img/avatar/3.png'
     }
 ];
 let tasks = [
@@ -32,8 +50,20 @@ let dragTaskId;
 let currentUser;
 
 function init() {
+    /* backendPush();*/
     loadLogin();
-    /* loadContent(); */
+    loadContent();
+}
+
+function backendPull(){
+    
+}
+
+function backendPush(){
+    let usersAsString = JSON.stringify(users);
+    let tasksAsString = JSON.stringify(tasks);
+    backend.setItem('users',usersAsString);
+    backend.setItem('tasks',tasksAsString);
 }
 
 function loadLogin(){
@@ -272,7 +302,7 @@ function templateAddTask() {
                         <option value="1">Management</option>
                         <option value="2">Software Development</option>
                         <option value="3">UX/UI Desing</option>
-                        <option value="3">Human Resources</option>
+                        <option value="4">Human Resources</option>
                     </select>
                     <label for="floatingSelect">Welche Abteilung?</label>
                 </div>
