@@ -52,7 +52,7 @@ let currentUser;
 function init() {
     /* backendPush();*/
     loadLogin();
-    loadContent();
+    /* loadContent(); */
 }
 
 function backendPull(){
