@@ -154,6 +154,7 @@ function drop(dropzone){
             break;
         }
     }
+    backendPush();
     resetTasks();
 }
 
