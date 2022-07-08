@@ -1,30 +1,4 @@
-let users =[{
-    'id': 0,
-    'firstname': 'Dominik',
-    'lastname': 'Waldow',
-    'email': 'dominik@join.com',
-    'password': '01234',
-    'category': 2,
-    'avatar': 'img/avatar/1.png'
-},
-{
-    'id': 1,
-    'firstname': 'Patrick',
-    'lastname': 'Sterz',
-    'email': 'patrick@join.com',
-    'password': '12345',
-    'category': 3,
-    'avatar': 'img/avatar/2.png'
-},
-{
-    'id': 2,
-    'firstname': 'Mentor',
-    'lastname': 'Mentor',
-    'email': 'mentor@join.com',
-    'password': '56789',
-    'category': 1,
-    'avatar': 'img/avatar/3.png'
-}];
+let users =[];
     /* {
         'id': 0,
         'firstname': 'Dominik',
@@ -53,22 +27,7 @@ let users =[{
         'avatar': 'img/avatar/3.png'
     } */
 
-let tasks = [{
-    'id': 0,
-    'level': 'todo',
-    'task': 'Test',
-    'description': 'Lorem ipsum.',
-    'user': 'Dominik',
-    'dueDate': '20.09.2022'
-},
-{
-    'id': 1,
-    'level': 'inProgress',
-    'task': 'Test2',
-    'description': 'Lorem ipsum.',
-    'user': 'Patrick',
-    'dueDate': '22.10.2022'
-}];
+let tasks = [];
     /* {
         'id': 0,
         'level': 'todo',
@@ -91,13 +50,14 @@ let dragTaskId;
 let currentUser;
 
 function init() {
-    /* backendPull(); */
+    backendPull();
     /* backendPush(); */
     loadLogin();
     /* loadContent(); */
 }
 
 async function backendPull(){
+    await downloadFromServer();
     let usersAsString = await backend.getItem('users');
     let tasksAsString = await backend.getItem('tasks');
     if(usersAsString && tasksAsString){
