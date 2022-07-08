@@ -1,5 +1,31 @@
-let users = [
-    {
+let users =[{
+    'id': 0,
+    'firstname': 'Dominik',
+    'lastname': 'Waldow',
+    'email': 'dominik@join.com',
+    'password': '01234',
+    'category': 2,
+    'avatar': 'img/avatar/1.png'
+},
+{
+    'id': 1,
+    'firstname': 'Patrick',
+    'lastname': 'Sterz',
+    'email': 'patrick@join.com',
+    'password': '12345',
+    'category': 3,
+    'avatar': 'img/avatar/2.png'
+},
+{
+    'id': 2,
+    'firstname': 'Mentor',
+    'lastname': 'Mentor',
+    'email': 'mentor@join.com',
+    'password': '56789',
+    'category': 1,
+    'avatar': 'img/avatar/3.png'
+}];
+    /* {
         'id': 0,
         'firstname': 'Dominik',
         'lastname': 'Waldow',
@@ -25,10 +51,25 @@ let users = [
         'password': '56789',
         'category': 1,
         'avatar': 'img/avatar/3.png'
-    }
-];
-let tasks = [
-    {
+    } */
+
+let tasks = [{
+    'id': 0,
+    'level': 'todo',
+    'task': 'Test',
+    'description': 'Lorem ipsum.',
+    'user': 'Dominik',
+    'dueDate': '20.09.2022'
+},
+{
+    'id': 1,
+    'level': 'inProgress',
+    'task': 'Test2',
+    'description': 'Lorem ipsum.',
+    'user': 'Patrick',
+    'dueDate': '22.10.2022'
+}];
+    /* {
         'id': 0,
         'level': 'todo',
         'task': 'Test',
@@ -43,27 +84,33 @@ let tasks = [
         'description': 'Lorem ipsum.',
         'user': 'Patrick',
         'dueDate': '22.10.2022'
-    }
-];
+    } */
+
 
 let dragTaskId;
 let currentUser;
 
 function init() {
-    /* backendPush();*/
+    /* backendPull(); */
+    /* backendPush(); */
     loadLogin();
     /* loadContent(); */
 }
 
-function backendPull(){
-    
+async function backendPull(){
+    let usersAsString = await backend.getItem('users');
+    let tasksAsString = await backend.getItem('tasks');
+    if(usersAsString && tasksAsString){
+        users = JSON.parse(usersAsString);
+        tasks = JSON.parse(tasksAsString);
+    }
 }
 
-function backendPush(){
-    let usersAsString = JSON.stringify(users);
+async function backendPush(){
     let tasksAsString = JSON.stringify(tasks);
-    backend.setItem('users',usersAsString);
-    backend.setItem('tasks',tasksAsString);
+    await backend.setItem('tasks',tasksAsString);
+    let usersAsString = JSON.stringify(users);
+    await backend.setItem('users',usersAsString);
 }
 
 function loadLogin(){
