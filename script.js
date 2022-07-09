@@ -6,16 +6,16 @@ let users =[];
         'email': 'dominik@join.com',
         'password': '01234',
         'category': 2,
-        'avatar': 'img/avatar/1.png'
+        'avatar': 'img/avatar1.jpg'
     },
     {
         'id': 1,
         'firstname': 'Patrick',
         'lastname': 'Sterz',
-        'email': 'patrick@join.com',
-        'password': '12345',
+        'email': 'admin',
+        'password': 'admin',
         'category': 3,
-        'avatar': 'img/avatar/2.png'
+        'avatar': 'img/avatar2.jpg'
     },
     {
         'id': 2,
@@ -45,15 +45,42 @@ let tasks = [];
         'dueDate': '22.10.2022'
     } */
 
-
+let avatar = ['img/avatar1.jpg','img/avatar2.jpg'];
+let selectedUsers = [];
 let dragTaskId;
 let currentUser;
+
 
 function init() {
     backendPull();
     /* backendPush(); */
     loadLogin();
     /* loadContent(); */
+    renderAvatar();
+}
+
+function renderAvatar() {
+    document.getElementById('persons').innerHTML = '';
+    for (let i = 0; i < avatar.length; i++) {
+        const avatare = avatar[i];
+        document.getElementById('persons').innerHTML += templateAvatare(i, avatare);
+    }
+}
+
+function templateAvatare(i, avatare) {
+    return /*html*/ `
+    <img id="user-${i} onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
+}
+
+function selectUser(i) {
+    let user = document.getElementById('user-' + i);
+    user.classList.toggle('avatar-selected');
+    selectedUsers.push(users[i]);
+    if(selectedUsers.includes(users[i])) {
+        selectedUsers = selectedUsers.filter(a => a != users[i]);
+    }
+    selectedUsers.push(users[i])
+    
 }
 
 async function backendPull(){
@@ -349,7 +376,7 @@ function templateAddTask() {
                 <label for="formGroupExampleInput" class="form-label">ASSIGNED</label>
 
                 <div id="btn-box">
-                    <img src="img/icon plus.png" style="padding-right:10px">
+                    <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
                         
                     <div>
                         <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
@@ -357,9 +384,14 @@ function templateAddTask() {
                     </div>
                 </div>
             </div>
+
+            <div id='persons' class="persons">
+
+            </div>
         </div>
     `;
 }
+
 
 function templateImpressum() {
     return /*html*/ `
