@@ -326,14 +326,14 @@ function templateAddTask() {
             <div class="input">
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">TITLE</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                    <input id="title" type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
             </div>
 
             <label for="category">CATERGORY</label>
             <div class="input">
                 <div class="form-floating">
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <select id="catergory" class="form-select" id="floatingSelect" aria-label="Floating label select example">
                         <option value="1">Management</option>
                         <option value="2">Software Development</option>
                         <option value="3">UX/UI Desing</option>
@@ -345,7 +345,7 @@ function templateAddTask() {
 
             <label for="floatingTextarea2">Description</label>
             <div class="input">
-                <div class="form-floating">
+                <div id="descripton" class="form-floating">
                     <textarea class="form-control" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
                 </div>
             </div>
@@ -357,14 +357,14 @@ function templateAddTask() {
 
             <div class="input">
                 <label for="due date">DUE DATE</label>
-                <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                <input id="date" type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
             </div>
 
             <label for="urgency">URGENCY</label>
                     
                 <div class="form-floating">
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option value="1">High</option>
+                    <select id="urgency"class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <option value="1">High</option> 
                         <option value="2">Intermediate</option>
                         <option value="3">Low</option>
                     </select>
@@ -379,8 +379,8 @@ function templateAddTask() {
                     <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
                         
                     <div>
-                        <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
-                        <button type="button" class="btn btn-primary btn-lg">Add task</button>
+                        <button type="button" onclick="clearTask()" class="btn btn-secondary btn-lg">Cancel</button>
+                        <button type="button" onclick="createTask()" class="btn btn-primary btn-lg">Add task</button>
                     </div>
                 </div>
             </div>
@@ -392,6 +392,55 @@ function templateAddTask() {
     `;
 }
 
+function clearTask() {
+    document.getElementById('title').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('catergory').value = '';
+    document.getElementById('descripton').value = '';
+    document.getElementById('urgency').value = '';  
+}
+
+async function createTask() {
+    let title = document.getElementById('title');
+    let date = document.getElementById('date');
+    let catergory = document.getElementById('catergory');
+    let description = document.getElementById('descripton');
+    let urgency = document.getElementById('urgency');
+    let task = {
+        'title': title.value,
+        'date': date.value,
+        'catergory': catergory.value,
+        'descripton': descripton.value.replace(/\n\r?/g, "<br/>"),
+        'urgency': urgency.value,
+        'UnixStamp': new Date().getTime(),
+        'createdAt': today,
+        'assignEmployee': assignedEmployees,
+        'inArray': 'toDo'
+    }
+    if (assignedEmployees.length == 0) {
+        alert('Please add employee!')
+    } else if (text.value == '') {
+        alert('Please enter a description!')
+    } else if (title.value == '') {
+        alert('Please enter a title!')
+    } else if (catergory.value == '') {
+        alert('Please enter a catergory!')
+    } else if (urgency.value == '') {
+        alert('Please enter a state of urgency!')
+    } else if (date.value == '') {
+        alert('Please enter a Date!')
+    } else {
+        allTasks.push(task);
+        await backend.setItem('allTasks', JSON.stringify(allTasks));
+        title.value = ''
+        date.value = '';
+        catergory.value = '';
+        text.value = '';
+        urgency.value = '';
+        assignEmployee = '';
+        location.reload();
+    }
+}
 
 function templateImpressum() {
     return /*html*/ `
