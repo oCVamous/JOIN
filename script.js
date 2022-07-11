@@ -27,7 +27,7 @@ let users =[];
         'avatar': 'img/avatar/3.png'
     } */
 
-let tasks = [];
+let allTasks = [];
     /* {
         'id': 0,
         'level': 'todo',
@@ -44,6 +44,7 @@ let tasks = [];
         'user': 'Patrick',
         'dueDate': '22.10.2022'
     } */
+
 
 let avatar = ['img/avatar1.jpg','img/avatar2.jpg'];
 let selectedUsers = [];
@@ -144,8 +145,8 @@ function loadBoard() {
 }
 
 function loadTasks(){
-    for (let i=0; i < tasks.length; i++){
-        let currentTask = tasks[i];
+    for (let i=0; i < allTasks.length; i++){
+        let currentTask = allTasks[i];
         if(currentTask.level == 'todo'){
             document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask);
         }else if(currentTask.level == 'inProgress'){
@@ -175,9 +176,9 @@ function drag(id){
 }
 
 function drop(dropzone){
-    for(let i=0;i<tasks.length;i++){
-        if(tasks[i].id == dragTaskId){
-            tasks[i].level = dropzone;
+    for(let i=0;i<allTasks.length;i++){
+        if(allTasks[i].id == dragTaskId){
+            allTasks[i].level = dropzone;
             break;
         }
     }
@@ -345,7 +346,7 @@ function templateAddTask() {
 
             <label for="floatingTextarea2">Description</label>
             <div class="input">
-                <div id="descripton" class="form-floating">
+                <div id="description" class="form-floating">
                     <textarea class="form-control" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
                 </div>
             </div>
@@ -404,22 +405,16 @@ async function createTask() {
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
-    let description = document.getElementById('descripton');
+    let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
     let task = {
         'title': title.value,
         'date': date.value,
         'catergory': catergory.value,
-        'descripton': descripton.value.replace(/\n\r?/g, "<br/>"),
-        'urgency': urgency.value,
-        'UnixStamp': new Date().getTime(),
-        'createdAt': today,
-        'assignEmployee': assignedEmployees,
-        'inArray': 'toDo'
+        'description': description.value,
+        'urgency': urgency.value
     }
-    if (assignedEmployees.length == 0) {
-        alert('Please add employee!')
-    } else if (text.value == '') {
+    if (description.value == '') {
         alert('Please enter a description!')
     } else if (title.value == '') {
         alert('Please enter a title!')
@@ -435,10 +430,9 @@ async function createTask() {
         title.value = ''
         date.value = '';
         catergory.value = '';
-        text.value = '';
+        description.value = '';
         urgency.value = '';
-        assignEmployee = '';
-        location.reload();
+        
     }
 }
 
