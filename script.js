@@ -87,16 +87,16 @@ function selectUser(i) {
 async function backendPull(){
     await downloadFromServer();
     let usersAsString = await backend.getItem('users');
-    let tasksAsString = await backend.getItem('tasks');
+    let tasksAsString = await backend.getItem('allTasks');
     if(usersAsString && tasksAsString){
         users = JSON.parse(usersAsString);
-        tasks = JSON.parse(tasksAsString);
+        allTasks = JSON.parse(tasksAsString);
     }
 }
 
 async function backendPush(){
-    let tasksAsString = JSON.stringify(tasks);
-    await backend.setItem('tasks',tasksAsString);
+    let tasksAsString = JSON.stringify(allTasks);
+    await backend.setItem('allTasks',tasksAsString);
     let usersAsString = JSON.stringify(users);
     await backend.setItem('users',usersAsString);
 }
@@ -200,7 +200,13 @@ function loadBacklog(){
 function loadBacklogContent(){
     let content = document.getElementById('backlogField');
         content.innerHTML = ``;
-        content.innerHTML += templateBacklogContent();  
+    if(!allTasks){
+        content.innerHTML += templateEmptyLog();
+    }else{
+        for(let i = 0; i<allTasks.length;i++){
+            content.innerHTML += templateBacklogContent(allTasks[i]); 
+        }
+    }  
 }
 
 /**
@@ -323,11 +329,11 @@ function templateBoard() {
 function templateLoadTasks(task){
     return /*html*/ `
         <div draggable="true" ondragstart="drag(${task.id})" class="taskContainer">
-                    <h5>${task.task}</h5>
+                    <h5>${task.title}</h5>
                     <div class="taskHeadline">
                         <img src="#">
                         <span>${task.user}</span>
-                        <span>${task.dueDate}</span>
+                        <span>${task.date}</span>
                     </div>
                     <div class="taskDescription">
                         <span>${task.description}</span>
@@ -347,15 +353,15 @@ function templateBacklog(){
 `; 
 }
 
-function templateBacklogContent(){
+function templateBacklogContent(task){
     return /*html*/ `
-    <div class="log">
-        <h5>Task</h5>
-        <span>Description</span>
-        <span>Date</span>
-        <span>User</span>
-        <span>Level</span>
-        <button>Delete</button>
+    <div class="log" style="background-color: lightgreen;">
+        <h4>Task: ${task.title}</h4>
+        <span>Description: </span>
+        <span>Date: </span>
+        <span>User: </span>
+        <span>Level: </span>
+        <button>Delete: </button>
     </div>
 `; 
 }
@@ -441,7 +447,7 @@ function clearTask() {
     document.getElementById('title').value = '';
     document.getElementById('date').value = '';
     document.getElementById('catergory').value = '';
-    document.getElementById('descripton').value = '';
+    document.getElementById('description').value = '';
     document.getElementById('urgency').value = '';  
 }
 
@@ -456,7 +462,10 @@ async function createTask() {
         'date': date.value,
         'catergory': catergory.value,
         'description': description.value,
-        'urgency': urgency.value
+        'urgency': urgency.value,
+        'level': 'todo',
+        'id': allTasks.length + 1,
+        'user': 'Patrick'
     }
     /**
      * if (description.value.length == 0) {
@@ -473,7 +482,8 @@ async function createTask() {
      */
     
         allTasks.push(task);
-        await backend.setItem('allTasks', JSON.stringify(allTasks));
+        backendPush();
+        /* await backend.setItem('allTasks', JSON.stringify(allTasks)); */
         title.value = ''
         date.value = '';
         catergory.value = '';
