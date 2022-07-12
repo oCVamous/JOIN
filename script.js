@@ -186,6 +186,23 @@ function drop(dropzone){
     resetTasks();
 }
 
+function loadBacklog(){
+    if(!currentUser){
+        alert('please Login')
+    }else{
+        let content = document.getElementById('content');
+        content.innerHTML = ``;
+        content.innerHTML += templateBacklog();  
+        loadBacklogContent(); 
+    }
+}
+
+function loadBacklogContent(){
+    let content = document.getElementById('backlogField');
+        content.innerHTML = ``;
+        content.innerHTML += templateBacklogContent();  
+}
+
 /**
  * This function let show you AddTask.
  */
@@ -317,6 +334,30 @@ function templateLoadTasks(task){
                     </div>
                 </div>
     `;
+}
+
+function templateBacklog(){
+    return /*html*/ `
+    <div class="backlogContent">
+        <h2>Backlog</h2>
+        <div id ="backlogField">
+
+        </div>
+    </div>
+`; 
+}
+
+function templateBacklogContent(){
+    return /*html*/ `
+    <div class="log">
+        <h5>Task</h5>
+        <span>Description</span>
+        <span>Date</span>
+        <span>User</span>
+        <span>Level</span>
+        <button>Delete</button>
+    </div>
+`; 
 }
 
 function templateAddTask() {
