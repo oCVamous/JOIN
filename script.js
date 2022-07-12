@@ -321,20 +321,21 @@ function templateLoadTasks(task){
 
 function templateAddTask() {
     return /*html*/ `
+    <form action="createTask()">
     <div class="addTask-main">
         <div id="addTask-left">
 
             <div class="input">
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">TITLE</label>
-                    <input id="title" type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                    <input id="title" required minlength="2" type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
             </div>
 
             <label for="category">CATERGORY</label>
             <div class="input">
                 <div class="form-floating">
-                    <select id="catergory" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <select id="catergory" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
                         <option value="1">Management</option>
                         <option value="2">Software Development</option>
                         <option value="3">UX/UI Desing</option>
@@ -347,7 +348,7 @@ function templateAddTask() {
             <label for="floatingTextarea2">Description</label>
             <div class="input">
                 <div id="description" class="form-floating">
-                    <textarea class="form-control" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" required type="text" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
                 </div>
             </div>
 
@@ -358,13 +359,13 @@ function templateAddTask() {
 
             <div class="input">
                 <label for="due date">DUE DATE</label>
-                <input id="date" type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                <input id="date" required type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
             </div>
 
             <label for="urgency">URGENCY</label>
-                    
+                
                 <div class="form-floating">
-                    <select id="urgency"class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <select id="urgency" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
                         <option value="1">High</option> 
                         <option value="2">Intermediate</option>
                         <option value="3">Low</option>
@@ -390,6 +391,8 @@ function templateAddTask() {
 
             </div>
         </div>
+    </form>
+
     `;
 }
 
@@ -414,17 +417,20 @@ async function createTask() {
         'description': description.value,
         'urgency': urgency.value
     }
-    if (description.value == '') {
+    /**
+     * if (description.value.length == 0) {
         alert('Please enter a description!')
-    } else if (title.value == '') {
+    } else if (title.value.length == 0) {
         alert('Please enter a title!')
-    } else if (catergory.value == '') {
+    } else if (catergory.value.length == 0) {
         alert('Please enter a catergory!')
-    } else if (urgency.value == '') {
+    } else if (urgency.value.length == 0) {
         alert('Please enter a state of urgency!')
-    } else if (date.value == '') {
+    } else if (date.value.length == 0) {
         alert('Please enter a Date!')
     } else {
+     */
+    
         allTasks.push(task);
         await backend.setItem('allTasks', JSON.stringify(allTasks));
         title.value = ''
@@ -433,8 +439,8 @@ async function createTask() {
         description.value = '';
         urgency.value = '';
         
-    }
 }
+
 
 function templateImpressum() {
     return /*html*/ `
