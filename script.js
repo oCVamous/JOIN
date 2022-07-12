@@ -80,8 +80,7 @@ function selectUser(i) {
     if(selectedUsers.includes(users[i])) {
         selectedUsers = selectedUsers.filter(a => a != users[i]);
     }
-    selectedUsers.push(users[i])
-    
+    selectedUsers.push(users[i])  
 }
 
 async function backendPull(){
@@ -375,7 +374,7 @@ function templateAddTask() {
             <div class="input">
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">TITLE</label>
-                    <input id="title" required minlength="2" type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                    <input id="title" required type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
             </div>
 
@@ -394,8 +393,8 @@ function templateAddTask() {
 
             <label for="floatingTextarea2">Description</label>
             <div class="input">
-                <div id="description" class="form-floating">
-                    <textarea class="form-control" required type="text" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
+                <div class="form-floating">
+                    <textarea class="form-control" required type="text" placeholder="Description" id="description" style="height: 100px"></textarea>
                 </div>
             </div>
 
@@ -464,32 +463,13 @@ async function createTask() {
         'description': description.value,
         'urgency': urgency.value,
         'level': 'todo',
-        'id': allTasks.length + 1,
-        'user': 'Patrick'
+        'id': allTasks.length + 1,  //Counter bauen
+        'user': 'Patrick'           //User hinzufügen
     }
-    /**
-     * if (description.value.length == 0) {
-        alert('Please enter a description!')
-    } else if (title.value.length == 0) {
-        alert('Please enter a title!')
-    } else if (catergory.value.length == 0) {
-        alert('Please enter a catergory!')
-    } else if (urgency.value.length == 0) {
-        alert('Please enter a state of urgency!')
-    } else if (date.value.length == 0) {
-        alert('Please enter a Date!')
-    } else {
-     */
     
-        allTasks.push(task);
-        backendPush();
-        /* await backend.setItem('allTasks', JSON.stringify(allTasks)); */
-        title.value = ''
-        date.value = '';
-        catergory.value = '';
-        description.value = '';
-        urgency.value = '';
-        
+    allTasks.push(task);
+    backendPush();
+    clearTask();
 }
 
 
