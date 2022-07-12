@@ -321,7 +321,7 @@ function templateLoadTasks(task){
 
 function templateAddTask() {
     return /*html*/ `
-    <form action="createTask()">
+    <form onsubmit="event.preventDefault(), createTask()">
     <div class="addTask-main">
         <div id="addTask-left">
 
@@ -381,8 +381,8 @@ function templateAddTask() {
                     <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
                         
                     <div>
-                        <button type="button" onclick="clearTask()" class="btn btn-secondary btn-lg">Cancel</button>
-                        <button type="button" onclick="createTask()" class="btn btn-primary btn-lg">Add task</button>
+                        <button type="reset" class="btn btn-secondary btn-lg">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Add task</button>
                     </div>
                 </div>
             </div>
