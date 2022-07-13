@@ -89,9 +89,9 @@ function templateBoard() {
     `;
 }
 
-function templateLoadTasks(task, BGColor){
+function templateLoadTasks(task){
     return /*html*/ `
-        <div draggable="true" ondragstart="drag(${task.id})" class="taskContainer" style="background-color:${BGColor}">
+        <div draggable="true" ondragstart="drag(${task.id})" class="taskContainer" style="background-color: ${categoryColor(task.catergory)}">
                     <h5>${task.title}</h5>
                     <div class="taskHeadline">
                         <img src="#">
@@ -137,9 +137,9 @@ function templateBacklogHeader(){
 `; 
 }
 
-function templateBacklogContent(task){
+function templateBacklogContent(task, BGColor){
     return /*html*/ `
-    <div class="log" style="background-color: lightgreen;">
+    <div class="log" style="background-color: ${categoryColor(task.catergory)}">
         <h4>${task.title}</h4>
         <span class="logDescription">${task.description}</span>
         <span>${task.date}</span>

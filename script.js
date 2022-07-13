@@ -166,13 +166,13 @@ function loadTasks(){
     for (let i=0; i < allTasks.length; i++){
         let currentTask = allTasks[i];
         if(currentTask.level == 'todo'){
-            document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask, categoryColor(currentTask.catergory));
+            document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask);
         }else if(currentTask.level == 'inProgress'){
-            document.getElementById('inProgressField').innerHTML += templateLoadTasks(currentTask, categoryColor(currentTask.catergory));
+            document.getElementById('inProgressField').innerHTML += templateLoadTasks(currentTask);
         }else if(currentTask.level == 'inTesting'){
-            document.getElementById('inTestingField').innerHTML += templateLoadTasks(currentTask, categoryColor(currentTask.catergory));
+            document.getElementById('inTestingField').innerHTML += templateLoadTasks(currentTask);
         }else if(currentTask.level == 'done'){
-            document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask, categoryColor(currentTask.catergory));
+            document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask);
         }
     }
 }
