@@ -199,7 +199,7 @@ function loadBacklog(){
 function loadBacklogContent(){
     let content = document.getElementById('backlogField');
         content.innerHTML = templateBacklogHeader();
-    if(!allTasks){
+    if(allTasks.length === 0){
         content.innerHTML += templateEmptyLog();
     }else{
         for(let i = 0; i<allTasks.length;i++){
