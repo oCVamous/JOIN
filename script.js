@@ -198,7 +198,7 @@ function loadBacklog(){
 
 function loadBacklogContent(){
     let content = document.getElementById('backlogField');
-        content.innerHTML = ``;
+        content.innerHTML = templateBacklogHeader();
     if(!allTasks){
         content.innerHTML += templateEmptyLog();
     }else{
@@ -206,6 +206,16 @@ function loadBacklogContent(){
             content.innerHTML += templateBacklogContent(allTasks[i]); 
         }
     }  
+}
+
+function deleteTask(id){
+    for(let i=0;i<allTasks.length;i++){
+        if(allTasks[i].id == id){
+            allTasks.splice(i,1);
+            backendPush()
+            loadBacklogContent()
+        }
+    }
 }
 
 /**
@@ -352,15 +362,28 @@ function templateBacklog(){
 `; 
 }
 
+function templateBacklogHeader(){
+    return /*html*/ `
+    <div class="logHeader" style="background-color: #22318B;">
+        <h4 style="margin-left: 3rem">Task</h4>
+        <h4 style="margin-left: 9rem; margin-right: 8rem">Description</h4>
+        <h4 style="margin-right: 2rem">Date</h4>
+        <h4>User</h4>
+        <h4>Level</h4>
+        <h4>Options</h4>
+    </div>
+`; 
+}
+
 function templateBacklogContent(task){
     return /*html*/ `
     <div class="log" style="background-color: lightgreen;">
-        <h4>Task: ${task.title}</h4>
-        <span>Description: </span>
-        <span>Date: </span>
-        <span>User: </span>
-        <span>Level: </span>
-        <button>Delete: </button>
+        <h4>${task.title}</h4>
+        <span class="logDescription">${task.description}</span>
+        <span>${task.date}</span>
+        <span>${task.user}</span>
+        <span>${task.level}</span>
+        <button class="delBtn" onclick="deleteTask(${task.id})">Delete</button>
     </div>
 `; 
 }
