@@ -92,7 +92,11 @@ function templateBoard() {
 function templateLoadTasks(task){
     return /*html*/ `
         <div draggable="true" ondragstart="drag(${task.id})" class="taskContainer" style="background-color: ${categoryColor(task.catergory)}">
-                    <h5>${task.title}</h5>
+                    <div class="taskHeader">
+                        <h5>${task.title}</h5>
+                        <img src="img/icons/bell-${bellColor(task.urgency)}.svg">
+                    </div>
+                    <p>${categoryText(task.catergory)}</p>
                     <div class="taskHeadline">
                         <img src="#">
                         <span>${task.user}</span>

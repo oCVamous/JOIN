@@ -171,12 +171,32 @@ li:hover > .active-s {
     cursor: grab;
 }
 
+.taskHeader{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+}
+
+.taskContainer p{
+    height: 10px;
+    font-size: 10px;
+    font-weight: unset !important;
+    text-align: center;
+    margin: unset !important;
+}
+
 .taskHeadline{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
     width: 90%;
+}
+
+.taskHeader h5{
+    margin-bottom: 0rem !important;
 }
 
 .taskDescription{
