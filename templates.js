@@ -89,9 +89,9 @@ function templateBoard() {
     `;
 }
 
-function templateLoadTasks(task){
+function templateLoadTasks(task, BGColor){
     return /*html*/ `
-        <div draggable="true" ondragstart="drag(${task.id})" class="taskContainer">
+        <div draggable="true" ondragstart="drag(${task.id})" class="taskContainer" style="background-color:${BGColor}">
                     <h5>${task.title}</h5>
                     <div class="taskHeadline">
                         <img src="#">

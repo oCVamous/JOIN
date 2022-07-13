@@ -60,6 +60,25 @@ function init() {
     renderAvatar();
 }
 
+function categoryColor(category){
+    let col = 'gray';
+    switch(category){
+        case '1':
+            col = '#bd5454';
+            break;
+        case '2':
+            col = '#7fbd54';
+            break;
+        case '3':
+            col = '#54bdbd';
+            break;
+        case '4':
+            col = '#7f54bd';
+            break;
+    }
+    return col;
+}
+
 function renderAvatar() {
     document.getElementById('persons').innerHTML = '';
     for (let i = 0; i < avatar.length; i++) {
@@ -147,13 +166,13 @@ function loadTasks(){
     for (let i=0; i < allTasks.length; i++){
         let currentTask = allTasks[i];
         if(currentTask.level == 'todo'){
-            document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask);
+            document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask, categoryColor(currentTask.catergory));
         }else if(currentTask.level == 'inProgress'){
-            document.getElementById('inProgressField').innerHTML += templateLoadTasks(currentTask);
+            document.getElementById('inProgressField').innerHTML += templateLoadTasks(currentTask, categoryColor(currentTask.catergory));
         }else if(currentTask.level == 'inTesting'){
-            document.getElementById('inTestingField').innerHTML += templateLoadTasks(currentTask);
+            document.getElementById('inTestingField').innerHTML += templateLoadTasks(currentTask, categoryColor(currentTask.catergory));
         }else if(currentTask.level == 'done'){
-            document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask);
+            document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask, categoryColor(currentTask.catergory));
         }
     }
 }
