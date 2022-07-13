@@ -312,6 +312,7 @@ async function createTask() {
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
+    let id = allTasks.length;
     let task = {
         'title': title.value,
         'date': date.value,
@@ -319,7 +320,7 @@ async function createTask() {
         'description': description.value,
         'urgency': urgency.value,
         'level': 'todo',
-        'id': allTasks.length + 1,  //Counter bauen
+        'id': id,  
         'user': 'Patrick'           //User hinzufügen
     }
     
@@ -327,4 +328,3 @@ async function createTask() {
     backendPush();
     clearTask();
 }
-
