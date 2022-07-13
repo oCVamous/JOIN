@@ -145,7 +145,7 @@ li:hover > .active-s {
 .boardContainerField{
     width: 90%;
     height: 72vh;
-    background-color: white;
+    background-color: rgb(233, 233, 241);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -289,7 +289,7 @@ li:hover > .active-s {
 }
 
 #backlogField{
-    background-color: #fcfcfc85;
+    background-color: rgb(233, 233, 241);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
