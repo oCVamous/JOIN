@@ -116,6 +116,14 @@ function templateBacklog(){
 `; 
 }
 
+function templateEmptyLog(){
+    return /*html*/ `
+    <div class="log">
+        <h2>EMPTY</h2>
+    </div>
+`; 
+}
+
 function templateBacklogHeader(){
     return /*html*/ `
     <div class="logHeader" style="background-color: #22318B;">
