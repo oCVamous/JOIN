@@ -107,7 +107,7 @@ function templateLoadTasks(task){
 
 function templateBacklog(){
     return /*html*/ `
-    <div class="backlogContent">
+    <div class="backlogContent animation">
         <h2>Backlog</h2>
         <div id ="backlogField">
 
@@ -118,7 +118,7 @@ function templateBacklog(){
 
 function templateEmptyLog(){
     return /*html*/ `
-    <div class="log">
+    <div class="log" style="background-color: red">
         <h2>EMPTY</h2>
     </div>
 `; 
