@@ -160,7 +160,7 @@ li:hover > .active-s {
     align-items: center;
     color: black;
     width: 90%;
-    min-height: 5rem;
+    min-height: 5.5rem;
     max-height: 15rem;
     margin-top: 1rem;
     padding-left: 0.3rem;
@@ -176,7 +176,7 @@ li:hover > .active-s {
 
 .taskHeader{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     width: 90%;
@@ -208,6 +208,7 @@ li:hover > .active-s {
     border-radius: 0.5rem;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
+    min-height: 1.5rem;
     max-height: 10rem;
     overflow: auto;
 }

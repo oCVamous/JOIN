@@ -86,7 +86,7 @@ function categoryColor(category){
             col = '#bd5454';
             break;
         case '2':
-            col = '#7fbd54';
+            col = '#72a54e';
             break;
         case '3':
             col = '#54bdbd';
