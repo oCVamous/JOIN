@@ -44,6 +44,16 @@ function init() {
     renderAvatar();
 }
 
+function loadContent() {
+    if(!currentUser){
+        alert('please Login')
+    }else{
+        let content = document.getElementById('content');
+        content.innerHTML = ``;
+        content.innerHTML += templateContent();
+    }
+}
+
 // Switch Section /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function categoryText(category){
@@ -102,6 +112,9 @@ function bellColor(urgency){
 
 // Backend Section ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * This function download the tasks from the server.
+ */
 async function backendPull(){
     await downloadFromServer();
     let tasksAsString = await backend.getItem('allTasks');
@@ -110,6 +123,9 @@ async function backendPull(){
     }
 }
 
+/**
+ * This function download the users from the server.
+ */
 async function userBackendPull(){
     await downloadFromServer();
     let usersAsString = await backend.getItem('users');
@@ -118,6 +134,9 @@ async function userBackendPull(){
     }
 }
 
+/**
+ * This function uploads the tasks to the server.
+ */
 async function backendPush(){
     let tasksAsString = JSON.stringify(allTasks);
     await backend.setItem('allTasks',tasksAsString);
@@ -127,12 +146,18 @@ async function backendPush(){
 
 // Login Section ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * This function show you the login page.
+ */
 function loadLogin(){
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateLogin();
 }
 
+/**
+ * This function compares the login data with the database and logs you in.
+ */
 async function login(){
     await userBackendPull();
     let setEmail = document.getElementById('email').value;
@@ -158,20 +183,10 @@ async function login(){
     }
 }
 
-function loadContent() {
-    if(!currentUser){
-        alert('please Login')
-    }else{
-        let content = document.getElementById('content');
-        content.innerHTML = ``;
-        content.innerHTML += templateContent();
-    }
-}
-
 // Taskboard Section ////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * This function let show you the taskboard.
+ * This function show you the taskboard.
  */
 function loadBoard() {
     if(!currentUser){
@@ -184,6 +199,9 @@ function loadBoard() {
     }
 }
 
+/**
+ * This function load the tasks in the right status field.
+ */
 function loadTasks(){
     for (let i=0; i < allTasks.length; i++){
         let currentTask = allTasks[i];
@@ -199,6 +217,9 @@ function loadTasks(){
     }
 }
 
+/**
+ * This function update the status fields.
+ */
 function resetTasks(){
     document.getElementById('todoField').innerHTML = ``;
     document.getElementById('inProgressField').innerHTML = ``;
@@ -207,14 +228,27 @@ function resetTasks(){
     loadTasks();
 }
 
+/**
+ * This function allows a dropsection.
+ */
 function allowDrop(ev) {
     ev.preventDefault();
   }
 
+/**
+ * This function stores the id in a variable.
+ * 
+ * @param {string} id 
+ */
 function drag(id){
     dragTaskId = id;
 }
 
+/**
+ * This function change the ID from droped task and update the database.
+ * 
+ * @param {string} dropzone 
+ */
 function drop(dropzone){
     for(let i=0;i<allTasks.length;i++){
         if(allTasks[i].id == dragTaskId){
@@ -228,6 +262,9 @@ function drop(dropzone){
 
 // Backlog Section ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * This function show you the backlog.
+ */
 function loadBacklog(){
     if(!currentUser){
         alert('please Login')
@@ -239,6 +276,9 @@ function loadBacklog(){
     }
 }
 
+/**
+ * This function load the tasks in the backlog.
+ */
 function loadBacklogContent(){
     let content = document.getElementById('backlogField');
         content.innerHTML = templateBacklogHeader();
@@ -251,6 +291,11 @@ function loadBacklogContent(){
     }  
 }
 
+/**
+ * This function delete the task with the correct ID.
+ * 
+ * @param {string} id 
+ */
 function deleteTask(id){
     for(let i=0;i<allTasks.length;i++){
         if(allTasks[i].id == id){
