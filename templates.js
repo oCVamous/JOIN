@@ -149,7 +149,10 @@ function templateBacklogContent(task, BGColor){
         <span>${task.date}</span>
         <span>${task.user}</span>
         <span style="width: 4.5rem">${task.level}</span>
-        <button class="delBtn" onclick="deleteTask(${task.id})">Delete</button>
+        <div>
+        <button onclick="editTask(${task.id}" type="button" class="editBtn btn btn-primary btn-sm"><img src="img/icons/pencil-square.svg" alt=""></button>
+            <button onclick="deleteTask(${task.id}" type="button" class="delBtn btn btn-secondary btn-sm"><img src="img/icons/trash3.svg" alt=""></button>
+        </div>
     </div>
 `; 
 }
