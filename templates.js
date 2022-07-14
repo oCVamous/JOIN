@@ -132,7 +132,7 @@ function templateBacklogHeader(){
     return /*html*/ `
     <div class="logHeader" style="background-color: #22318B;">
         <h4 style="margin-left: 3rem">Task</h4>
-        <h4 style="margin-left: 9rem; margin-right: 8rem">Description</h4>
+        <h4 style="margin-left: 9rem; margin-right: 6rem">Description</h4>
         <h4 style="margin-right: 2rem">Date</h4>
         <h4>User</h4>
         <h4>Status</h4>
@@ -148,7 +148,7 @@ function templateBacklogContent(task, BGColor){
         <span class="logDescription">${task.description}</span>
         <span>${task.date}</span>
         <span>${task.user}</span>
-        <span>${task.level}</span>
+        <span style="width: 4.5rem">${task.level}</span>
         <button class="delBtn" onclick="deleteTask(${task.id})">Delete</button>
     </div>
 `; 
