@@ -152,17 +152,20 @@ li:hover > .active-s {
     justify-self: flex-start;
     box-shadow: inset 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
+    overflow: auto;
 }
 
 .taskContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     color: black;
     width: 90%;
-    min-height: 5.5rem;
+    min-height: 6.5rem;
     max-height: 15rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
     padding-bottom: 0.3rem;
@@ -208,8 +211,10 @@ li:hover > .active-s {
     border-radius: 0.5rem;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
-    min-height: 1.5rem;
+    min-height: 1rem;
     max-height: 10rem;
+    width: 100%;
+    font-size: small;
     overflow: auto;
 }
 
