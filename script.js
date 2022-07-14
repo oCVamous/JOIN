@@ -130,13 +130,29 @@ function loadLogin(){
 function login(){
     let setEmail = document.getElementById('email').value;
     let setPassword = document.getElementById('password').value;
+    let wrongEmail = true;
+    let wrongPassword = true;
+    let usr;
     for(let i = 0; i < users.length; i++){
         if(users[i].email == setEmail){
+            wrongEmail = false;
             if(users[i].password == setPassword){
-                currentUser = users[i];
-                loadContent();
+                wrongPassword = false;
+                usr = i;
             }
         }
+    }
+    userLogin(usr, wrongEmail, wrongPassword);
+}
+
+function userLogin(usr, wrongEmail, wrongPassword){
+    if(!wrongEmail && !wrongPassword){
+        currentUser = users[usr];
+        loadContent();
+    }else if(!wrongEmail && wrongPassword){
+        alert('wrong Password!');
+    }else if (wrongEmail){
+        alert('email doesn`t exist!');
     }
 }
 
