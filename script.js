@@ -104,19 +104,25 @@ function bellColor(urgency){
 
 async function backendPull(){
     await downloadFromServer();
-    let usersAsString = await backend.getItem('users');
     let tasksAsString = await backend.getItem('allTasks');
-    if(usersAsString && tasksAsString){
-        users = JSON.parse(usersAsString);
+    if(tasksAsString){
         allTasks = JSON.parse(tasksAsString);
+    }
+}
+
+async function userBackendPull(){
+    await downloadFromServer();
+    let usersAsString = await backend.getItem('users');
+    if(usersAsString){
+        users = JSON.parse(usersAsString);
     }
 }
 
 async function backendPush(){
     let tasksAsString = JSON.stringify(allTasks);
     await backend.setItem('allTasks',tasksAsString);
-    let usersAsString = JSON.stringify(users);
-    await backend.setItem('users',usersAsString);
+    /* let usersAsString = JSON.stringify(users);
+    await backend.setItem('users',usersAsString); */
 }
 
 // Login Section ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,27 +133,23 @@ function loadLogin(){
     content.innerHTML += templateLogin();
 }
 
-function login(){
+async function login(){
+    await userBackendPull();
     let setEmail = document.getElementById('email').value;
     let setPassword = document.getElementById('password').value;
     let wrongEmail = true;
     let wrongPassword = true;
-    let usr;
     for(let i = 0; i < users.length; i++){
         if(users[i].email == setEmail){
             wrongEmail = false;
             if(users[i].password == setPassword){
+                currentUser = users[i];
                 wrongPassword = false;
-                usr = i;
+                users = [];
             }
         }
     }
-    userLogin(usr, wrongEmail, wrongPassword);
-}
-
-function userLogin(usr, wrongEmail, wrongPassword){
     if(!wrongEmail && !wrongPassword){
-        currentUser = users[usr];
         loadContent();
     }else if(!wrongEmail && wrongPassword){
         alert('wrong Password!');
@@ -342,4 +344,3 @@ function loadDatenschutz() {
     content.innerHTML = ``;
     content.innerHTML += templateDatenschutz();
 }
-
