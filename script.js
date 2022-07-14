@@ -28,22 +28,6 @@ let users =[];
     } */
 
 let allTasks = [];
-    /* {
-        'id': 0,
-        'level': 'todo',
-        'task': 'Test',
-        'description': 'Lorem ipsum.',
-        'user': 'Dominik',
-        'dueDate': '20.09.2022'
-    },
-    {
-        'id': 1,
-        'level': 'inProgress',
-        'task': 'Test2',
-        'description': 'Lorem ipsum.',
-        'user': 'Patrick',
-        'dueDate': '22.10.2022'
-    } */
 
 
 let avatar = ['img/avatar1.jpg','img/avatar2.jpg'];
@@ -59,6 +43,8 @@ function init() {
     /* loadContent(); */
     renderAvatar();
 }
+
+// Switch Section /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function categoryText(category){
     let text = 'gray';
@@ -114,28 +100,7 @@ function bellColor(urgency){
     return col;
 }
 
-function renderAvatar() {
-    document.getElementById('persons').innerHTML = '';
-    for (let i = 0; i < avatar.length; i++) {
-        const avatare = avatar[i];
-        document.getElementById('persons').innerHTML += templateAvatare(i, avatare);
-    }
-}
-
-function templateAvatare(i, avatare) {
-    return /*html*/ `
-    <img id="user-${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
-}
-
-function selectUser(i) {
-    let user = document.getElementById('user-' + i);
-    user.classList.toggle('avatar-selected');
-    selectedUsers.push(users[i]);
-    if(selectedUsers.includes(users[i])) {
-        selectedUsers = selectedUsers.filter(a => a != users[i]);
-    }
-    selectedUsers.push(users[i])  
-}
+// Backend Section ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 async function backendPull(){
     await downloadFromServer();
@@ -153,6 +118,8 @@ async function backendPush(){
     let usersAsString = JSON.stringify(users);
     await backend.setItem('users',usersAsString);
 }
+
+// Login Section ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function loadLogin(){
     let content = document.getElementById('content');
@@ -182,6 +149,8 @@ function loadContent() {
         content.innerHTML += templateContent();
     }
 }
+
+// Taskboard Section ////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * This function let show you the taskboard.
@@ -239,6 +208,8 @@ function drop(dropzone){
     resetTasks();
 }
 
+// Backlog Section ///////////////////////////////////////////////////////////////////////////////////////////////////
+
 function loadBacklog(){
     if(!currentUser){
         alert('please Login')
@@ -272,6 +243,8 @@ function deleteTask(id){
     }
 }
 
+// Add Task Section //////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /**
  * This function let show you AddTask.
  */
@@ -286,16 +259,27 @@ function loadAddTask() {
     }
 }
 
-function loadImpressum() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateImpressum();
+function renderAvatar() {
+    document.getElementById('persons').innerHTML = '';
+    for (let i = 0; i < avatar.length; i++) {
+        const avatare = avatar[i];
+        document.getElementById('persons').innerHTML += templateAvatare(i, avatare);
+    }
 }
 
-function loadDatenschutz() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateDatenschutz();
+function templateAvatare(i, avatare) {
+    return /*html*/ `
+    <img id="user-${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
+}
+
+function selectUser(i) {
+    let user = document.getElementById('user-' + i);
+    user.classList.toggle('avatar-selected');
+    selectedUsers.push(users[i]);
+    if(selectedUsers.includes(users[i])) {
+        selectedUsers = selectedUsers.filter(a => a != users[i]);
+    }
+    selectedUsers.push(users[i])  
 }
 
 function clearTask() {
@@ -328,3 +312,18 @@ async function createTask() {
     backendPush();
     clearTask();
 }
+
+// footer Section ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function loadImpressum() {
+    let content = document.getElementById('content');
+    content.innerHTML = ``;
+    content.innerHTML += templateImpressum();
+}
+
+function loadDatenschutz() {
+    let content = document.getElementById('content');
+    content.innerHTML = ``;
+    content.innerHTML += templateDatenschutz();
+}
+
