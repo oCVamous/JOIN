@@ -350,6 +350,7 @@ async function selectUser(i) {
     }
     selectedUsers.push(users[i])
    }
+    console.log(selectedUsers);
 }
 
 function clearTask() {
@@ -358,6 +359,10 @@ function clearTask() {
     document.getElementById('catergory').value = '';
     document.getElementById('description').value = '';
     document.getElementById('urgency').value = '';
+    selectedUsers = [];
+    const el = document.querySelector('.avatar');
+    el.classList.remove("avatar-selected");
+   
 }
 
 async function createTask() {
@@ -388,7 +393,13 @@ async function createTask() {
 
     let id = highestID + 1;
 
-    if (selectedUsers.length>0) {
+    if (selectedUsers.length > 0) {
+        var usersnames = '';
+
+     
+        var userArr = selectedUsers.map(el => {
+        return el.firstname
+        })
         let task = {
             'title': title.value,
             'date': date.value,
@@ -397,7 +408,7 @@ async function createTask() {
             'urgency': urgency.value,
             'level': 'todo',
             'currentHighestId': id,
-            'user': selectedUsers //User hinzufügen
+            'user': userArr.join() //User hinzufügen
         }
     
         allTasks.push(task);
