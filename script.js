@@ -1,36 +1,36 @@
-let users =[];
-    /* {
-        'id': 0,
-        'firstname': 'Dominik',
-        'lastname': 'Waldow',
-        'email': 'dominik@join.com',
-        'password': '01234',
-        'category': 2,
-        'avatar': 'img/avatar1.jpg'
-    },
-    {
-        'id': 1,
-        'firstname': 'Patrick',
-        'lastname': 'Sterz',
-        'email': 'admin',
-        'password': 'admin',
-        'category': 3,
-        'avatar': 'img/avatar2.jpg'
-    },
-    {
-        'id': 2,
-        'firstname': 'Mentor',
-        'lastname': 'Mentor',
-        'email': 'mentor@join.com',
-        'password': '56789',
-        'category': 1,
-        'avatar': 'img/avatar/3.png'
-    } */
+let users = [];
+/* {
+    'id': 0,
+    'firstname': 'Dominik',
+    'lastname': 'Waldow',
+    'email': 'dominik@join.com',
+    'password': '01234',
+    'category': 2,
+    'avatar': 'img/avatar1.jpg'
+},
+{
+    'id': 1,
+    'firstname': 'Patrick',
+    'lastname': 'Sterz',
+    'email': 'admin',
+    'password': 'admin',
+    'category': 3,
+    'avatar': 'img/avatar2.jpg'
+},
+{
+    'id': 2,
+    'firstname': 'Mentor',
+    'lastname': 'Mentor',
+    'email': 'mentor@join.com',
+    'password': '56789',
+    'category': 1,
+    'avatar': 'img/avatar/3.png'
+} */
 
 let allTasks = [];
 
 
-let avatar = ['img/avatar1.jpg','img/avatar2.jpg'];
+let avatar = ['img/avatar1.jpg', 'img/avatar2.jpg'];
 let selectedUsers = [];
 let dragTaskId;
 let currentUser;
@@ -45,9 +45,9 @@ function init() {
 }
 
 function loadContent() {
-    if(!currentUser){
+    if (!currentUser) {
         alert('please Login')
-    }else{
+    } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateContent();
@@ -56,9 +56,9 @@ function loadContent() {
 
 // Switch Section /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function categoryText(category){
+function categoryText(category) {
     let text = 'gray';
-    switch(category){
+    switch (category) {
         case '1':
             text = 'Management';
             break;
@@ -75,9 +75,9 @@ function categoryText(category){
     return text;
 }
 
-function categoryColor(category){
+function categoryColor(category) {
     let col = 'gray';
-    switch(category){
+    switch (category) {
         case '1':
             col = '#bd5454';
             break;
@@ -95,9 +95,9 @@ function categoryColor(category){
 }
 ////
 
-function bellColor(urgency){
+function bellColor(urgency) {
     let col = 'green';
-    switch(urgency){
+    switch (urgency) {
         case '1':
             col = 'red';
             break;
@@ -116,10 +116,10 @@ function bellColor(urgency){
 /**
  * This function download the tasks from the server.
  */
-async function backendPull(){
+async function backendPull() {
     await downloadFromServer();
     let tasksAsString = await backend.getItem('allTasks');
-    if(tasksAsString){
+    if (tasksAsString) {
         allTasks = JSON.parse(tasksAsString);
     }
 }
@@ -127,10 +127,10 @@ async function backendPull(){
 /**
  * This function download the users from the server.
  */
-async function userBackendPull(){
+async function userBackendPull() {
     await downloadFromServer();
     let usersAsString = await backend.getItem('users');
-    if(usersAsString){
+    if (usersAsString) {
         users = JSON.parse(usersAsString);
     }
 }
@@ -138,9 +138,9 @@ async function userBackendPull(){
 /**
  * This function uploads the tasks to the server.
  */
-async function backendPush(){
+async function backendPush() {
     let tasksAsString = JSON.stringify(allTasks);
-    await backend.setItem('allTasks',tasksAsString);
+    await backend.setItem('allTasks', tasksAsString);
     /* let usersAsString = JSON.stringify(users);
     await backend.setItem('users',usersAsString); */
 }
@@ -150,7 +150,7 @@ async function backendPush(){
 /**
  * This function show you the login page.
  */
-function loadLogin(){
+function loadLogin() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateLogin();
@@ -159,27 +159,27 @@ function loadLogin(){
 /**
  * This function compares the login data with the database and logs you in.
  */
-async function login(){
+async function login() {
     await userBackendPull();
     let setEmail = document.getElementById('email').value;
     let setPassword = document.getElementById('password').value;
     let wrongEmail = true;
     let wrongPassword = true;
-    for(let i = 0; i < users.length; i++){
-        if(users[i].email == setEmail){
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].email == setEmail) {
             wrongEmail = false;
-            if(users[i].password == setPassword){
+            if (users[i].password == setPassword) {
                 currentUser = users[i];
                 wrongPassword = false;
                 users = [];
             }
         }
     }
-    if(!wrongEmail && !wrongPassword){
+    if (!wrongEmail && !wrongPassword) {
         loadContent();
-    }else if(!wrongEmail && wrongPassword){
+    } else if (!wrongEmail && wrongPassword) {
         alert('wrong Password!');
-    }else if (wrongEmail){
+    } else if (wrongEmail) {
         alert('email doesn`t exist!');
     }
 }
@@ -190,29 +190,29 @@ async function login(){
  * This function show you the taskboard.
  */
 function loadBoard() {
-    if(!currentUser){
+    if (!currentUser) {
         alert('please Login')
-    }else{
+    } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
-        content.innerHTML += templateBoard();  
-        loadTasks(); 
+        content.innerHTML += templateBoard();
+        loadTasks();
     }
 }
 
 /**
  * This function load the tasks in the right status field.
  */
-function loadTasks(){
-    for (let i=0; i < allTasks.length; i++){
+function loadTasks() {
+    for (let i = 0; i < allTasks.length; i++) {
         let currentTask = allTasks[i];
-        if(currentTask.level == 'todo'){
+        if (currentTask.level == 'todo') {
             document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask);
-        }else if(currentTask.level == 'inProgress'){
+        } else if (currentTask.level == 'inProgress') {
             document.getElementById('inProgressField').innerHTML += templateLoadTasks(currentTask);
-        }else if(currentTask.level == 'inTesting'){
+        } else if (currentTask.level == 'inTesting') {
             document.getElementById('inTestingField').innerHTML += templateLoadTasks(currentTask);
-        }else if(currentTask.level == 'done'){
+        } else if (currentTask.level == 'done') {
             document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask);
         }
     }
@@ -221,7 +221,7 @@ function loadTasks(){
 /**
  * This function update the status fields.
  */
-function resetTasks(){
+function resetTasks() {
     document.getElementById('todoField').innerHTML = ``;
     document.getElementById('inProgressField').innerHTML = ``;
     document.getElementById('inTestingField').innerHTML = ``;
@@ -234,14 +234,14 @@ function resetTasks(){
  */
 function allowDrop(ev) {
     ev.preventDefault();
-  }
+}
 
 /**
  * This function stores the id in a variable.
  * 
  * @param {string} id 
  */
-function drag(id){
+function drag(id) {
     dragTaskId = id;
 }
 
@@ -250,9 +250,9 @@ function drag(id){
  * 
  * @param {string} dropzone 
  */
-function drop(dropzone){
-    for(let i=0;i<allTasks.length;i++){
-        if(allTasks[i].id == dragTaskId){
+function drop(dropzone) {
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].id == dragTaskId) {
             allTasks[i].level = dropzone;
             break;
         }
@@ -266,30 +266,30 @@ function drop(dropzone){
 /**
  * This function show you the backlog.
  */
-function loadBacklog(){
-    if(!currentUser){
+function loadBacklog() {
+    if (!currentUser) {
         alert('please Login')
-    }else{
+    } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
-        content.innerHTML += templateBacklog();  
-        loadBacklogContent(); 
+        content.innerHTML += templateBacklog();
+        loadBacklogContent();
     }
 }
 
 /**
  * This function load the tasks in the backlog.
  */
-function loadBacklogContent(){
+function loadBacklogContent() {
     let content = document.getElementById('backlogField');
-        content.innerHTML = templateBacklogHeader();
-    if(allTasks.length === 0){
+    content.innerHTML = templateBacklogHeader();
+    if (allTasks.length === 0) {
         content.innerHTML += templateEmptyLog();
-    }else{
-        for(let i = 0; i<allTasks.length;i++){
-            content.innerHTML += templateBacklogContent(allTasks[i]); 
+    } else {
+        for (let i = 0; i < allTasks.length; i++) {
+            content.innerHTML += templateBacklogContent(allTasks[i]);
         }
-    }  
+    }
 }
 
 /**
@@ -297,11 +297,10 @@ function loadBacklogContent(){
  * 
  * @param {string} id 
  */
-function deleteTask(id){
-    for(let i=0;i<allTasks.length;i++){
-        
-        if(allTasks[i].currentHighestId == id){
-            allTasks.splice(i,1);
+function deleteTask(id) {
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].id == id) {
+            allTasks.splice(i, 1);
             backendPush()
             loadBacklogContent()
         }
@@ -315,9 +314,9 @@ function deleteTask(id){
  */
 
 function loadAddTask() {
-    if(!currentUser){
+    if (!currentUser) {
         alert('please Login')
-    }else{
+    } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateAddTask();
@@ -341,10 +340,10 @@ function selectUser(i) {
     let user = document.getElementById('user-' + i);
     user.classList.toggle('avatar-selected');
     selectedUsers.push(users[i]);
-    if(selectedUsers.includes(users[i])) {
+    if (selectedUsers.includes(users[i])) {
         selectedUsers = selectedUsers.filter(a => a != users[i]);
     }
-    selectedUsers.push(users[i])  
+    selectedUsers.push(users[i])
 }
 
 function clearTask() {
@@ -352,10 +351,8 @@ function clearTask() {
     document.getElementById('date').value = '';
     document.getElementById('catergory').value = '';
     document.getElementById('description').value = '';
-    document.getElementById('urgency').value = '';  
+    document.getElementById('urgency').value = '';
 }
-
-
 
 async function createTask() {
 
@@ -364,25 +361,26 @@ async function createTask() {
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
-   
-    let highestID =0;
-    
-    if(allTasks.length!=0){
+    // let highestID = allTasks['currentHighestID'];
 
-        var highestIDArr=allTasks.map(task=>{
-            if ('currentHighestId' in task) {
+    let highestID = 0;
+
+    if (allTasks.length != 0) {
+
+        var highestIDArr = allTasks.map(task => {
+            if ('currentHighestId' in task && task.currentHighestId) {
                 return task.currentHighestId;
-            }else{
-                return task.id;
+            } else {
+                return 0;
             }
-            
         })
-        highestID=Math.max(highestIDArr);
+        
+        highestID = Math.max(...highestIDArr);
 
-        // highestID = allTasks['currentHighestID'];
+     
     }
-   
-    let id = highestID +1;
+
+    let id = highestID + 1;
     let task = {
         'title': title.value,
         'date': date.value,
@@ -390,10 +388,10 @@ async function createTask() {
         'description': description.value,
         'urgency': urgency.value,
         'level': 'todo',
-        'currentHighestId': id,                   
-        'user': 'Patrick'           //User hinzufügen
+        'currentHighestId': id,
+        'user': 'Patrick' //User hinzufügen
     }
-    
+
     allTasks.push(task);
     backendPush();
     clearTask();
