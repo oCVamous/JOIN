@@ -299,7 +299,8 @@ function loadBacklogContent(){
  */
 function deleteTask(id){
     for(let i=0;i<allTasks.length;i++){
-        if(allTasks[i].id == id){
+        
+        if(allTasks[i].currentHighestId == id){
             allTasks.splice(i,1);
             backendPush()
             loadBacklogContent()
@@ -354,6 +355,8 @@ function clearTask() {
     document.getElementById('urgency').value = '';  
 }
 
+
+
 async function createTask() {
 
     let title = document.getElementById('title');
@@ -361,7 +364,24 @@ async function createTask() {
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
-    let highestID = allTasks['currentHighestID'];
+   
+    let highestID =0;
+    
+    if(allTasks.length!=0){
+
+        var highestIDArr=allTasks.map(task=>{
+            if ('currentHighestId' in task) {
+                return task.currentHighestId;
+            }else{
+                return task.id;
+            }
+            
+        })
+        highestID=Math.max(highestIDArr);
+
+        // highestID = allTasks['currentHighestID'];
+    }
+   
     let id = highestID +1;
     let task = {
         'title': title.value,
