@@ -336,14 +336,20 @@ function templateAvatare(i, avatare) {
     <img id="user-${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
 }
 
-function selectUser(i) {
+async function selectUser(i) {
+   
+    await userBackendPull();
+    
+   if (users.length>0) {
     let user = document.getElementById('user-' + i);
     user.classList.toggle('avatar-selected');
     selectedUsers.push(users[i]);
+   
     if (selectedUsers.includes(users[i])) {
         selectedUsers = selectedUsers.filter(a => a != users[i]);
     }
     selectedUsers.push(users[i])
+   }
 }
 
 function clearTask() {
@@ -374,27 +380,33 @@ async function createTask() {
                 return 0;
             }
         })
-        
+
         highestID = Math.max(...highestIDArr);
 
      
     }
 
     let id = highestID + 1;
-    let task = {
-        'title': title.value,
-        'date': date.value,
-        'catergory': catergory.value,
-        'description': description.value,
-        'urgency': urgency.value,
-        'level': 'todo',
-        'currentHighestId': id,
-        'user': 'Patrick' //User hinzufügen
-    }
 
-    allTasks.push(task);
-    backendPush();
-    clearTask();
+    if (selectedUsers.length>0) {
+        let task = {
+            'title': title.value,
+            'date': date.value,
+            'catergory': catergory.value,
+            'description': description.value,
+            'urgency': urgency.value,
+            'level': 'todo',
+            'currentHighestId': id,
+            'user': selectedUsers //User hinzufügen
+        }
+    
+        allTasks.push(task);
+        backendPush();
+        clearTask();
+    } else {
+        alert('please select a user')
+    }
+   
 }
 
 // footer Section ///////////////////////////////////////////////////////////////////////////////////////////////////////
