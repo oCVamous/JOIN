@@ -93,6 +93,7 @@ function categoryColor(category){
     }
     return col;
 }
+////
 
 function bellColor(urgency){
     let col = 'green';
