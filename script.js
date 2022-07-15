@@ -355,12 +355,14 @@ function clearTask() {
 }
 
 async function createTask() {
+
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
-    let id = allTasks.length;
+    let highestID = allTasks['currentHighestID'];
+    let id = highestID +1;
     let task = {
         'title': title.value,
         'date': date.value,
@@ -368,7 +370,7 @@ async function createTask() {
         'description': description.value,
         'urgency': urgency.value,
         'level': 'todo',
-        'id': id,  
+        'currentHighestId': id,                   
         'user': 'Patrick'           //User hinzufügen
     }
     
