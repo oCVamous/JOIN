@@ -407,7 +407,7 @@ async function createTask() {
             'description': description.value,
             'urgency': urgency.value,
             'level': 'todo',
-            'currentHighestId': id,
+            'id': id,
             'user': userArr.join() //User hinzufügen
         }
     
