@@ -379,8 +379,8 @@ async function createTask() {
     if (allTasks.length != 0) {
 
         var highestIDArr = allTasks.map(task => {
-            if ('currentHighestId' in task && task.currentHighestId) {
-                return task.currentHighestId;
+            if ('id' in task && task.id) {
+                return task.id;
             } else {
                 return 0;
             }
