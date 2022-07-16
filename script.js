@@ -324,7 +324,7 @@ function loadAddTask() {
 }
 
 function renderAvatar() {
-    document.getElementById('persons').innerHTML = '';
+    document.getElementById('persons').innerHTML = ``;
     for (let i = 0; i < avatar.length; i++) {
         const avatare = avatar[i];
         document.getElementById('persons').innerHTML += templateAvatare(i, avatare);
