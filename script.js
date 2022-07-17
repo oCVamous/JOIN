@@ -238,8 +238,8 @@ function allowDrop(ev) {
 
 /**
  * This function stores the id in a variable.
- * 
- * @param {string} id 
+ *
+ * @param {string} id
  */
 function drag(id) {
     dragTaskId = id;
@@ -247,8 +247,8 @@ function drag(id) {
 
 /**
  * This function change the ID from droped task and update the database.
- * 
- * @param {string} dropzone 
+ *
+ * @param {string} dropzone
  */
 function drop(dropzone) {
     for (let i = 0; i < allTasks.length; i++) {
@@ -294,8 +294,8 @@ function loadBacklogContent() {
 
 /**
  * This function delete the task with the correct ID.
- * 
- * @param {string} id 
+ *
+ * @param {string} id
  */
 function deleteTask(id) {
     for (let i = 0; i < allTasks.length; i++) {
@@ -337,20 +337,19 @@ function templateAvatare(i, avatare) {
 }
 
 async function selectUser(i) {
-   
+
     await userBackendPull();
-    
-   if (users.length>0) {
-    let user = document.getElementById('user-' + i);
-    user.classList.toggle('avatar-selected');
-    selectedUsers.push(users[i]);
-   
-    if (selectedUsers.includes(users[i])) {
-        selectedUsers = selectedUsers.filter(a => a != users[i]);
+
+    if (users.length>0) {
+        let user = document.getElementById('user-' + i);
+        user.classList.toggle('avatar-selected');
+        selectedUsers.push(users[i]);
+
+        if (selectedUsers.includes(users[i])) {
+            selectedUsers = selectedUsers.filter(a => a != users[i]);
+        }
+        selectedUsers.push(users[i])
     }
-    selectedUsers.push(users[i])
-   }
-    console.log(selectedUsers);
 }
 
 function clearTask() {
@@ -362,7 +361,7 @@ function clearTask() {
     selectedUsers = [];
     const el = document.querySelector('.avatar');
     el.classList.remove("avatar-selected");
-   
+
 }
 
 async function createTask() {
@@ -388,7 +387,7 @@ async function createTask() {
 
         highestID = Math.max(...highestIDArr);
 
-     
+
     }
 
     let id = highestID + 1;
@@ -396,9 +395,9 @@ async function createTask() {
     if (selectedUsers.length > 0) {
         var usersnames = '';
 
-     
+
         var userArr = selectedUsers.map(el => {
-        return el.firstname
+            return el.firstname
         })
         let task = {
             'title': title.value,
@@ -410,14 +409,14 @@ async function createTask() {
             'id': id,
             'user': userArr.join() //User hinzufügen
         }
-    
+
         allTasks.push(task);
         backendPush();
         clearTask();
     } else {
         alert('please select a user')
     }
-   
+
 }
 
 // footer Section ///////////////////////////////////////////////////////////////////////////////////////////////////////
