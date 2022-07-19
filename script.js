@@ -175,6 +175,11 @@ async function login() {
             }
         }
     }
+    currentUser.password = "";
+    let img = document.querySelector('.avatar');
+    img.src = currentUser.avatar;
+
+    
     if (!wrongEmail && !wrongPassword) {
         loadContent();
     } else if (!wrongEmail && wrongPassword) {
