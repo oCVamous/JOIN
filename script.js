@@ -340,7 +340,7 @@ async function selectUser(i) {
 
     await userBackendPull();
 
-    if (users.length>0) {
+    if (users.length > 0) {
         let user = document.getElementById('user-' + i);
         user.classList.toggle('avatar-selected');
         selectedUsers.push(users[i]);
@@ -363,14 +363,22 @@ function clearTask() {
     el.classList.remove("avatar-selected");
 
 }
-//test
+
 async function createTask() {
 
+    getInputValue();
+    getHighestID(); // let highestID = allTasks['currentHighestID'];
+    setValues();    //map the selectedUsers by firstname + set Task values
+}
+function getInputValue() {
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
+}
+
+function getHighestID() {
     let highestID = 0;
 
     if (allTasks.length != 0) {
@@ -384,7 +392,10 @@ async function createTask() {
         highestID = Math.max(...highestIDArr);
     }
 
-    let id = highestID + 1 // let highestID = allTasks['currentHighestID'];
+    let id = highestID + 1;
+}
+
+function setValues() {
     if (selectedUsers.length > 0) {
         var usersnames = '';
 
@@ -408,12 +419,9 @@ async function createTask() {
         clearTask();
     } else {
         alert('please select a user')
-    }    //map the selectedUsers by firstname + set Task values
+    }
+
 }
-
-
-
-
 
 // footer Section ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
