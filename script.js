@@ -322,7 +322,7 @@ function loadAddTask() {
         content.innerHTML += templateAddTask();
     }
 }
-
+//test3
 function renderAvatar() {
     document.getElementById('persons').innerHTML = ``;
     for (let i = 0; i < avatar.length; i++) {

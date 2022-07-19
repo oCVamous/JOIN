@@ -452,6 +452,12 @@ li:hover>.active-s {
     align-items: center;
 }
 
+.user-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .avatar {
     height: 48px;
     width: 48px;
