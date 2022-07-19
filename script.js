@@ -340,7 +340,7 @@ async function selectUser(i) {
 
     await userBackendPull();
 
-    if (users.length>0) {
+    if (users.length > 0) {
         let user = document.getElementById('user-' + i);
         user.classList.toggle('avatar-selected');
         selectedUsers.push(users[i]);
