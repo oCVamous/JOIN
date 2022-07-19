@@ -24,35 +24,52 @@
     <title>JOIN</title>
 </head>
 <body onload="init()">
-    <div id="p-main-container">
-        <div id="p-navbar">
-            <img id="joinlogo" src="img/joinlogo.png" onclick="loadContent()">
-        <ul id="menulist">
-            <li>
-                <div class="active-s" id="menuBoard-1"></div>
-                <span onclick="loadBoard()">BOARD</span>
-            </li>
-            <li>
-                <div class="active-s" id="menuBoard-2"></div>
-                <span onclick="loadBacklog()">BACKLOG</span>
-            </li>
-            <li>
-                <div class="active-s" id="menuBoard-3"></div>
-                <span onclick="loadAddTask()">ADD TASK</span>
-            </li>
-            <li>
-                <div class="active-s" id="menuBoard-4"></div>
-                <span>HELP</span>
-            </li>
-        </ul>
+    <div id="navigation">
+        
+        <div class="navigation-top">
+            <div class="logo-section">
+                <img id="joinlogo" src="img/joinlogo.png" onclick="loadContent()">
+            </div>
+            
+            <div class="navigation-menu">
+                <div class="link">
+                    <div class="thirty"></div>
+                    <span class="active" onclick="loadBoard()">BOARD</span>
+                </div>
+            
+                <div class="link">
+                    <div class="thirty"></div>
+                    <span class="active" onclick="loadBacklog()">BACKLOG</span>
+                </div>
+    
+                <div class="link">
+                    <div class="thirty"></div>
+                    <span class="active" onclick="loadAddTask()">ADD TASK</span>
+                </div>
+    
+                <div class="link">
+                    <div class="thirty"></div>
+                    <span class="active">HELP</span>
+                </div>
+    
+            </div>
+        </div>
+        
+
 
         <div id="footer">
-
-            <p onclick="loadImpressum()">IMPRESSUM</p>
-            <p onclick="loadDatenschutz()">DATENSCHUTZ</p>
+            <div class="link">
+                <div class="thirty"></div>
+                <span class="active"onclick="loadImpressum()">IMPRESSUM</p>
+            </div>
+            
+            <div class="link">
+                <div class="thirty"></div>
+                <span class="active"onclick="loadDatenschutz()">DATENSCHUTZ</p>
+            </div>
 
         </div>
-        </div>
+    </div>
         <div id="content"></div>
         
     </div>

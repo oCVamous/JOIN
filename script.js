@@ -363,7 +363,7 @@ function clearTask() {
     el.classList.remove("avatar-selected");
 
 }
-
+//test
 async function createTask() {
 
     let title = document.getElementById('title');
@@ -371,12 +371,9 @@ async function createTask() {
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
-    // let highestID = allTasks['currentHighestID'];
-
     let highestID = 0;
 
     if (allTasks.length != 0) {
-
         var highestIDArr = allTasks.map(task => {
             if ('id' in task && task.id) {
                 return task.id;
@@ -384,14 +381,10 @@ async function createTask() {
                 return 0;
             }
         })
-
         highestID = Math.max(...highestIDArr);
-
-
     }
 
-    let id = highestID + 1;
-
+    let id = highestID + 1 // let highestID = allTasks['currentHighestID'];
     if (selectedUsers.length > 0) {
         var usersnames = '';
 
@@ -415,9 +408,12 @@ async function createTask() {
         clearTask();
     } else {
         alert('please select a user')
-    }
-
+    }    //map the selectedUsers by firstname + set Task values
 }
+
+
+
+
 
 // footer Section ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
