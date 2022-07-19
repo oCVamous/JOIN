@@ -366,17 +366,22 @@ function clearTask() {
 
 async function createTask() {
 
+    getInputValue();
+    getHighestID(); // let highestID = allTasks['currentHighestID'];
+    setValues();    //map the selectedUsers by firstname + set Task values
+}
+function getInputValue() {
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
-    // let highestID = allTasks['currentHighestID'];
+}
 
+function getHighestID() {
     let highestID = 0;
 
     if (allTasks.length != 0) {
-
         var highestIDArr = allTasks.map(task => {
             if ('id' in task && task.id) {
                 return task.id;
@@ -384,14 +389,13 @@ async function createTask() {
                 return 0;
             }
         })
-
         highestID = Math.max(...highestIDArr);
-
-
     }
 
     let id = highestID + 1;
+}
 
+function setValues() {
     if (selectedUsers.length > 0) {
         var usersnames = '';
 

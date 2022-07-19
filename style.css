@@ -1,12 +1,52 @@
 body {
     margin: 0;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-}
-#p-main-container {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;
+}
+#navigation {
+    display: flex;
+    background-color: blue;
+    width: 15vw;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.navigation-menu {
+    display: flex;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.active {
+    padding-left: 10px;
+}
+
+.active:hover {
+    border-left: 4px solid white;
+}
+
+.thirty{
+    width: 30%;
+    height: 30px
 }
 .visibility-none {
     visibility: hidden;
+}
+
+.logo-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    cursor: pointer;
 }
 #p-navbar {
     width: 15%;
@@ -38,27 +78,24 @@ body {
 #content {
     display: flex;
     flex-direction: column;
-    padding-top: 25px;
     align-items: center;
-    justify-content: center;
     width: 90%;
+    justify-content: center;
 }
 
 .joinlogo {
     height: 40px;
 }
-#joinlogo {
-    height: 50px;
-    padding-left: 35%;
-    padding-top: 50px;
-    width: fit-content;
-    cursor: pointer;
-    box-sizing: unset !important;
-}
+
 .active-s {
     min-height: 28px;
     min-width: 6px;
     background-color: transparent;
+    padding-right: 20px;
+}
+
+#menuBoard-1:hover {
+    background-color: white;
 }
 li:hover > .active-s {
     font-size: 30px;
@@ -237,8 +274,11 @@ li:hover > .active-s {
 
   #footer {
     display: flex;
-    justify-content: space-around;
-    padding-top: 45vh;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    padding-top: 50px;
+
   }
 
   #footer p {
@@ -255,15 +295,18 @@ li:hover > .active-s {
 .login{
     z-index: 999;
     padding: 10rem;
-    width: 100%;
-    max-height: 90vh;
     color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 #login-box {
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    min-width: 400px;
+    max-width: 1000px;
 }
 
 #login-box-left {
@@ -403,10 +446,6 @@ li:hover > .active-s {
     padding: 0;
 }
 
-.input {
-    width: 450px;
-}
-
 .assigned {
     flex-direction: column;
     display: flex;
@@ -425,7 +464,54 @@ h2 {
     justify-content: end;
 }
 
+.mb-3, input {
+    width: 100%;
+}
 
+
+@media(max-width:560px) {
+    body {
+        flex-wrap: wrap;
+    }
+
+    #navigation {
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        justify-content: center;
+    }
+
+    input {
+        max-width: 60%;
+    }
+    select {
+        max-width: 60%;
+    }
+
+    textarea {
+        max-width: 60%;
+    }
+
+    #date {
+        max-width: 60%;
+    }
+
+    .addTask-main{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+    
 
 
 
