@@ -366,19 +366,11 @@ function clearTask() {
 
 async function createTask() {
 
-    getInputValue();
-    getHighestID(); // let highestID = allTasks['currentHighestID'];
-    setValues();    //map the selectedUsers by firstname + set Task values
-}
-function getInputValue() {
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
-}
-
-function getHighestID() {
     let highestID = 0;
 
     if (allTasks.length != 0) {
@@ -392,10 +384,7 @@ function getHighestID() {
         highestID = Math.max(...highestIDArr);
     }
 
-    let id = highestID + 1;
-}
-
-function setValues() {
+    let id = highestID + 1; // let highestID = allTasks['currentHighestID'];
     if (selectedUsers.length > 0) {
         var usersnames = '';
 
@@ -419,8 +408,7 @@ function setValues() {
         clearTask();
     } else {
         alert('please select a user')
-    }
-
+    }    //map the selectedUsers by firstname + set Task values
 }
 
 // footer Section ///////////////////////////////////////////////////////////////////////////////////////////////////////
