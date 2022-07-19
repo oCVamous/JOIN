@@ -458,6 +458,10 @@ li:hover>.active-s {
     align-items: center;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .avatar {
     height: 48px;
     width: 48px;
@@ -466,6 +470,7 @@ li:hover>.active-s {
     cursor: pointer;
     margin-right: 8px;
     border: 4px solid transparent;
+    object-fit: cover;
 }
 
 .avatar:hover {

@@ -169,6 +169,7 @@ async function login() {
         if (users[i].email == setEmail) {
             wrongEmail = false;
             if (users[i].password == setPassword) {
+                document.getElementById('user-box').classList.remove('hidden');
                 currentUser = users[i];
                 wrongPassword = false;
                 users = [];
