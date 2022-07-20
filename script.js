@@ -336,7 +336,7 @@ function loadAddTask() {
         content.innerHTML += templateAddTask();
     }
 }
-//test3
+
 function renderAvatar() {
     document.getElementById('persons').innerHTML = ``;
     for (let i = 0; i < avatar.length; i++) {
@@ -425,7 +425,43 @@ async function createTask() {
     }    //map the selectedUsers by firstname + set Task values    /
 }
 
+// Register Section ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+function register() {
+    
+    let firstname = document.getElementById('firstname');
+    let lastname = document.getElementById('lastname');
+    let email = document.getElementById('email');
+
+    let password = checkPassword();
+
+    let avatar = document.getElementById('profile-pic');;
+    let id = 0;
+
+    let newUser = {
+        'firstname': firstname.value,
+        'lastname': lastname.value,
+        'email': email.value,
+        'password': password,
+        'avatar': avatar.src,
+        'id': users.length +1,
+    }
+    users.push(newUser);
+    backendPush();
+    templateLogin();
+}
+
+function checkPassword() {
+    let firstPassword = document.getElementById('password').value;
+    let secondPassword = document.getElementById('password-confirmed').value;
+
+    if(firstPassword == secondPassword) {
+        password = secondPassword;
+    } else {
+        alert('Passwords do not match');
+    }
+    
+}
 // footer Section ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function loadImpressum() {

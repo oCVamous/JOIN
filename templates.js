@@ -88,6 +88,11 @@ function templateRegister() {
                 <label class="form-label">Confirm Password</label>
                 <input type="password" class="form-control" id="password-confirmed">
             </div>
+            <div class="mb-3">
+                <label class="form-label">Your Profile-Picture</label>
+                <input type="file" id="profile-pic" class="form-control" aria-label="file example" required>
+                <div class="invalid-feedback">Example invalid form file feedback</div>
+            </div>
              
             <button onclick="login()" class="btn btn-primary">Login</button>
             <button onclick="register()" class="btn btn-primary">Registrieren</button>
