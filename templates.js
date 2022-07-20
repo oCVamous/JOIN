@@ -82,11 +82,11 @@ function templateRegister() {
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password-register">
             </div>
             <div class="mb-3">
                 <label class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="password-confirmed">
+                <input type="password" class="form-control" id="password-confirmed-register">
             </div>
             <div class="mb-3">
                 <label class="form-label">Your Profile-Picture</label>

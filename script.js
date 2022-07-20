@@ -432,12 +432,15 @@ function register() {
     let firstname = document.getElementById('firstname');
     let lastname = document.getElementById('lastname');
     let email = document.getElementById('email');
+    let firstPassword = document.getElementById('password-register').value;
+    let secondPassword = document.getElementById('password-confirmed-register').value;
 
     let password = checkPassword();
 
     let avatar = document.getElementById('profile-pic');;
     let id = 0;
 
+    
     let newUser = {
         'firstname': firstname.value,
         'lastname': lastname.value,
@@ -448,15 +451,16 @@ function register() {
     }
     users.push(newUser);
     backendPush();
-    templateLogin();
+    loadLogin();
 }
 
 function checkPassword() {
-    let firstPassword = document.getElementById('password').value;
-    let secondPassword = document.getElementById('password-confirmed').value;
+    let firstPassword = document.getElementById('password-register').value;
+    let secondPassword = document.getElementById('password-confirmed-register').value;
 
     if(firstPassword == secondPassword) {
         password = secondPassword;
+        return password;
     } else {
         alert('Passwords do not match');
     }
