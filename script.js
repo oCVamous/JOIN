@@ -155,6 +155,14 @@ function loadLogin() {
     content.innerHTML = ``;
     content.innerHTML += templateLogin();
 }
+/**
+ * This function show you the register page.
+ */
+function loadRegister() {
+    let content = document.getElementById('content');
+    content.innerHTML = ``;
+    content.innerHTML += templateRegister();
+}
 
 /**
  * This function compares the login data with the database and logs you in.

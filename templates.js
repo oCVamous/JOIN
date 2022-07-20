@@ -48,6 +48,49 @@ function templateLogin() {
             </div>
              
             <button onclick="login()" class="btn btn-primary">Login</button>
+            <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
+        </div>
+            
+        
+    </div>
+    `;
+}
+
+function templateRegister() {
+    return /*html*/ `
+    <div class="login">
+        <div id="login-box">
+
+            <div id="login-box-left">
+                <img src="img/logo.png" style="height: 50px">
+            </div>
+
+            <div id="login-box-right">
+                <h2 style="text-align: center;">Registrieren</h2>
+                <div class="mb-3">
+                    <label class="form-label">Firstname</label>
+                    <input type="text" aria-label="First name" class="form-control" id="password">
+                </div>
+            <div class="mb-3">
+                <label class="form-label">Lastname</label>
+                <input type="text" aria-label="Last name" class="form-control" id="password">
+            </div>
+                <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <div class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+             
+            <button onclick="login()" class="btn btn-primary">Login</button>
+            <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
         </div>
             
         
