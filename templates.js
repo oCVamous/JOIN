@@ -69,11 +69,11 @@ function templateRegister() {
                 <h2 style="text-align: center;">Registrieren</h2>
                 <div class="mb-3">
                     <label class="form-label">Firstname</label>
-                    <input type="text" aria-label="First name" class="form-control" id="password">
+                    <input type="text" aria-label="First name" class="form-control" id="firstname">
                 </div>
             <div class="mb-3">
                 <label class="form-label">Lastname</label>
-                <input type="text" aria-label="Last name" class="form-control" id="password">
+                <input type="text" aria-label="Last name" class="form-control" id="lastname">
             </div>
                 <div class="mb-3">
                     <label class="form-label">Email address</label>
@@ -86,11 +86,11 @@ function templateRegister() {
             </div>
             <div class="mb-3">
                 <label class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password-confirmed">
             </div>
              
             <button onclick="login()" class="btn btn-primary">Login</button>
-            <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
+            <button onclick="register()" class="btn btn-primary">Registrieren</button>
         </div>
             
         
