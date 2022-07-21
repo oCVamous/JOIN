@@ -167,6 +167,7 @@ async function login() {
                 users = [];
             }
         }
+        
     }
     currentUser.password = "";
     let img = document.querySelector('.avatar');
