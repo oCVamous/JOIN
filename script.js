@@ -365,6 +365,7 @@ async function selectUser(i) {
         }
         selectedUsers.push(users[i])
     }
+    users = [];
 }
 
 function clearTask() {
@@ -429,29 +430,22 @@ async function createTask() {
 // Register Section ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function register() {
-    
-    let firstname = document.getElementById('firstname');
-    let lastname = document.getElementById('lastname');
-    let email = document.getElementById('email');
-    let firstPassword = document.getElementById('password-register').value;
-    let secondPassword = document.getElementById('password-confirmed-register').value;
-
+    let firstname = document.getElementById("firstname");
+    let lastname = document.getElementById("lastname");
+    let email = document.getElementById("email");
     let password = checkPassword();
-
-    let avatar = document.getElementById('profile-pic');;
-    let id = 0;
-
-    
-    let newUser = {
-        'firstname': firstname.value,
-        'lastname': lastname.value,
-        'email': email.value,
-        'password': password,
-        'avatar': avatar.src,
-        'id': users.length +1,
+    let avatar = document.getElementById("profile-pic");
+    if (password.trim() != "" && avatar.value != "") {
+      let newUser = {
+        firstname: firstname.value,
+        lastname: lastname.value,
+        email: email.value,
+        password: password,
+        avatar: avatar.value,
+        id: users.length + 1,
+      };
+      saveUser(newUser);
     }
-
-    saveUser(newUser);
 }
 
 async function saveUser(newUser){
