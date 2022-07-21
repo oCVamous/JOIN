@@ -224,7 +224,7 @@ function templateBacklogContent(task){
       <td style="white-space: nowrap;"  class="mobileHide">${task.date}</td>
       <td class="mobileHide">${task.level}</td>
       <td style="white-space: nowrap;">
-        <button onclick="infoTask(${task.id})" type="button" class="mobileShow infoBtn btn btn-secondary btn-sm"><img src="img/icons/pencil-square.svg" alt=""></button>
+        <button onclick="infoTask(${task.id})" type="button" class="mobileShow infoBtn btn btn-secondary btn-sm"><img src="img/icons/info-square.svg" alt=""></button>
         <button onclick="editTask(${task.id})" type="button" class="editBtn btn btn-primary btn-sm"><img src="img/icons/pencil-square.svg" alt=""></button>
         <button onclick="deleteTask(${task.id})" type="button" class="delBtn btn btn-secondary btn-sm"><img src="img/icons/trash3.svg" alt=""></button>
         </td>
