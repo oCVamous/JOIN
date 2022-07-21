@@ -94,7 +94,7 @@ function templateRegister() {
                 <div class="invalid-feedback">Example invalid form file feedback</div>
             </div>
              
-            <button onclick="login()" class="btn btn-primary">Login</button>
+            <button onclick="loadLogin()" class="btn btn-primary">Cancel</button>
             <button onclick="register()" class="btn btn-primary">Registrieren</button>
         </div>
             

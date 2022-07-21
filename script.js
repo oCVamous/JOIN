@@ -386,7 +386,9 @@ async function createTask() {
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
+
     let id = pickNextId();
+    
     setValuesTask(title, date, catergory, description, urgency, id);
 }
 
