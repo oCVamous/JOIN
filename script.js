@@ -161,13 +161,8 @@ async function login() {
         if (users[i].email == setEmail) {
             wrongEmail = false;
             if (users[i].password == setPassword) {
-                document.getElementById('user-box').classList.remove('hidden');
-                currentUser = users[i];
+                userLogin(i);
                 wrongPassword = false;
-                users = [];
-                currentUser.password = "";
-                let img = document.querySelector('.avatar');
-                img.src = currentUser.avatar;
             }
         }
     }
@@ -178,6 +173,15 @@ async function login() {
     } else if (wrongEmail) {
         alert('Accound not found. Please register.');
     }
+}
+
+function userLogin(i){
+    document.getElementById('user-box').classList.remove('hidden');
+    currentUser = users[i];
+    users = [];
+    currentUser.password = "";
+    let img = document.querySelector('.avatar');
+    img.src = currentUser.avatar;
 }
 
 // Taskboard Section ////////////////////////////////////////////////////////////////////////////////////////////////
