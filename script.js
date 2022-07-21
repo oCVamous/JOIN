@@ -165,21 +165,18 @@ async function login() {
                 currentUser = users[i];
                 wrongPassword = false;
                 users = [];
+                currentUser.password = "";
+                let img = document.querySelector('.avatar');
+                img.src = currentUser.avatar;
             }
         }
-        
     }
-    currentUser.password = "";
-    let img = document.querySelector('.avatar');
-    img.src = currentUser.avatar;
-
-    
     if (!wrongEmail && !wrongPassword) {
         loadContent();
     } else if (!wrongEmail && wrongPassword) {
         alert('wrong Password!');
     } else if (wrongEmail) {
-        alert('email doesn`t exist!');
+        alert('Accound not found. Please register.');
     }
 }
 
