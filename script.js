@@ -381,33 +381,19 @@ function clearTask() {
 }
 
 async function createTask() {
-
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
-    let urgency = document.getElementById('urgency');;
-    let highestID = 0;
+    let urgency = document.getElementById('urgency');
+    let id = pickNextId();
+    setValuesTask(title, date, catergory, description, urgency, id);
+}
 
-    if (allTasks.length != 0) {
-        var highestIDArr = allTasks.map(task => {
-            if ('id' in task && task.id) {
-                return task.id;
-            } else {
-                return 0;
-            }
-        })
-        highestID = Math.max(...highestIDArr);
-    } // let highestID = allTasks['currentHighestID'];
-    let id = highestID + 1; // let highestID = allTasks['currentHighestID'];
-
+function setValuesTask(title, date, catergory, description, urgency, id){
     if (selectedUsers.length > 0) {
-        var usersnames = '';
-
-
-        var userArr = selectedUsers.map(el => {
-            return el.firstname
-        })
+        let usersnames = '';
+        let userArr = selectedUsers.map(el => {return el.firstname});
         let task = {
             'title': title.value,
             'date': date.value,
@@ -418,13 +404,27 @@ async function createTask() {
             'id': id,
             'user': userArr.join() //User hinzufügen
         }
-
         allTasks.push(task);
         backendPush();
         clearTask();
     } else {
         alert('please select a user')
     }    //map the selectedUsers by firstname + set Task values    /
+}
+
+function pickNextId(){
+    let highestID = 0;
+    if (allTasks.length != 0) {
+        var highestIDArr = allTasks.map(task => {
+            if ('id' in task && task.id) {
+                return task.id;
+            } else {
+                return 0;
+            }
+        })
+        highestID = Math.max(...highestIDArr);
+    }  
+    return highestID + 1;
 }
 
 // Register Section ///////////////////////////////////////////////////////////////////////////////////////////////////
