@@ -7,25 +7,7 @@ let users = [];
     'password': '01234',
     'category': 2,
     'avatar': 'img/avatar1.jpg'
-},
-{
-    'id': 1,
-    'firstname': 'Patrick',
-    'lastname': 'Sterz',
-    'email': 'admin',
-    'password': 'admin',
-    'category': 3,
-    'avatar': 'img/avatar2.jpg'
-},
-{
-    'id': 2,
-    'firstname': 'Mentor',
-    'lastname': 'Mentor',
-    'email': 'mentor@join.com',
-    'password': '56789',
-    'category': 1,
-    'avatar': 'img/avatar/3.png'
-} */
+}*/
 
 let allTasks = [];
 
@@ -90,7 +72,6 @@ function categoryColor(category) {
     }
     return col;
 }
-////
 
 function bellColor(urgency) {
     let col = 'green';
@@ -138,8 +119,6 @@ async function userBackendPull() {
 async function backendPush() {
     let tasksAsString = JSON.stringify(allTasks);
     await backend.setItem('allTasks', tasksAsString);
-    /* let usersAsString = JSON.stringify(users);
-    await backend.setItem('users',usersAsString); */
 }
 
 /**
