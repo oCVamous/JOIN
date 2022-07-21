@@ -38,10 +38,7 @@ let currentUser;
 
 function init() {
     backendPull();
-    /* backendPush(); */
     loadLogin();
-    /* loadContent(); */
-    renderAvatar();
 }
 
 function loadContent() {
