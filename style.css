@@ -239,6 +239,23 @@ li:hover>.active-s {
     border-radius: 0.5rem;
 }
 
+.taskInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: black;
+    width: 90%;
+    min-height: 6.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    padding-bottom: 0.3rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+}
+
 .taskContainer:hover {
     cursor: grab;
 }

@@ -176,6 +176,26 @@ function templateEmptyLog(){
 `; 
 }
 
+function templateLoadInfo(task){
+    return /*html*/ `
+        <div class="taskInfoContainer" style="background-color: ${categoryColor(task.catergory)}">
+                    <div class="taskHeader">
+                        <h5>${task.title}</h5>
+                        <img src="img/icons/bell-${bellColor(task.urgency)}.svg">
+                    </div>
+                    <p>${categoryText(task.catergory)}</p>
+                    <div class="taskHeadline">
+                        <img src="#">
+                        <span>${task.user}</span>
+                        <span>${task.date}</span>
+                    </div>
+                    <div class="taskDescription">
+                        <span>${task.description}</span>
+                    </div>
+                </div>
+    `;
+}
+
 function templateBacklogHeader(){
     return /*html*/ `
     <table id="backlogTable" class="table">

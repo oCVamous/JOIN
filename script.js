@@ -146,7 +146,7 @@ async function backendPush() {
 }
 
 /**
- * This function uploads the tasks to the server.
+ * This function uploads the users to the server.
  */
  async function userBackendPush() {
     let usersAsString = JSON.stringify(users);
@@ -328,6 +328,20 @@ function deleteTask(id) {
             loadBacklogContent()
         }
     }
+}
+
+function infoTask(id){
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].id == id) {
+            let content = document.getElementById('backlogField');
+            content.innerHTML = templateLoadInfo(allTasks[i]);
+        }
+    }
+}
+
+function loadInfoContent(task){
+    let content = document.getElementById('backlogField');
+    content.innerHTML = templateLoadInfo(task);
 }
 
 // Add Task Section //////////////////////////////////////////////////////////////////////////////////////////////////////
