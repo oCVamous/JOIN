@@ -372,13 +372,19 @@ li:hover>.active-s {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: 110%;
     height: 80vh;
     border: solid 1px rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
     padding: 0.5rem;
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
     overflow: auto;
+}
+
+.infoBtn {
+    border-radius: 0.3rem;
+    border: solid 2px rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 .editBtn {
@@ -746,6 +752,14 @@ h2 {
 }
 
 @media screen and (max-width: 767px) {
+    .mobileHide{
+        display: none;
+    }
+
+    .mobileShow{
+        display: unset;
+    }
+
     .taskHeadline {
         font-size: 14px;
     }

@@ -183,9 +183,9 @@ function templateBacklogHeader(){
             <tr>
                 <th scope="col">Assined to</th>
                 <th scope="col">Task</th>
-                <th scope="col">Description</th>
-                <th scope="col">due date</th>
-                <th scope="col">Status</th>
+                <th scope="col" class="mobileHide">Description</th>
+                <th scope="col" class="mobileHide">due date</th>
+                <th scope="col" class="mobileHide">Status</th>
                 <th scope="col">Options</th>
             </tr>
         </thead>
@@ -200,11 +200,13 @@ function templateBacklogContent(task){
     <tr style="background-color: ${categoryColor(task.catergory)}">
       <th scope="row">${task.user}</th>
       <td>${task.title}</td>
-      <td><div class="logDescription">${task.description}</div></td>
-      <td style="white-space: nowrap;">${task.date}</td>
-      <td>${task.level}</td>
-      <td style="white-space: nowrap;"><button onclick="editTask(${task.id})" type="button" class="editBtn btn btn-primary btn-sm"><img src="img/icons/pencil-square.svg" alt=""></button>
-            <button onclick="deleteTask(${task.id})" type="button" class="delBtn btn btn-secondary btn-sm"><img src="img/icons/trash3.svg" alt=""></button>
+      <td class="mobileHide"><div class="logDescription mobileHide">${task.description}</div></td>
+      <td style="white-space: nowrap;"  class="mobileHide">${task.date}</td>
+      <td class="mobileHide">${task.level}</td>
+      <td style="white-space: nowrap;">
+        <button onclick="infoTask(${task.id})" type="button" class="mobileShow infoBtn btn btn-secondary btn-sm"><img src="img/icons/pencil-square.svg" alt=""></button>
+        <button onclick="editTask(${task.id})" type="button" class="editBtn btn btn-primary btn-sm"><img src="img/icons/pencil-square.svg" alt=""></button>
+        <button onclick="deleteTask(${task.id})" type="button" class="delBtn btn btn-secondary btn-sm"><img src="img/icons/trash3.svg" alt=""></button>
         </td>
     </tr>
     
