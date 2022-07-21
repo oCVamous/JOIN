@@ -179,44 +179,19 @@ function templateEmptyLog(){
 function templateBacklogHeader(){
     return /*html*/ `
     <table id="backlogTable" class="table">
-  <thead>
-    <tr>
-      <th scope="col">Assined to</th>
-      <th scope="col">Task</th>
-      <th scope="col">Description</th>
-      <th scope="col">due date</th>
-      <th scope="col">Status</th>
-      <th scope="col">Options</th>
-    </tr>
-  </thead>
-  <tbody id="backlogTableBody">
-    <!-- <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr> -->
-  </tbody>
-</table>
-    <!-- <div class="logHeader" style="background-color: #22318B;">
-        <h4>Assined to</h4>
-        <h4 style="">Task</h4>
-        <h4 style="">Description</h4>
-        <h4 style="">Date</h4>
-        <h4>Status</h4>
-        <h4>Options</h4>
-    </div> -->
+        <thead>
+            <tr>
+                <th scope="col">Assined to</th>
+                <th scope="col">Task</th>
+                <th scope="col">Description</th>
+                <th scope="col">due date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody id="backlogTableBody">
+        </tbody>
+    </table>
 `; 
 }
 
