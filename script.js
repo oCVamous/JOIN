@@ -145,6 +145,14 @@ async function backendPush() {
     await backend.setItem('users',usersAsString); */
 }
 
+/**
+ * This function uploads the tasks to the server.
+ */
+ async function userBackendPush() {
+    let usersAsString = JSON.stringify(users);
+    await backend.setItem('users',usersAsString);
+}
+
 // Login Section ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
@@ -297,11 +305,12 @@ function loadBacklog() {
 function loadBacklogContent() {
     let content = document.getElementById('backlogField');
     content.innerHTML = templateBacklogHeader();
+    let tBody = document.getElementById("backlogTable").tBodies.namedItem("backlogTableBody");
     if (allTasks.length === 0) {
         content.innerHTML += templateEmptyLog();
     } else {
         for (let i = 0; i < allTasks.length; i++) {
-            content.innerHTML += templateBacklogContent(allTasks[i]);
+            tBody.innerHTML += templateBacklogContent(allTasks[i]);
         }
     }
 }
@@ -449,8 +458,14 @@ function register() {
         'avatar': avatar.src,
         'id': users.length +1,
     }
+
+    saveUser(newUser);
+}
+
+async function saveUser(newUser){
+    userBackendPull();
     users.push(newUser);
-    backendPush();
+    userBackendPush();
     loadLogin();
 }
 
