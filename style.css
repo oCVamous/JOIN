@@ -758,7 +758,6 @@ h2 {
         flex-direction: row;
         overflow: auto;
         padding: 0 19px;
-        overflow-x: scroll;
         margin-bottom: 6px;
     }
 
@@ -775,6 +774,7 @@ h2 {
 
     .taskContainer {
         width: 300px;
+        max-height: 5rem;
         margin-right: 10px;
     }
 

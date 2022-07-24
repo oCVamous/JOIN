@@ -254,8 +254,16 @@ function resetTasks() {
 
 function findImage(user){
     for(let i=0; i<avatar.length; i++){
-        if(avatar[i].name == user){                 //now for testing. If the user ID working then change avatar.name in id.
+        if(avatar[i].id == user){                 //now for testing. If the user ID working then change avatar.name in id.
             return avatar[i].avatar;
+        }
+    }
+}
+
+function findName(user){
+    for(let i=0; i<avatar.length; i++){
+        if(avatar[i].id == user){                 //now for testing. If the user ID working then change avatar.name in id.
+            return avatar[i].name;
         }
     }
 }
@@ -426,7 +434,7 @@ async function createTask() {
 function setValuesTask(title, date, catergory, description, urgency, id){
     if (selectedUsers.length > 0) {
         let usersnames = '';
-        let userArr = selectedUsers.map(el => {return el.firstname});
+        let userArr = selectedUsers.map(el => {return el.id});
         let task = {
             'title': title.value,
             'date': date.value,
@@ -435,11 +443,12 @@ function setValuesTask(title, date, catergory, description, urgency, id){
             'urgency': urgency.value,
             'level': 'todo',
             'id': id,
-            'user': userArr.join() //User hinzufügen
+            'user': userArr.join()
         }
         allTasks.push(task);
         backendPush();
         clearTask();
+        loadAddTask();
     } else {
         alert('please select a user')
     }    //map the selectedUsers by firstname + set Task values    /
