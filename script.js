@@ -12,7 +12,7 @@ let users = [];
 let allTasks = [];
 
 
-let avatar = ['img/avatar1.jpg', 'img/avatar2.jpg'];
+let avatar = []; //'img/avatar/avatar1.jpg', 'img/avatar/avatar2.jpg'
 let selectedUsers = [];
 let dragTaskId;
 let currentUser;
@@ -178,10 +178,21 @@ async function login() {
 function userLogin(i){
     document.getElementById('user-box').classList.remove('hidden');
     currentUser = users[i];
+    saveAvatar();
     users = [];
     currentUser.password = "";
     let img = document.querySelector('.avatar');
     img.src = currentUser.avatar;
+}
+
+function saveAvatar(){
+    for(let i=0; i<users.length; i++){
+        avatar.push({
+            'id': users[i].id, 
+            'name': users[i].firstname,
+            'avatar': users[i].avatar
+        })
+    }
 }
 
 // Taskboard Section ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -227,6 +238,14 @@ function resetTasks() {
     document.getElementById('inTestingField').innerHTML = ``;
     document.getElementById('doneField').innerHTML = ``;
     loadTasks();
+}
+
+function findImage(user){
+    for(let i=0; i<avatar.length; i++){
+        if(avatar[i].name == user){                 //now for testing. If the user ID working then change avatar.name in id.
+            return avatar[i].avatar;
+        }
+    }
 }
 
 /**

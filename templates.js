@@ -146,7 +146,7 @@ function templateLoadTasks(task){
                     </div>
                     <p>${categoryText(task.catergory)}</p>
                     <div class="taskHeadline">
-                        <img src="#">
+                        <img class="taskImage" src="${findImage(task.user)}">
                         <span>${task.user}</span>
                         <span>${task.date}</span>
                     </div>
