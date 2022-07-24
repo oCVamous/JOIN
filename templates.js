@@ -246,13 +246,13 @@ function templateAddTask() {
         <div id="addTask-left">
 
             <div class="input">
-                <label for="formGroupExampleInput" class="form-label">TITLE</label>
+                <label for="formGroupExampleInput" class="form-label">Title</label>
                 <div class="mb-3">
                     <input id="title" required type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
             </div>
 
-            <label class="form-label" for="category">CATERGORY</label>
+            <label class="form-label" for="category">Category</label>
             <div class="input">
                 <div class="form-floating">
                     <select id="catergory" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -277,12 +277,12 @@ function templateAddTask() {
 
         <div id="addTask-right">
 
-            <div class="input">
-                <label class="form-label" for="due date">DUE DATE</label>
+            <div class="mb-3">
+                <label class="form-label" for="due date">Due Date</label>
                 <input id="date" required type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
             </div>
 
-            <label for="urgency">URGENCY</label>
+            <label class="form-label" for="urgency">Urgency</label>
                 
                 <div class="form-floating">
                     <select id="urgency" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -294,8 +294,8 @@ function templateAddTask() {
                 </div>
 
                 
-            <div class="assigned">
-                <label for="formGroupExampleInput" class="form-label">ASSIGNED</label>
+            <div class="mb-3">
+                <label class="form-label" for="formGroupExampleInput" class="form-label">Assigned</label>
 
                 <div id="btn-box">
                     <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
