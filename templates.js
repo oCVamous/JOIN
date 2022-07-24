@@ -240,6 +240,7 @@ function templateBacklogContent(task){
 
 function templateAddTask() {
     return /*html*/ `
+    <h2>Add Task</h2>
     <form onsubmit="event.preventDefault(), createTask()">
     <div class="addTask-main">
         <div id="addTask-left">
