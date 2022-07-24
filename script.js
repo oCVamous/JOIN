@@ -11,6 +11,8 @@ let users = [];
 
 let allTasks = [];
 
+let UserRegisterURL;
+
 
 let avatar = []; //'img/avatar/avatar1.jpg', 'img/avatar/avatar2.jpg'
 let selectedUsers = [];
@@ -147,6 +149,15 @@ function loadRegister() {
     content.innerHTML = ``;
     content.innerHTML += templateRegister();
     renderAvatar();
+}
+
+function highlightRegisterAvatar(nr) {
+    let imageNr = nr;
+    let highlightAvatar = document.getElementById('example-image' + imageNr);
+    highlightAvatar.classList.toggle('avatar-selected');
+
+    let url = document.getElementById('example-image' + imageNr).src;
+    UserRegisterURL = url;
 }
 
 /**
@@ -456,14 +467,14 @@ function register() {
     let lastname = document.getElementById("lastname");
     let email = document.getElementById("email");
     let password = checkPassword();
-    let avatar = document.getElementById("profile-pic");
+
     if (password.trim() != "" && avatar.value != "") {
       let newUser = {
         firstname: firstname.value,
         lastname: lastname.value,
         email: email.value,
         password: password,
-        avatar: avatar.value,
+        avatar: UserRegisterURL,
         id: users.length + 1,
       };
       saveUser(newUser);
