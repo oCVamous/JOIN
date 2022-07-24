@@ -146,6 +146,7 @@ function loadRegister() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateRegister();
+    renderAvatar();
 }
 
 /**
@@ -360,7 +361,7 @@ function loadAddTask() {
 function renderAvatar() {
     document.getElementById('persons').innerHTML = ``;
     for (let i = 0; i < avatar.length; i++) {
-        const avatare = avatar[i];
+        const avatare = avatar[i].avatar;
         document.getElementById('persons').innerHTML += templateAvatare(i, avatare);
     }
 }
@@ -375,7 +376,7 @@ async function selectUser(i) {
     await userBackendPull();
 
     if (users.length > 0) {
-        let user = document.getElementById('user-' + i);
+        let user = document.getElementById('user' + i);
         user.classList.toggle('avatar-selected');
         selectedUsers.push(users[i]);
 

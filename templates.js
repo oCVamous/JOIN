@@ -92,7 +92,7 @@ function templateRegister() {
 
             
             <label class="form-label">Choose you Avatar</label>
-            <div class="persons">
+            <div id="persons" class="persons">
                 
                 <img  class="avatar" src='img/avatar/default/user1.png' alt="">
                 <img  class="avatar" src='img/avatar/default/user2.png' alt="">
@@ -107,7 +107,6 @@ function templateRegister() {
         
     </div>
     `;
-    renderAvatar();
 }
 
 function templateBoard() {
