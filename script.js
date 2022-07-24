@@ -397,6 +397,7 @@ async function selectUser(i) {
     if (users.length > 0) {
         let user = document.getElementById('user' + i);
         user.classList.toggle('avatar-selected');
+        users[i].password = "";
         selectedUsers.push(users[i]);
 
         if (selectedUsers.includes(users[i])) {
