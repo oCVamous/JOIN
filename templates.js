@@ -245,13 +245,13 @@ function templateAddTask() {
         <div id="addTask-left">
 
             <div class="input">
+                <label for="formGroupExampleInput" class="form-label">TITLE</label>
                 <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">TITLE</label>
                     <input id="title" required type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
             </div>
 
-            <label for="category">CATERGORY</label>
+            <label class="form-label" for="category">CATERGORY</label>
             <div class="input">
                 <div class="form-floating">
                     <select id="catergory" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -264,7 +264,7 @@ function templateAddTask() {
                 </div>
             </div>
 
-            <label for="floatingTextarea2">Description</label>
+            <label class="form-label" for="floatingTextarea2">Description</label>
             <div class="input">
                 <div class="form-floating">
                     <textarea class="form-control" required type="text" placeholder="Description" id="description" style="height: 100px"></textarea>
@@ -277,7 +277,7 @@ function templateAddTask() {
         <div id="addTask-right">
 
             <div class="input">
-                <label for="due date">DUE DATE</label>
+                <label class="form-label" for="due date">DUE DATE</label>
                 <input id="date" required type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
             </div>
 
@@ -289,7 +289,7 @@ function templateAddTask() {
                         <option value="2">Intermediate</option>
                         <option value="3">Low</option>
                     </select>
-                    <label for="floatingSelect">Wie hoch ist die Priorität?</label>
+                    <label class="form-label" for="floatingSelect">Wie hoch ist die Priorität?</label>
                 </div>
 
                 

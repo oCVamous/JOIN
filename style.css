@@ -16,6 +16,10 @@ body {
     z-index: 5;
 }
 
+#addTask-left {
+    padding-right: 50px;
+}
+
 .navigation-menu {
     display: flex;
     justify-content: center;
@@ -467,7 +471,6 @@ li:hover>.active-s {
 .addTask-main {
     display: flex;
     justify-content: space-between;
-    width: 80vw;
     background-color: rgb(233, 233, 241);
     padding: 50px;
     border-radius: 25px;
