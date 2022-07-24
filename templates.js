@@ -185,7 +185,7 @@ function templateLoadInfo(task){
                     </div>
                     <p>${categoryText(task.catergory)}</p>
                     <div class="taskHeadline">
-                        <img src="#">
+                        <img class="backlogTaskImage" src="${findImage(task.user)}">
                         <span>${task.user}</span>
                         <span>${task.date}</span>
                     </div>
@@ -218,8 +218,8 @@ function templateBacklogHeader(){
 function templateBacklogContent(task){
     return /*html*/ `
     <tr style="background-color: ${categoryColor(task.catergory)}">
-      <th scope="row">${task.user}</th>
-      <td>${task.title}</td>
+      <th scope="row"><div class="d-flex"><img class="backlogImage" src="${findImage(task.user)}">${task.user}</div></th>
+      <td >${task.title}</td>
       <td class="mobileHide"><div class="logDescription mobileHide">${task.description}</div></td>
       <td style="white-space: nowrap;"  class="mobileHide">${task.date}</td>
       <td class="mobileHide">${task.level}</td>
