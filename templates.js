@@ -57,6 +57,7 @@ function templateLogin() {
 }
 
 function templateRegister() {
+    
     return /*html*/ `
     <div class="login">
         <div id="login-box">
@@ -88,10 +89,15 @@ function templateRegister() {
                 <label class="form-label">Confirm Password</label>
                 <input type="password" class="form-control" id="password-confirmed-register">
             </div>
-            <div class="mb-3">
-                <label class="form-label">Your Profile-Picture</label>
-                <input type="file" id="profile-pic" class="form-control" aria-label="file example" required>
-                <div class="invalid-feedback">Example invalid form file feedback</div>
+
+            
+            <label class="form-label">Choose you Avatar</label>
+            <div class="persons">
+                
+                <img  class="avatar" src='img/avatar/default/user1.png' alt="">
+                <img  class="avatar" src='img/avatar/default/user2.png' alt="">
+                <img  class="avatar" src='img/avatar/default/user3.png' alt="">
+                <img  class="avatar" src='img/avatar/default/user4.png' alt="">
             </div>
              
             <button onclick="loadLogin()" class="btn btn-primary">Cancel</button>
@@ -101,6 +107,7 @@ function templateRegister() {
         
     </div>
     `;
+    renderAvatar();
 }
 
 function templateBoard() {

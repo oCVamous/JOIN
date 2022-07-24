@@ -367,7 +367,7 @@ function renderAvatar() {
 
 function templateAvatare(i, avatare) {
     return /*html*/ `
-    <img id="user-${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
+    <img id="user${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
 }
 
 async function selectUser(i) {
