@@ -301,6 +301,13 @@ li:hover>.active-s {
     overflow: auto;
 }
 
+.taskImage{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
