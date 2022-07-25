@@ -316,8 +316,10 @@ function templateAddTask() {
     `;
 }
 
-
-
+function templateAvatare(i, avatare) {
+    return /*html*/ `
+    <img id="user${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
+}
 
 function templateImpressum() {
     return /*html*/ `
