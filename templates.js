@@ -566,7 +566,7 @@ function templateHelp() {
                             <p>After a task has been completed, it can be deleted.</p>
                         </li>
                         <li>
-                            <p>The color of the left border of each task illustrates its importance level.</p>
+                            <p> The color of a card in the backlog stands for the department to which the task was assigned.</p>
                         </li>
                     </ul>
                 </div>
@@ -581,6 +581,9 @@ function templateHelp() {
                         </li>
                         <li>
                             <p> You can create new categories for your individual purpose.</p>
+                        </li>
+                        <li>
+                            <p> The color of a card in the backlog stands for the department to which the task was assigned.</p>
                         </li>
                     </ul>
                 </div>

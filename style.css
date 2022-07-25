@@ -116,7 +116,6 @@ body {
     flex-direction: column;
     align-items: center;
     width: 90%;
-    justify-content: center;
     padding: 15px;
 }
 
@@ -538,6 +537,25 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: end;
+}
+
+#btn-box:hover {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    cursor: pointer;
+}
+
+#category:hover {
+    cursor: pointer;
+}
+
+#date:hover {
+    cursor: pointer;
+}
+
+#urgency:hover {
+    cursor: pointer;
 }
 
 .mb-3, input {
@@ -1052,5 +1070,11 @@ p {
 @media(max-width:300px) {
     .help-container {
         width: 260px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #backlogField {
+        width: 130%;
     }
 }
