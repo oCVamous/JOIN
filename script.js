@@ -384,7 +384,8 @@ function renderAvatar() {
     document.getElementById('persons').innerHTML = ``;
     for (let i = 0; i < avatar.length; i++) {
         const avatare = avatar[i].avatar;
-        document.getElementById('persons').innerHTML += templateAvatare(i, avatare);
+        const name = avatar[i].name;
+        document.getElementById('persons').innerHTML += templateAvatare(i, avatare,name);
     }
 }
 
