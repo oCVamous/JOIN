@@ -300,6 +300,20 @@ function drop(dropzone) {
     resetTasks();
 }
 
+// Help Section ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * This function show you the help.
+ */
+ function loadHelp() {
+    if (!currentUser) {
+        alert('please Login')
+    } else {
+        let content = document.getElementById('content');
+        content.innerHTML = ``;
+        content.innerHTML += templateHelp();
+    }
+}
 // Backlog Section ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**

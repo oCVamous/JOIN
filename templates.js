@@ -538,3 +538,70 @@ function templateDatenschutz() {
     </div>
     `;
 }
+
+function templateHelp() {
+    return /*html*/ `
+        <header class="header">
+            <h1>Help</h1>
+        </header>
+            <div class="help-content">
+                <div class="help-container">
+                    <h2>What is Kanban and what is it used for?</h2>
+                    <p>Kanban (Japanese for sign) is an inventory control system used in just-in-time (JIT)
+                        manufacturing to
+                        track production and order new shipments of parts and materials.
+                        Kanban was developed by Taiichi Ohno, an industrial engineer at Toyota, and uses visual cues to
+                        prompt the action needed to keep a process flowing.</p>
+                </div>
+                <div class="help-container">
+                    <h2>How do I use the board?</h2>
+                    <ul>
+                        <li>
+                            <p>On the board each task passes through 4 stages.</p>
+                        </li>
+                        <li>
+                            <p>The tasks can simply be moved by drag and drop.</p>
+                        </li>
+                        <li>
+                            <p>After a task has been completed, it can be deleted.</p>
+                        </li>
+                        <li>
+                            <p>The color of the left border of each task illustrates its importance level.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="help-container">
+                    <h2>How do I use the backlog?</h2>
+                    <ul>
+                        <li>
+                            <p>Create new tasks in the add-task section.</p>
+                        </li>
+                        <li>
+                            <p> Fill the form and choose by whom the task should be processed.</p>
+                        </li>
+                        <li>
+                            <p> You can create new categories for your individual purpose.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="help-container">
+                    <h2>How do I use the Add Task?</h2>
+                    <ul>
+                        <li>
+                            <p>The backlog is a collection of upcoming tasks and ideas that are not yet in the focus of
+                                the
+                                project team.</p>
+                        </li>
+                        <li>
+                            <p>To move the task to the board click on the arrow icon.</p>
+                        </li>
+                        <li>
+                            <p>By click on the task you can see and edit all details.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        `;
+}
