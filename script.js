@@ -1,24 +1,10 @@
 let users = [];
-/* {
-    'id': 0,
-    'firstname': 'Dominik',
-    'lastname': 'Waldow',
-    'email': 'dominik@join.com',
-    'password': '01234',
-    'category': 2,
-    'avatar': 'img/avatar1.jpg'
-}*/
-
 let allTasks = [];
-
-let UserRegisterURL;
-
-
-let avatar = []; //'img/avatar/avatar1.jpg', 'img/avatar/avatar2.jpg'
+let avatar = [];
 let selectedUsers = [];
+let UserRegisterURL;
 let dragTaskId;
 let currentUser;
-
 
 function init() {
     backendPull();
@@ -141,24 +127,6 @@ function loadLogin() {
     content.innerHTML = ``;
     content.innerHTML += templateLogin();
 }
-/**
- * This function show you the register page.
- */
-function loadRegister() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateRegister();
-    renderAvatar();
-}
-
-function highlightRegisterAvatar(nr) {
-    let imageNr = nr;
-    let highlightAvatar = document.getElementById('example-image' + imageNr);
-    highlightAvatar.classList.toggle('avatar-selected');
-
-    let url = document.getElementById('example-image' + imageNr).src;
-    UserRegisterURL = url;
-}
 
 /**
  * This function compares the login data with the database and logs you in.
@@ -187,6 +155,12 @@ async function login() {
     }
 }
 
+/**
+ *  This function init the login.
+ * 
+ * @param {integer} i //index
+ * @returns 
+ */
 function userLogin(i){
     document.getElementById('user-box').classList.remove('hidden');
     currentUser = users[i];
@@ -197,6 +171,9 @@ function userLogin(i){
     img.src = currentUser.avatar;
 }
 
+/**
+ * This function save informations from user.
+ */
 function saveAvatar(){
     for(let i=0; i<users.length; i++){
         avatar.push({
@@ -252,17 +229,29 @@ function resetTasks() {
     loadTasks();
 }
 
+/**
+ *  This function find and returns the image from id.
+ * 
+ * @param {integer} user 
+ * @returns 
+ */
 function findImage(user){
     for(let i=0; i<avatar.length; i++){
-        if(avatar[i].id == user){                 //now for testing. If the user ID working then change avatar.name in id.
+        if(avatar[i].id == user){                 
             return avatar[i].avatar;
         }
     }
 }
 
+/**
+ *  This function find and returns the name from id.
+ * 
+ * @param {integer} user 
+ * @returns 
+ */
 function findName(user){
     for(let i=0; i<avatar.length; i++){
-        if(avatar[i].id == user){                 //now for testing. If the user ID working then change avatar.name in id.
+        if(avatar[i].id == user){                 
             return avatar[i].name;
         }
     }
@@ -399,11 +388,6 @@ function renderAvatar() {
     }
 }
 
-function templateAvatare(i, avatare) {
-    return /*html*/ `
-    <img id="user${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
-}
-
 async function selectUser(i) {
 
     await userBackendPull();
@@ -440,7 +424,6 @@ async function createTask() {
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
-
     let id = pickNextId();
     
     setValuesTask(title, date, catergory, description, urgency, id);
@@ -466,7 +449,7 @@ function setValuesTask(title, date, catergory, description, urgency, id){
         loadAddTask();
     } else {
         alert('please select a user')
-    }    //map the selectedUsers by firstname + set Task values    /
+    }
 }
 
 function pickNextId(){
@@ -486,12 +469,29 @@ function pickNextId(){
 
 // Register Section ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * This function show you the register page.
+ */
+ function loadRegister() {
+    let content = document.getElementById('content');
+    content.innerHTML = ``;
+    content.innerHTML += templateRegister();
+    renderAvatar();
+}
+
+function highlightRegisterAvatar(nr) {
+    let imageNr = nr;
+    let highlightAvatar = document.getElementById('example-image' + imageNr);
+    highlightAvatar.classList.toggle('avatar-selected');
+    let url = document.getElementById('example-image' + imageNr).src;
+    UserRegisterURL = url;
+}
+
 function register() {
     let firstname = document.getElementById("firstname");
     let lastname = document.getElementById("lastname");
     let email = document.getElementById("email");
     let password = checkPassword();
-
     if (password.trim() != "" && avatar.value != "") {
       let newUser = {
         firstname: firstname.value,
@@ -515,7 +515,6 @@ async function saveUser(newUser){
 function checkPassword() {
     let firstPassword = document.getElementById('password-register').value;
     let secondPassword = document.getElementById('password-confirmed-register').value;
-
     if(firstPassword == secondPassword) {
         password = secondPassword;
         return password;
