@@ -240,7 +240,11 @@ function templateBacklogContent(task){
 
 function templateAddTask() {
     return /*html*/ `
-    <h2>Add Task</h2>
+    <header class="header animation">
+            <h1>Add Task</h1>
+        </header>
+    <div class="animation basic">
+
     <form onsubmit="event.preventDefault(), createTask()">
     <div class="addTask-main">
         <div id="addTask-left">
@@ -312,7 +316,7 @@ function templateAddTask() {
             </div>
         </div>
     </form>
-
+    </div>
     `;
 }
 
@@ -323,7 +327,7 @@ function templateAvatare(i, avatare) {
 
 function templateImpressum() {
     return /*html*/ `
-    <div class="impressum-main">
+    <div class="impressum-main animation">
         <h1>Impressum</h1>
 
         <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
@@ -345,6 +349,9 @@ function templateImpressum() {
 
 function templateDatenschutz() {
     return /*html*/ `
+
+    <div class="animation impressum-main">
+
     <h2>Datenschutzerkl&auml;rung</h2>
         <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:
         </p><br />
@@ -538,15 +545,16 @@ function templateDatenschutz() {
         <a href="https://www.swissanwalt.ch" target="_blank" rel="noopener">SwissAnwalt</a></p>
         <!--Bitte beachten Sie die AGB von SwissAnwalt betreffend allfällig anfallenden Kosten bei Weglassen der Quelle!-->
     </div>
+    </div>
     `;
 }
 
 function templateHelp() {
     return /*html*/ `
-        <header class="header">
+        <header class="header animation">
             <h1>Help</h1>
         </header>
-            <div class="help-content">
+            <div class="help-content animation">
                 <div class="help-container">
                     <h2>What is Kanban and what is it used for?</h2>
                     <p>Kanban (Japanese for sign) is an inventory control system used in just-in-time (JIT)
