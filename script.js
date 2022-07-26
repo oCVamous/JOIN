@@ -364,6 +364,39 @@ function loadInfoContent(task){
     content.innerHTML = templateLoadInfo(task);
 }
 
+function editTask(id){
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].id == id) {
+            let content = document.getElementById('content');
+            content.innerHTML = templateLoadEdit(allTasks[i]);
+        }
+    }
+}
+
+function select(currentValue, value){
+    if(currentValue == value){
+        return "selected";
+    }else{
+        return " ";
+    }
+}
+
+function renderCurrentAvatar(id) {
+    document.getElementById('persons').innerHTML = ``;
+    for (let i = 0; i < avatar.length; i++) {
+        if(avatar[i].user == id){
+            const avatare = avatar[i].avatar;
+            const name = avatar[i].name;
+            document.getElementById('persons').innerHTML += templateCurrentAvatare(i, avatare,name);
+        }else{
+            const avatare = avatar[i].avatar;
+            const name = avatar[i].name;
+            document.getElementById('persons').innerHTML += templateAvatare(i, avatare,name);
+        }
+        
+    }
+}
+
 // Add Task Section //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
@@ -394,6 +427,7 @@ async function selectUser(i) {
     await userBackendPull();
 
     if (users.length > 0) {
+        selectedUsers = [];
         let user = document.getElementById('user' + i);
         user.classList.toggle('avatar-selected');
         users[i].password = "";
@@ -419,15 +453,28 @@ function clearTask() {
 
 }
 
-async function createTask() {
+async function createTask(currentId) {
+    let id;
+    if(!currentId){
+        id = pickNextId();
+    }else{
+        deleteCurrentTask(currentId);
+        id = currentId;
+    }
     let title = document.getElementById('title');
     let date = document.getElementById('date');
     let catergory = document.getElementById('catergory');
     let description = document.getElementById('description');
     let urgency = document.getElementById('urgency');
-    let id = pickNextId();
-    
     setValuesTask(title, date, catergory, description, urgency, id);
+}
+
+function deleteCurrentTask(currentId){
+    for(let i = 0; i < allTasks.length; i++){
+        if(allTasks[i].id == currentId){
+            allTasks.splice(i,1);
+        }
+    }
 }
 
 function setValuesTask(title, date, catergory, description, urgency, id){
@@ -447,7 +494,7 @@ function setValuesTask(title, date, catergory, description, urgency, id){
         allTasks.push(task);
         backendPush();
         clearTask();
-        loadAddTask();
+        loadBacklog();
     } else {
         alert('please select a user')
     }
