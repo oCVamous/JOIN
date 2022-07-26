@@ -557,11 +557,14 @@ function highlightRegisterAvatar(imageNr) {
     UserRegisterURL = url;
 }
 
-function register() {
+async function register() {
+    await userBackendPull();
     let firstname = document.getElementById("firstname");
     let lastname = document.getElementById("lastname");
     let email = document.getElementById("email");
     let password = checkPassword();
+    let newId = users.length + 1;
+    users = [];
     if (password.trim() != "" && avatar.value != "") {
       let newUser = {
         firstname: firstname.value,
@@ -569,17 +572,10 @@ function register() {
         email: email.value,
         password: password,
         avatar: UserRegisterURL,
-        id: catchNewID(),
+        id: newId
       };
       saveUser(newUser);
     }
-}
-
-async function catchNewID(){
-    await userBackendPull()
-    let newID = users.length + 1;
-    users = [];
-    return newID;
 }
 
 async function saveUser(newUser){
