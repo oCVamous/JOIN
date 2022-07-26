@@ -350,6 +350,11 @@ function deleteTask(id) {
     }
 }
 
+/**
+ * This function init the infobox for a Task in mobile view.
+ * 
+ * @param {integer} id 
+ */
 function infoTask(id){
     for (let i = 0; i < allTasks.length; i++) {
         if (allTasks[i].id == id) {
@@ -364,6 +369,11 @@ function loadInfoContent(task){
     content.innerHTML = templateLoadInfo(task);
 }
 
+/**
+ * This function init the edit for a Task.
+ * 
+ * @param {integer} id 
+ */
 function editTask(id){
     for (let i = 0; i < allTasks.length; i++) {
         if (allTasks[i].id == id) {
@@ -373,6 +383,13 @@ function editTask(id){
     }
 }
 
+/**
+ * This function select the current choise of categories and urgencys.
+ * 
+ * @param {string} currentValue 
+ * @param {string} value 
+ * @returns 
+ */
 function select(currentValue, value){
     if(currentValue == value){
         return "selected";
@@ -381,6 +398,11 @@ function select(currentValue, value){
     }
 }
 
+/**
+ * This function select the current choise of the avatar.
+ * 
+ * @param {integer} id 
+ */
 function renderCurrentAvatar(id) {
     document.getElementById('persons').innerHTML = ``;
     for (let i = 0; i < avatar.length; i++) {
