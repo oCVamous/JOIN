@@ -402,12 +402,12 @@ function templateAddTask() {
     `;
 }
 
-function templateAvatare(i, avatare,name) {
+function templateAvatare(i, avatare, name, id) {
     return /*html*/ `<img title="${name}" id="user${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
 
 }
 
-function templateCurrentAvatare(i, avatare,name) {
+function templateCurrentAvatare(i, avatare, name, id) {
     return /*html*/ `<img title="${name}" id="user${i}" onload="selectUser(${i})" src="${avatare}" class="avatar">`;
 
 }

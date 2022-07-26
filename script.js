@@ -440,27 +440,25 @@ function renderAvatar() {
     for (let i = 0; i < avatar.length; i++) {
         const avatare = avatar[i].avatar;
         const name = avatar[i].name;
-        document.getElementById('persons').innerHTML += templateAvatare(i, avatare,name);
+        const id = avatar[i].id
+        document.getElementById('persons').innerHTML += templateAvatare(i, avatare, name, id);
     }
 }
 
-async function selectUser(i) {
-
-    await userBackendPull();
-
-    if (users.length > 0) {
+async function selectUser(index, id) {
+    /* await userBackendPull(); */
+    
         selectedUsers = [];
-        let user = document.getElementById('user' + i);
-        user.classList.toggle('avatar-selected');
-        users[i].password = "";
-        selectedUsers.push(users[i]);
-
-        if (selectedUsers.includes(users[i])) {
-            selectedUsers = selectedUsers.filter(a => a != users[i]);
+        let user = document.getElementById('user' + index);
+        for(let i = 0; i < avatar.length; i++){
+            let allUser = document.getElementById('user' + i);
+            allUser.classList.remove('avatar-selected');
         }
-        selectedUsers.push(users[i])
-    }
-    users = [];
+        user.classList.toggle('avatar-selected');
+        /* users[index].password = ""; */
+        selectedUsers.push(avatar[index]);
+    
+    /* users = []; */
 }
 
 function clearTask() {
@@ -569,10 +567,17 @@ function register() {
         email: email.value,
         password: password,
         avatar: UserRegisterURL,
-        id: users.length + 1,
+        id: catchNewID(),
       };
       saveUser(newUser);
     }
+}
+
+async function catchNewID(){
+    await userBackendPull()
+    let newID = users.length + 1;
+    users = [];
+    return newID;
 }
 
 async function saveUser(newUser){
