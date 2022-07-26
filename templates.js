@@ -5,16 +5,16 @@ function templateContent() {
     <div class="animation">
             <div id="animation-1">
                 <img class="joinlogo" src="img/logo.png" alt="">
-                <h1>Wilkommen</h1>
+                <h1>Welcome</h1>
             </div>
 
-            <div class="animation-1"><p>Dieses Kanban-Projekt ist in Teamarbeit entstanden.</p></div>
+            <div class="animation-1"><p>This Kanban project was created through teamwork.</p></div>
             
             <div id="werbetext">
-                <p><img src="img/bullet-point.png" style="height: 10px;"> Hier können Sie Aufgaben Anlegen,</p>
-                <p><img src="img/bullet-point.png" style="height: 10px;"> diese nach Dringlichkeit Sortieren</p>
-                <p><img src="img/bullet-point.png" style="height: 10px;"> und bestimmten Mitarbeitern zuteilen.</p>
-                <p><img src="img/bullet-point.png" style="height: 10px;"> Unter dem Reiter Help finden Sie alle wichtigen Informationen um die Seite optimal nutzen zu können.</p>
+                <p><img src="img/bullet-point.png" style="height: 10px;"> Here you can create tasks,</p>
+                <p><img src="img/bullet-point.png" style="height: 10px;"> Sort them by urgency</p>
+                <p><img src="img/bullet-point.png" style="height: 10px;"> and assign them to specific employees.</p>
+                <p><img src="img/bullet-point.png" style="height: 10px;"> Under the Help tab you will find all the important information to make the best use of the site.</p>
             </div>
             
              <br>
@@ -50,8 +50,8 @@ function templateLogin() {
                 <input type="password" class="form-control" id="password">
             </div>
              
-            <button onclick="login()" class="btn btn-primary">Login</button>
-            <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
+            <button onclick="login()" style="background-color: #22318B;" class="btn btn-primary">Login</button>
+            <button onclick="loadRegister()" style="background-color: #22318B;" class="btn btn-primary">Registrieren</button>
         </div>
             
         
@@ -440,7 +440,7 @@ function templateImpressum() {
 function templateDatenschutz() {
     return /*html*/ `
 
-    <div class="impressum-main animation">
+    <div id="hulu" class="impressum-main animation">
 
     <h2>Datenschutzerkl&auml;rung</h2>
         <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:

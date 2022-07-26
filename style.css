@@ -4,6 +4,10 @@ body {
     display: flex;
 }
 
+.impressum-main {
+    width: 85%;
+}
+
 #navigation {
     display: flex;
     background-color: #22318B;
@@ -890,7 +894,7 @@ h2 {
     .boardPage h1 {
         font-size: 26px;
     }
-
+    
     .impressum-main h1 {
         width: 85%;
     }
