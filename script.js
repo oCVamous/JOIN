@@ -576,9 +576,9 @@ function register() {
 }
 
 async function saveUser(newUser){
-    userBackendPull();
+    await userBackendPull();
     users.push(newUser);
-    userBackendPush();
+    await userBackendPush();
     loadLogin();
 }
 
