@@ -96,10 +96,10 @@ function templateRegister() {
             
             <label class="form-label">Choose you Avatar</label>
             <div id="persons-register" class="persons">  
-                <img id="example-image1" onclick="highlightRegisterAvatar(1)" class="avatar" src='img/avatar/default/user1.png' alt="">
-                <img id="example-image2" onclick="highlightRegisterAvatar(2)" class="avatar" src='img/avatar/default/user2.png' alt="">
-                <img id="example-image3" onclick="highlightRegisterAvatar(3)" class="avatar" src='img/avatar/default/user3.png' alt="">
-                <img id="example-image4" onclick="highlightRegisterAvatar(4)" class="avatar" src='img/avatar/default/user4.png' alt="">
+                <img id="example-image1" onclick="highlightRegisterAvatar(1, 'img/avatar/default/user1.png')" class="avatar" src='img/avatar/default/user1.png' alt="">
+                <img id="example-image2" onclick="highlightRegisterAvatar(2, 'img/avatar/default/user2.png')" class="avatar" src='img/avatar/default/user2.png' alt="">
+                <img id="example-image3" onclick="highlightRegisterAvatar(3, 'img/avatar/default/user3.png')" class="avatar" src='img/avatar/default/user3.png' alt="">
+                <img id="example-image4" onclick="highlightRegisterAvatar(4, 'img/avatar/default/user4.png')" class="avatar" src='img/avatar/default/user4.png' alt="">
             </div>
              
             <button onclick="loadLogin()" class="btn btn-primary">Cancel</button>

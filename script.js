@@ -546,15 +546,14 @@ function pickNextId(){
     content.innerHTML += templateRegister();
 }
 
-function highlightRegisterAvatar(imageNr) {
+function highlightRegisterAvatar(imageNr, imgSrc) {
     for(let i = 1; i < 5;i++){
         let avtr = document.getElementById('example-image' + i);
         avtr.classList.remove('avatar-selected');
     }
     let highlightAvatar = document.getElementById('example-image' + imageNr);
     highlightAvatar.classList.toggle('avatar-selected');
-    let url = document.getElementById('example-image' + imageNr).src;
-    UserRegisterURL = url;
+    UserRegisterURL = imgSrc;
 }
 
 async function register() {
