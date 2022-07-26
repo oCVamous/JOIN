@@ -241,7 +241,7 @@ function templateBacklogContent(task){
 function templateLoadEdit(task) {
     return /*html*/ `
     <header class="header animation">
-            <h1>Edit Task</h1>
+            <h2>Edit Task</h2>
         </header>
     <div class="animation basic">
 
@@ -323,7 +323,7 @@ function templateLoadEdit(task) {
 function templateAddTask() {
     return /*html*/ `
     <header class="header animation">
-            <h1>Add Task</h1>
+            <h2>Add Task</h2>
         </header>
     <div class="animation basic">
 
@@ -415,7 +415,7 @@ function templateCurrentAvatare(i, avatare,name) {
 function templateImpressum() {
     return /*html*/ `
     <div class="impressum-main animation">
-        <h1>Impressum</h1>
+        <h2>Impressum</h2>
 
         <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
         <p>Patrick Sterz<br />Spinnereistraße 1A<br /> 30449 Hannover</p>
@@ -639,7 +639,7 @@ function templateDatenschutz() {
 function templateHelp() {
     return /*html*/ `
         <header class="header animation">
-            <h1>Help</h1>
+            <h2>Help</h2>
         </header>
             <div class="help-content animation">
                 <div class="help-container">
