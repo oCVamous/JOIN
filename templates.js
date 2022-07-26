@@ -5,13 +5,16 @@ function templateContent() {
     <div class="animation">
             <div id="animation-1">
                 <img class="joinlogo" src="img/logo.png" alt="">
-                <h1>Best Kanban-System of the World</h1>
+                <h1>Wilkommen</h1>
             </div>
+
+            <div class="animation-1"><p>Dieses Kanban-Projekt ist in Teamarbeit entstanden.</p></div>
             
             <div id="werbetext">
-                <p><img src="img/bullet-point.png" style="height: 10px;"> Easy Peasy per DRAG & DROP</p>
-                <p><img src="img/bullet-point.png" style="height: 10px;"> Koordination der Task für das ganze Team</p>
-                <p><img src="img/bullet-point.png" style="height: 10px;"> Den Task einzelnen Bearbeitungsschritten geben</p>
+                <p><img src="img/bullet-point.png" style="height: 10px;"> Hier können Sie Aufgaben Anlegen,</p>
+                <p><img src="img/bullet-point.png" style="height: 10px;"> diese nach Dringlichkeit Sortieren</p>
+                <p><img src="img/bullet-point.png" style="height: 10px;"> und bestimmten Mitarbeitern zuteilen.</p>
+                <p><img src="img/bullet-point.png" style="height: 10px;"> Unter dem Reiter Help finden Sie alle wichtigen Informationen um die Seite optimal nutzen zu können.</p>
             </div>
             
              <br>
@@ -437,7 +440,7 @@ function templateImpressum() {
 function templateDatenschutz() {
     return /*html*/ `
 
-    <div class="animation impressum-main">
+    <div class="impressum-main animation">
 
     <h2>Datenschutzerkl&auml;rung</h2>
         <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:

@@ -147,6 +147,13 @@ li:hover>.active-s {
 #animation-1 {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.animation-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes reveal {
@@ -882,6 +889,10 @@ h2 {
 
     .boardPage h1 {
         font-size: 26px;
+    }
+
+    .impressum-main h1 {
+        width: 85%;
     }
 
     .impressum-main h1 {
