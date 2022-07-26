@@ -111,7 +111,7 @@ function templateRegister() {
 function templateBoard() {
     return /*html*/ `
     <div class="boardPage animation">
-        <h1 class="boardHeadline">Taskboard</h1>	
+        <h2 class="boardHeadline">Taskboard</h2>	
         <div class="boardField">
         <div class="boardContainer">
             <h3>ToDo</h3>
