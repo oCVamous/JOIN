@@ -544,11 +544,13 @@ function pickNextId(){
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateRegister();
-    renderAvatar();
 }
 
-function highlightRegisterAvatar(nr) {
-    let imageNr = nr;
+function highlightRegisterAvatar(imageNr) {
+    for(let i = 1; i < 5;i++){
+        let avtr = document.getElementById('example-image' + i);
+        avtr.classList.remove('avatar-selected');
+    }
     let highlightAvatar = document.getElementById('example-image' + imageNr);
     highlightAvatar.classList.toggle('avatar-selected');
     let url = document.getElementById('example-image' + imageNr).src;
