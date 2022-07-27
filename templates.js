@@ -178,7 +178,7 @@ function templateBacklog(){
 
 function templateEmptyLog(){
     return /*html*/ `
-    <div class="log" style="background-color: red">
+    <div class="log">
         <h2>EMPTY</h2>
     </div>
 `; 
@@ -389,7 +389,7 @@ function templateAddTask() {
                     <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
                         
                     <div>
-                        <button type="reset" class="btn btn-secondary btn-lg">Cancel</button>
+                        <button onclick="loadBoard()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
                         <button type="submit" class="btn btn-primary btn-lg">Add task</button>
                     </div>
                 </div>
