@@ -325,10 +325,11 @@ function templateLoadEdit(task) {
 
 function templateAddTask() {
     return /*html*/ `
-    <header class="header animation">
+    <div class="animation basic">
+    <header class="header">
             <h2>Add Task</h2>
         </header>
-    <div class="animation basic">
+    
 
     <form onsubmit="event.preventDefault(), createTask()">
     <div class="addTask-main">
@@ -641,10 +642,11 @@ function templateDatenschutz() {
 
 function templateHelp() {
     return /*html*/ `
-        <header class="header animation">
+    <div class="animation basic">
+        <header class="header">
             <h2>Help</h2>
         </header>
-            <div class="help-content animation">
+            <div class="help-content">
                 <div class="help-container">
                     <h2>What is Kanban and what is it used for?</h2>
                     <p>Kanban (Japanese for sign) is an inventory control system used in just-in-time (JIT)
@@ -705,6 +707,7 @@ function templateHelp() {
                 </div>
             </div>
             
+        </div>
         </div>
         `;
 }
