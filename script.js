@@ -360,9 +360,13 @@ function loadBacklogContent() {
 function deleteTask(id) {
     for (let i = 0; i < allTasks.length; i++) {
         if (allTasks[i].id == id) {
-            allTasks.splice(i, 1);
-            backendPush()
-            loadBacklogContent()
+            if(allTasks[i].level == 'done'){
+                allTasks.splice(i, 1);
+                backendPush();
+                loadBacklogContent();
+            }else{
+                alert('not allowed. The task must be done for delete.');
+            }
         }
     }
 }
