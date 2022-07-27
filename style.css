@@ -47,6 +47,11 @@ body {
     padding-left: 10px;
     font-size: 17px;
     letter-spacing: .5px;
+    border-left: 4px solid transparent;
+}
+
+.selectedMenu{
+    border-left: 4px solid white !important;
 }
 
 .active:hover {

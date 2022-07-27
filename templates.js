@@ -50,8 +50,8 @@ function templateLogin() {
                 <input type="password" class="form-control" id="password">
             </div>
              
-            <button onclick="login()" style="background-color: #22318B;" class="btn btn-primary">Login</button>
-            <button onclick="loadRegister()" style="background-color: #22318B;" class="btn btn-primary">Registrieren</button>
+            <button onclick="login()" class="btn btn-primary">Login</button>
+            <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
         </div>
             
         
@@ -102,7 +102,7 @@ function templateRegister() {
                 <img id="example-image4" onclick="highlightRegisterAvatar(4, 'img/avatar/default/user4.png')" class="avatar" src='img/avatar/default/user4.png' alt="">
             </div>
              
-            <button onclick="loadLogin()" class="btn btn-primary">Cancel</button>
+            <button onclick="loadLogin()" class="btn btn-secondary">Cancel</button>
             <button onclick="register()" class="btn btn-primary">Registrieren</button>
         </div>
             
