@@ -21,16 +21,6 @@ function loadContent() {
     }
 }
 
-function selectMenu(id){
-    for(let i = 1; i <= 6; i++){
-        if(i == id){
-            document.getElementById('menu-'+i).classList.add('selectedMenu');
-        }else{
-            document.getElementById('menu-'+i).classList.remove('selectedMenu');
-        }
-    }
-}
-
 // Switch Section /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function categoryText(category) {
@@ -206,7 +196,6 @@ function loadBoard() {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateBoard();
-        selectMenu(1);
         loadTasks();
     }
 }
@@ -312,7 +301,6 @@ function drop(dropzone) {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateHelp();
-        selectMenu(4);
     }
 }
 // Backlog Section ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -327,7 +315,6 @@ function loadBacklog() {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateBacklog();
-        selectMenu(2);
         loadBacklogContent();
     }
 }
@@ -398,7 +385,7 @@ function editTask(id){
 function checkCreator(id, i){
     if(allTasks[i].creator == currentUser.id){
         let content = document.getElementById('content');
-        content.innerHTML = templateLoadEdit(allTasks[i]);
+        content.innerHTML += templateLoadEdit(allTasks[i]);
     }else{
         alert('you are not the creator of this task.')
     }
@@ -453,7 +440,6 @@ function loadAddTask() {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateAddTask();
-        selectMenu(3);
     }
 }
 
@@ -624,12 +610,10 @@ function loadImpressum() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateImpressum();
-    selectMenu(5);
 }
 
 function loadDatenschutz() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateDatenschutz();
-    selectMenu(6);
 }

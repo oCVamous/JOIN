@@ -47,11 +47,6 @@ body {
     padding-left: 10px;
     font-size: 17px;
     letter-spacing: .5px;
-    border-left: 4px solid transparent;
-}
-
-.selectedMenu{
-    border-left: 4px solid white !important;
 }
 
 .active:hover {
@@ -1029,6 +1024,21 @@ h2 {
     margin-top: 15px;
 }
 
+.MODAL {
+    position: fixed;
+    background-color: #000000c8;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.MODAL .header h2 {
+    margin: 0;
+}
+
 .text-primary {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
@@ -1104,3 +1114,4 @@ p {
         width: 130%;
     }
 }
+

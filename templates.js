@@ -50,8 +50,8 @@ function templateLogin() {
                 <input type="password" class="form-control" id="password">
             </div>
              
-            <button onclick="login()" class="btn btn-primary">Login</button>
-            <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
+            <button onclick="login()" style="background-color: #22318B;" class="btn btn-primary">Login</button>
+            <button onclick="loadRegister()" style="background-color: #22318B;" class="btn btn-primary">Registrieren</button>
         </div>
             
         
@@ -102,7 +102,7 @@ function templateRegister() {
                 <img id="example-image4" onclick="highlightRegisterAvatar(4, 'img/avatar/default/user4.png')" class="avatar" src='img/avatar/default/user4.png' alt="">
             </div>
              
-            <button onclick="loadLogin()" class="btn btn-secondary">Cancel</button>
+            <button onclick="loadLogin()" class="btn btn-primary">Cancel</button>
             <button onclick="register()" class="btn btn-primary">Registrieren</button>
         </div>
             
@@ -243,14 +243,11 @@ function templateBacklogContent(task){
 
 function templateLoadEdit(task) {
     return /*html*/ `
-    <div class="animation basic">
-    <header class="header">
-            <h2>Edit Task</h2>
-        </header>
-    
+    <div class="MODAL edit-task">
 
     <form onsubmit="event.preventDefault(), createTask(${task.id})"> <!-- change to edit -->
     <div class="addTask-main">
+        
         <div id="addTask-left">
 
             <div class="input">
@@ -310,7 +307,7 @@ function templateLoadEdit(task) {
                         
                     <div>
                         <button onclick="loadBacklog()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-lg">Edit task</button>
+                        <button type="submit" class="btn btn-primary btn-lg" style="background-color: #22318B;">Edit task</button>
                     </div>
                 </div>
             </div>
