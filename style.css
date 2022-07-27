@@ -357,7 +357,8 @@ li:hover>.active-s {
 .taskImage{
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 50%;  
+    border-radius: 50%; 
+    object-fit: cover; 
 }
 
 /* width */
@@ -461,6 +462,7 @@ li:hover>.active-s {
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 50%;
+    object-fit: cover;
     margin-right: 1rem;
 }
 
