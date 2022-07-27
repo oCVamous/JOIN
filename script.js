@@ -563,7 +563,6 @@ async function register() {
     let email = document.getElementById("email");
     let password = checkPassword();
     let newId = users.length + 1;
-    users = [];
     if (password.trim() != "" && avatar.value != "") {
       let newUser = {
         firstname: firstname.value,
@@ -581,6 +580,7 @@ async function saveUser(newUser){
     await userBackendPull();
     users.push(newUser);
     await userBackendPush();
+    users = [];
     loadLogin();
 }
 
