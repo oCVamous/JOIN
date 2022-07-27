@@ -50,8 +50,8 @@ function templateLogin() {
                 <input type="password" class="form-control" id="password">
             </div>
              
-            <button onclick="login()" style="background-color: #22318B;" class="btn btn-primary">Login</button>
-            <button onclick="loadRegister()" style="background-color: #22318B;" class="btn btn-primary">Registrieren</button>
+            <button onclick="login()" class="btn btn-primary">Login</button>
+            <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
         </div>
             
         
@@ -102,7 +102,7 @@ function templateRegister() {
                 <img id="example-image4" onclick="highlightRegisterAvatar(4, 'img/avatar/default/user4.png')" class="avatar" src='img/avatar/default/user4.png' alt="">
             </div>
              
-            <button onclick="loadLogin()" class="btn btn-primary">Cancel</button>
+            <button onclick="loadLogin()" class="btn btn-secondary">Cancel</button>
             <button onclick="register()" class="btn btn-primary">Registrieren</button>
         </div>
             
@@ -303,11 +303,11 @@ function templateLoadEdit(task) {
                 <label class="form-label" for="formGroupExampleInput" class="form-label">Assigned</label>
 
                 <div id="btn-box">
-                    <img onload="renderCurrentAvatar()" src="img/icon plus.png" style="padding-right:10px">
+                    <img onload="renderCurrentAvatar(${task.user})" src="img/icon plus.png" style="padding-right:10px">
                         
                     <div>
                         <button onclick="loadBacklog()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-lg" style="background-color: #22318B;">Edit task</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Edit task</button>
                     </div>
                 </div>
             </div>
@@ -404,12 +404,12 @@ function templateAddTask() {
     `;
 }
 
-function templateAvatare(i, avatare, name, id) {
+function templateAvatare(i, avatare, name) {
     return /*html*/ `<img title="${name}" id="user${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
 
 }
 
-function templateCurrentAvatare(i, avatare, name, id) {
+function templateCurrentAvatare(i, avatare, name) {
     return /*html*/ `<img title="${name}" id="user${i}" onload="selectUser(${i})" src="${avatare}" class="avatar">`;
 
 }

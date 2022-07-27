@@ -14,10 +14,21 @@ function init() {
 function loadContent() {
     if (!currentUser) {
         alert('please Login')
+        loadLogin();
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateContent();
+    }
+}
+
+function selectMenu(id){
+    for(let i = 1; i <= 6; i++){
+        if(i == id){
+            document.getElementById('menu-'+i).classList.add('selectedMenu');
+        }else{
+            document.getElementById('menu-'+i).classList.remove('selectedMenu');
+        }
     }
 }
 
@@ -192,10 +203,12 @@ function saveAvatar(){
 function loadBoard() {
     if (!currentUser) {
         alert('please Login')
+        loadLogin();
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateBoard();
+        selectMenu(1);
         loadTasks();
     }
 }
@@ -297,10 +310,12 @@ function drop(dropzone) {
  function loadHelp() {
     if (!currentUser) {
         alert('please Login')
+        loadLogin();
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateHelp();
+        selectMenu(4);
     }
 }
 // Backlog Section ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -311,10 +326,12 @@ function drop(dropzone) {
 function loadBacklog() {
     if (!currentUser) {
         alert('please Login')
+        loadLogin();
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateBacklog();
+        selectMenu(2);
         loadBacklogContent();
     }
 }
@@ -385,7 +402,7 @@ function editTask(id){
 function checkCreator(id, i){
     if(allTasks[i].creator == currentUser.id){
         let content = document.getElementById('content');
-        content.innerHTML += templateLoadEdit(allTasks[i]);
+        content.innerHTML = templateLoadEdit(allTasks[i]);
     }else{
         alert('you are not the creator of this task.')
     }
@@ -414,7 +431,7 @@ function select(currentValue, value){
 function renderCurrentAvatar(id) {
     document.getElementById('persons').innerHTML = ``;
     for (let i = 0; i < avatar.length; i++) {
-        if(avatar[i].user == id){
+        if(avatar[i].id == id){
             const avatare = avatar[i].avatar;
             const name = avatar[i].name;
             document.getElementById('persons').innerHTML += templateCurrentAvatare(i, avatare,name);
@@ -436,10 +453,12 @@ function renderCurrentAvatar(id) {
 function loadAddTask() {
     if (!currentUser) {
         alert('please Login')
+        loadLogin();
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateAddTask();
+        selectMenu(3);
     }
 }
 
@@ -453,7 +472,7 @@ function renderAvatar() {
     }
 }
 
-async function selectUser(index, id) {
+function selectUser(index, id) {
     /* await userBackendPull(); */
     
         selectedUsers = [];
@@ -571,7 +590,7 @@ async function register() {
     let lastname = document.getElementById("lastname");
     let email = document.getElementById("email");
     let password = checkPassword();
-    let newId = users.length + 1;
+    let newId = users.length;
     if (password.trim() != "" && avatar.value != "") {
       let newUser = {
         firstname: firstname.value,
@@ -610,10 +629,12 @@ function loadImpressum() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateImpressum();
+    selectMenu(5);
 }
 
 function loadDatenschutz() {
     let content = document.getElementById('content');
     content.innerHTML = ``;
     content.innerHTML += templateDatenschutz();
+    selectMenu(6);
 }
