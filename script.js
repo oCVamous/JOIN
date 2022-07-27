@@ -398,12 +398,12 @@ function loadInfoContent(task){
 function editTask(id){
     for (let i = 0; i < allTasks.length; i++) {
         if (allTasks[i].id == id) {
-            checkCreator(id, i);
+            checkCreator(i);
         }
     }
 }
 
-function checkCreator(id, i){
+function checkCreator(i){
     if(allTasks[i].creator == currentUser.id){
         let content = document.getElementById('content');
         content.innerHTML = templateLoadEdit(allTasks[i]);

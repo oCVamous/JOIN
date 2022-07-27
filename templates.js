@@ -367,7 +367,7 @@ function templateAddTask() {
 
             <div class="mb-3">
                 <label class="form-label" for="due date">Due Date</label>
-                <input id="date" required type="date" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                <input id="date" required type="date" class="form-control" id="formGroupExampleInput">
             </div>
 
             <label class="form-label" for="urgency">Urgency</label>
