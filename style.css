@@ -31,6 +31,10 @@ body {
     z-index: 5;
 }
 
+.footerString a {
+    color: white;
+}
+
 #addTask-left {
     padding-right: 50px;
 }

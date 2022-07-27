@@ -666,8 +666,12 @@ function templateHelp() {
                             <p>After a task has been completed, it can be deleted.</p>
                         </li>
                         <li>
-                            <p> The color of a card in the backlog stands for the department to which the task was assigned.</p>
+                            <p>The color of a card in the backlog stands for the category to which the task was assigned.</p>
                         </li>
+                        <li>
+                            <p>You can only delete a task when it is completed.</p>
+                        </li>
+                        
                     </ul>
                 </div>
                 <div class="help-container">
@@ -683,7 +687,10 @@ function templateHelp() {
                             <p> You can create new categories for your individual purpose.</p>
                         </li>
                         <li>
-                            <p> The color of a card in the backlog stands for the department to which the task was assigned.</p>
+                            <p> The color of a card in the backlog stands for the category to which the task was assigned.</p>
+                        </li>
+                        <li>
+                            <p> You can only edit tasks if you are also the creator of the task</p>
                         </li>
                     </ul>
                 </div>
@@ -696,10 +703,10 @@ function templateHelp() {
                                 project team.</p>
                         </li>
                         <li>
-                            <p>To move the task to the board click on the arrow icon.</p>
+                            <p>If you want to stop while creating a task, just click cancel</p>
                         </li>
                         <li>
-                            <p>By click on the task you can see and edit all details.</p>
+                            <p>By click on the pen you can see and edit all details.</p>
                         </li>
                     </ul>
                 </div>
