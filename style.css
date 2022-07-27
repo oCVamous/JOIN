@@ -12,7 +12,8 @@ body {
 
 .footerString{
     text-align: center;
-    font-size: 8px;
+    font-size: 10px;
+    color: white;
 }
 
 .impressum-main {
