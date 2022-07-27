@@ -477,8 +477,6 @@ function renderAvatar() {
 }
 
 function selectUser(index, id) {
-    /* await userBackendPull(); */
-    
         selectedUsers = [];
         let user = document.getElementById('user' + index);
         for(let i = 0; i < avatar.length; i++){
@@ -486,10 +484,7 @@ function selectUser(index, id) {
             allUser.classList.remove('avatar-selected');
         }
         user.classList.toggle('avatar-selected');
-        /* users[index].password = ""; */
         selectedUsers.push(avatar[index]);
-    
-    /* users = []; */
 }
 
 function clearTask() {
@@ -542,7 +537,7 @@ function setValuesTask(title, date, catergory, description, urgency, id){
             'id': id,
             'user': userArr.join(),
             'creator': currentUser.id
-        }
+        };
         allTasks.push(task);
         backendPush();
         clearTask();
