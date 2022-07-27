@@ -243,10 +243,11 @@ function templateBacklogContent(task){
 
 function templateLoadEdit(task) {
     return /*html*/ `
-    <header class="header animation">
+    <div class="animation basic">
+    <header class="header">
             <h2>Edit Task</h2>
         </header>
-    <div class="animation basic">
+    
 
     <form onsubmit="event.preventDefault(), createTask(${task.id})"> <!-- change to edit -->
     <div class="addTask-main">
