@@ -377,9 +377,17 @@ function loadInfoContent(task){
 function editTask(id){
     for (let i = 0; i < allTasks.length; i++) {
         if (allTasks[i].id == id) {
-            let content = document.getElementById('content');
-            content.innerHTML = templateLoadEdit(allTasks[i]);
+            checkCreator(id, i);
         }
+    }
+}
+
+function checkCreator(id, i){
+    if(allTasks[i].creator == currentUser.id){
+        let content = document.getElementById('content');
+        content.innerHTML = templateLoadEdit(allTasks[i]);
+    }else{
+        alert('you are not the creator of this task.')
     }
 }
 
@@ -509,7 +517,8 @@ function setValuesTask(title, date, catergory, description, urgency, id){
             'urgency': urgency.value,
             'level': 'todo',
             'id': id,
-            'user': userArr.join()
+            'user': userArr.join(),
+            'creator': currentUser.id
         }
         allTasks.push(task);
         backendPush();

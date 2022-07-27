@@ -308,7 +308,7 @@ function templateLoadEdit(task) {
                     <img onload="renderCurrentAvatar()" src="img/icon plus.png" style="padding-right:10px">
                         
                     <div>
-                        <button type="reset" class="btn btn-secondary btn-lg">Cancel</button>
+                        <button onclick="loadBacklog()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
                         <button type="submit" class="btn btn-primary btn-lg">Edit task</button>
                     </div>
                 </div>
