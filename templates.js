@@ -420,11 +420,11 @@ function templateImpressum() {
         <h2>Impressum</h2>
 
         <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
-        <p>Patrick Sterz<br />Spinnereistraße 1A<br /> 30449 Hannover</p>
-        <p>Dominik Waldow<br /> Gleis 9 3/4<br /> 55555 Hogwarts</p>
+        <p>Patrick Sterz<br />Musterstrasse<br /> 55555 Musterstadt</p>
+        <p>Dominik Waldow<br /> Musterstrasse <br /> 55555 Musterstadt</p>
 
         <h2>Kontakt</h2>
-        <p>Telefon: 01234567890<br /> E-Mail: info@join.com</p>
+        <p>Telefon: 01234567890(Muster)<br /> E-Mail: info@join.com(Muster)</p>
 
         <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
         <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
