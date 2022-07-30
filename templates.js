@@ -266,7 +266,7 @@ function templateLoadEdit(task) {
                         <option ${select(task.catergory, "3")} value="3">UX/UI Desing</option>
                         <option ${select(task.catergory, "4")} value="4">Human Resources</option>
                     </select>
-                    <label for="floatingSelect">Welche Abteilung?</label>
+                    <label for="floatingSelect">Which department?</label>
                 </div>
             </div>
 
@@ -295,7 +295,7 @@ function templateLoadEdit(task) {
                         <option ${select(task.urgency, "2")} value="2">Intermediate</option>
                         <option ${select(task.urgency, "3")} value="3">Low</option>
                     </select>
-                    <label class="form-label" for="floatingSelect">Wie hoch ist die Priorität?</label>
+                    <label class="form-label" for="floatingSelect">What is the priority?</label>
                 </div>
 
                 
