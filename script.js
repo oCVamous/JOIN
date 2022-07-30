@@ -600,6 +600,7 @@ async function register() {
         id: newId
       };
       saveUser(newUser);
+      alert('registration successful');
     }
 }
 
