@@ -1131,3 +1131,87 @@ p {
     }
 }
 
+
+
+
+
+
+
+/* BOARD */
+@media (max-width: 768px) {
+    .boardContainer {
+        min-height: 500px;
+    }
+    .boardContainerField {
+        overflow-x: hidden;
+        flex-direction: column;
+    }
+    .taskContainer {
+        row-gap: .2rem;
+        min-height: 250px;
+        margin: .5rem 0;
+        height: auto;
+        width: 100%;
+    }
+    .taskContainer > p {
+        height: auto;
+    }
+    .taskHeader {
+        padding-top: 1rem;
+        padding-bottom: .6rem;
+    }
+    .taskContainer .taskHeadline {
+        display: block !important;
+        position: static !important;
+        width: 100%;
+        padding-bottom: .4rem;
+    }
+    .taskHeadline > span:first-of-type {
+        display: none;
+    }
+    .taskDescription {
+        height: 250px;
+    }
+}
+
+/* ADD TASK */
+#persons {
+    flex-wrap: wrap;
+    justify-content: normal;
+}
+
+/* BACKLOG */
+.d-flex {
+    display: block !important;
+    margin: 0;
+    padding: 0;
+}
+@media (max-width: 768px) {
+    .d-flex {
+        font-size: 0;
+    }
+}
+#backlogTableBody tr {
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    overflow: scroll !important;
+}
+#backlogTableBody .logDescription {
+    max-height: 90px;
+}
+@media (max-width: 768px) {
+    .MODAL-1 {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.349);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        margin: 0 15rem;
+    }
+    .taskInfoContainer {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

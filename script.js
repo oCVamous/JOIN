@@ -6,16 +6,33 @@ let UserRegisterURL;
 let dragTaskId;
 let currentUser;
 
+let guestInfo = {
+    "firstname": "tst",
+    "lastname": "test",
+    "email": "test@gmail.com",
+    "password": "test",
+    "avatar": "img/avatar/default/user1.png",
+    "id": 10
+}
+
+
+
 function init() {
     backendPull();
     loadLogin();
 }
 
-function loadContent() {
+function guest() {
+    currentUser = guestInfo
+    loadBoard()
+}
+
+async function loadContent() {
     if (!currentUser) {
         alert('please Login')
         loadLogin();
     } else {
+        console.log(currentUser)
         let content = document.getElementById('content');
         content.innerHTML = ``;
         content.innerHTML += templateContent();
@@ -200,7 +217,7 @@ function saveAvatar(){
 /**
  * This function show you the taskboard.
  */
-function loadBoard() {
+async function loadBoard() {
     if (!currentUser) {
         alert('please Login')
         loadLogin();
@@ -254,6 +271,7 @@ function findImage(user){
             return avatar[i].avatar;
         }
     }
+    return 'LoginToSeePics'
 }
 
 /**
@@ -380,7 +398,7 @@ function infoTask(id){
     for (let i = 0; i < allTasks.length; i++) {
         if (allTasks[i].id == id) {
             let content = document.getElementById('backlogField');
-            content.innerHTML = templateLoadInfo(allTasks[i]);
+            content.innerHTML += templateLoadInfo(allTasks[i]);
         }
     }
 }
@@ -584,10 +602,16 @@ function highlightRegisterAvatar(imageNr, imgSrc) {
 }
 
 async function register() {
+    let email = document.getElementById("email");
+    let emailTaken = await isEmailTaken(email.value)
+
+    if(emailTaken) {
+        alert('Email is already taken')
+        return
+    }
     await userBackendPull();
     let firstname = document.getElementById("firstname");
     let lastname = document.getElementById("lastname");
-    let email = document.getElementById("email");
     let password = checkPassword();
     let newId = users.length;
     if (password.trim() != "" && avatar.value != "") {
@@ -637,4 +661,37 @@ function loadDatenschutz() {
     content.innerHTML = ``;
     content.innerHTML += templateDatenschutz();
     selectMenu(6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * This function checkes if Email is available
+ */
+ async function isEmailTaken(email) {
+    await userBackendPull();
+    let wrongEmail = true;
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].email == email) {
+            wrongEmail = false;
+        }
+    }
+    if (!wrongEmail) {
+        return true
+    } else {
+        return false;
+    }
 }

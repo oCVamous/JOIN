@@ -52,6 +52,7 @@ function templateLogin() {
              
             <button onclick="login()" class="btn btn-primary">Login</button>
             <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
+            <button onclick="guest()" class="btn btn-primary">Guest</button>
         </div>
             
         
@@ -186,7 +187,9 @@ function templateEmptyLog(){
 
 function templateLoadInfo(task){
     return /*html*/ `
-        <div class="taskInfoContainer" style="background-color: ${categoryColor(task.catergory)}">
+    <div class='MODAL-1' onclick='templateHideInfo()'> </div>
+
+        <div class="taskInfoContainer" style="background-color: ${categoryColor(task.catergory)}" >
                     <div class="taskHeader">
                         <h5>${task.title}</h5>
                         <img src="img/icons/bell-${bellColor(task.urgency)}.svg">
@@ -202,6 +205,10 @@ function templateLoadInfo(task){
                     </div>
                 </div>
     `;
+}
+function templateHideInfo() {
+    document.querySelector('.MODAL-1').remove()
+    document.querySelector('.taskInfoContainer').remove()
 }
 
 function templateBacklogHeader(){
