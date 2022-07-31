@@ -11,84 +11,6 @@ function init() {
     loadLogin();
 }
 
-function loadContent() {
-    if (!currentUser) {
-        alert('please Login')
-        loadLogin();
-    } else {
-        console.log(currentUser)
-        let content = document.getElementById('content');
-        content.innerHTML = ``;
-        content.innerHTML += templateContent();
-    }
-}
-
-function selectMenu(id){
-    for(let i = 1; i <= 6; i++){
-        if(i == id){
-            document.getElementById('menu-'+i).classList.add('selectedMenu');
-        }else{
-            document.getElementById('menu-'+i).classList.remove('selectedMenu');
-        }
-    }
-}
-
-// Switch Section /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function categoryText(category) {
-    let text = 'gray';
-    switch (category) {
-        case '1':
-            text = 'Management';
-            break;
-        case '2':
-            text = 'Software Development';
-            break;
-        case '3':
-            text = 'UX/UI Desing';
-            break;
-        case '4':
-            text = 'Human Resources';
-            break;
-    }
-    return text;
-}
-
-function categoryColor(category) {
-    let col = 'gray';
-    switch (category) {
-        case '1':
-            col = '#bd5454';
-            break;
-        case '2':
-            col = '#72a54e';
-            break;
-        case '3':
-            col = '#54bdbd';
-            break;
-        case '4':
-            col = '#7f54bd';
-            break;
-    }
-    return col;
-}
-
-function bellColor(urgency) {
-    let col = 'green';
-    switch (urgency) {
-        case '1':
-            col = 'red';
-            break;
-        case '2':
-            col = 'yellow';
-            break;
-        case '3':
-            col = 'green';
-            break;
-    }
-    return col;
-}
-
 // Backend Section ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
@@ -130,15 +52,6 @@ async function backendPush() {
 }
 
 // Login Section ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * This function show you the login page.
- */
-function loadLogin() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateLogin();
-}
 
 async function guest() {
     await userBackendPull();
@@ -221,22 +134,6 @@ function saveAvatar(){
 }
 
 // Taskboard Section ////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * This function show you the taskboard.
- */
-async function loadBoard() {
-    if (!currentUser) {
-        alert('please Login')
-        loadLogin();
-    } else {
-        let content = document.getElementById('content');
-        content.innerHTML = ``;
-        content.innerHTML += templateBoard();
-        selectMenu(1);
-        loadTasks();
-    }
-}
 
 /**
  * This function load the tasks in the right status field.
@@ -330,39 +227,7 @@ function drop(dropzone) {
     resetTasks();
 }
 
-// Help Section ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * This function show you the help.
- */
- function loadHelp() {
-    if (!currentUser) {
-        alert('please Login')
-        loadLogin();
-    } else {
-        let content = document.getElementById('content');
-        content.innerHTML = ``;
-        content.innerHTML += templateHelp();
-        selectMenu(4);
-    }
-}
 // Backlog Section ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * This function show you the backlog.
- */
-function loadBacklog() {
-    if (!currentUser) {
-        alert('please Login')
-        loadLogin();
-    } else {
-        let content = document.getElementById('content');
-        content.innerHTML = ``;
-        content.innerHTML += templateBacklog();
-        selectMenu(2);
-        loadBacklogContent();
-    }
-}
 
 function uploadIntoBoard(id){
     for(let i = 0; i < allTasks.length; i++){
@@ -430,11 +295,6 @@ function infoTask(id){
     }
 }
 
-function loadInfoContent(task){
-    let content = document.getElementById('backlogField');
-    content.innerHTML = templateLoadInfo(task);
-}
-
 /**
  * This function init the edit for a Task.
  * 
@@ -495,21 +355,6 @@ function renderCurrentAvatar(id) {
 
 // Add Task Section //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/**
- * This function let show you AddTask.
- */
-
-function loadAddTask() {
-    if (!currentUser) {
-        alert('please Login')
-        loadLogin();
-    } else {
-        let content = document.getElementById('content');
-        content.innerHTML = ``;
-        content.innerHTML += templateAddTask();
-        selectMenu(3);
-    }
-}
 
 function renderAvatar() {
     document.getElementById('persons').innerHTML = ``;
@@ -610,14 +455,6 @@ function pickNextId(){
 
 // Register Section ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-/**
- * This function show you the register page.
- */
- function loadRegister() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateRegister();
-}
 
 function highlightRegisterAvatar(imageNr, imgSrc) {
     for(let i = 1; i < 5;i++){
@@ -675,36 +512,6 @@ function checkPassword() {
     }
     
 }
-// footer Section ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function loadImpressum() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateImpressum();
-    selectMenu(5);
-}
-
-function loadDatenschutz() {
-    let content = document.getElementById('content');
-    content.innerHTML = ``;
-    content.innerHTML += templateDatenschutz();
-    selectMenu(6);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * This function checkes if Email is available
