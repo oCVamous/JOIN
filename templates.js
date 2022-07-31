@@ -356,7 +356,7 @@ function templateAddTask() {
                         <option value="3">UX/UI Desing</option>
                         <option value="4">Human Resources</option>
                     </select>
-                    <label for="floatingSelect">Welche Abteilung?</label>
+                    <label for="floatingSelect">which department?</label>
                 </div>
             </div>
 
@@ -385,7 +385,7 @@ function templateAddTask() {
                         <option value="2">Intermediate</option>
                         <option value="3">Low</option>
                     </select>
-                    <label class="form-label" for="floatingSelect">Wie hoch ist die Priorität?</label>
+                    <label class="form-label" for="floatingSelect">What is the priority?</label>
                 </div>
 
                 
