@@ -50,9 +50,9 @@ function templateLogin() {
                 <input type="password" class="form-control" id="password">
             </div>
              
-            <button onclick="login()" class="btn btn-primary">Login</button>
-            <button onclick="loadRegister()" class="btn btn-primary">Registrieren</button>
-            <button onclick="guest()" class="btn btn-primary">Guest</button>
+            <button onclick="login()" class="btn btn-primary my-1">Login</button>
+            <button onclick="loadRegister()" class="btn btn-primary my-1">Registrieren</button>
+            <button onclick="guest()" class="btn btn-primary my-1">Guest Login</button>
         </div>
             
         
@@ -193,6 +193,7 @@ function templateLoadInfo(task){
                     <div class="taskHeader">
                         <h5>${task.title}</h5>
                         <img src="img/icons/bell-${bellColor(task.urgency)}.svg">
+                        <img class="hoverPointer" onclick="loadBacklog()" src="img/icons/x-circle.svg" >
                     </div>
                     <p>${categoryText(task.catergory)}</p>
                     <div class="taskHeadline">
@@ -230,7 +231,7 @@ function templateBacklogHeader(){
 `; 
 }
 
-function templateBacklogContent(task){
+function templateBacklogContent(task, hideBtn){
     return /*html*/ `
     <tr style="background-color: ${categoryColor(task.catergory)}">
       <th scope="row"><div class="d-flex"><img class="backlogImage" src="${findImage(task.user)}">${findName(task.user)}</div></th>
@@ -240,6 +241,7 @@ function templateBacklogContent(task){
       <td class="mobileHide">${task.level}</td>
       <td style="white-space: nowrap;">
         <button onclick="infoTask(${task.id})" type="button" class="mobileShow infoBtn btn btn-secondary btn-sm"><img src="img/icons/info-square.svg" alt=""></button>
+        <button onclick="uploadIntoBoard(${task.id})" id="uploadBtn-${task.id}" type="button" class="${hideBtn} uploadBtn btn btn-warning btn-sm"><img src="img/icons/upload.svg" alt=""></button>
         <button onclick="editTask(${task.id})" type="button" class="editBtn btn btn-primary btn-sm"><img src="img/icons/pencil-square.svg" alt=""></button>
         <button onclick="deleteTask(${task.id})" type="button" class="delBtn btn btn-secondary btn-sm"><img src="img/icons/trash3.svg" alt=""></button>
         </td>

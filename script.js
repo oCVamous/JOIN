@@ -6,47 +6,12 @@ let UserRegisterURL;
 let dragTaskId;
 let currentUser;
 
-let guestInfo = {
-    "firstname": "tst",
-    "lastname": "test",
-    "email": "test@gmail.com",
-    "password": "test",
-    "avatar": "img/avatar/default/user1.png",
-    "id": 10
-}
-
-
-
 function init() {
     backendPull();
     loadLogin();
 }
 
-async function guest() {
-    await userBackendPull();
-    let setEmail = 'guest';
-    let setPassword = '000';
-    let wrongEmail = true;
-    let wrongPassword = true;
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].email == setEmail) {
-            wrongEmail = false;
-            if (users[i].password == setPassword) {
-                userLogin(i);
-                wrongPassword = false;
-            }
-        }
-    }
-    if (!wrongEmail && !wrongPassword) {
-        loadContent();
-    } else if (!wrongEmail && wrongPassword) {
-        alert('wrong Password!');
-    } else if (wrongEmail) {
-        alert('Accound not found. Please register.');
-    }
-}
-
-async function loadContent() {
+function loadContent() {
     if (!currentUser) {
         alert('please Login')
         loadLogin();
@@ -175,6 +140,30 @@ function loadLogin() {
     content.innerHTML += templateLogin();
 }
 
+async function guest() {
+    await userBackendPull();
+    let setEmail = 'guest';
+    let setPassword = '000';
+    let wrongEmail = true;
+    let wrongPassword = true;
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].email == setEmail) {
+            wrongEmail = false;
+            if (users[i].password == setPassword) {
+                userLogin(i);
+                wrongPassword = false;
+            }
+        }
+    }
+    if (!wrongEmail && !wrongPassword) {
+        loadContent();
+    } else if (!wrongEmail && wrongPassword) {
+        alert('wrong Password!');
+    } else if (wrongEmail) {
+        alert('Accound not found. Please register.');
+    }
+}
+
 /**
  * This function compares the login data with the database and logs you in.
  */
@@ -255,14 +244,16 @@ async function loadBoard() {
 function loadTasks() {
     for (let i = 0; i < allTasks.length; i++) {
         let currentTask = allTasks[i];
-        if (currentTask.level == 'todo') {
-            document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask);
-        } else if (currentTask.level == 'inProgress') {
-            document.getElementById('inProgressField').innerHTML += templateLoadTasks(currentTask);
-        } else if (currentTask.level == 'inTesting') {
-            document.getElementById('inTestingField').innerHTML += templateLoadTasks(currentTask);
-        } else if (currentTask.level == 'done') {
-            document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask);
+        if(currentTask.intoBoard == 1){
+            if (currentTask.level == 'todo') {
+                document.getElementById('todoField').innerHTML += templateLoadTasks(currentTask);
+            } else if (currentTask.level == 'inProgress') {
+                document.getElementById('inProgressField').innerHTML += templateLoadTasks(currentTask);
+            } else if (currentTask.level == 'inTesting') {
+                document.getElementById('inTestingField').innerHTML += templateLoadTasks(currentTask);
+            } else if (currentTask.level == 'done') {
+                document.getElementById('doneField').innerHTML += templateLoadTasks(currentTask);
+            }
         }
     }
 }
@@ -373,6 +364,22 @@ function loadBacklog() {
     }
 }
 
+function uploadIntoBoard(id){
+    for(let i = 0; i < allTasks.length; i++){
+        if(allTasks[i].id == id){
+            allTasks[i].intoBoard = 1;
+            hideUploadBtn(id);
+        }
+    }
+    loadBacklog();
+}
+
+function hideUploadBtn(id){
+    let btn = document.getElementById('uploadBtn-' + id);
+    btn.classList.add('d-none');
+    
+}
+
 /**
  * This function load the tasks in the backlog.
  */
@@ -384,7 +391,11 @@ function loadBacklogContent() {
         content.innerHTML += templateEmptyLog();
     } else {
         for (let i = 0; i < allTasks.length; i++) {
-            tBody.innerHTML += templateBacklogContent(allTasks[i]);
+            let hideBtn = '';
+            if(allTasks[i].intoBoard == 1){
+                hideBtn = 'd-none';
+            }
+            tBody.innerHTML += templateBacklogContent(allTasks[i], hideBtn);
         }
     }
 }
@@ -397,13 +408,10 @@ function loadBacklogContent() {
 function deleteTask(id) {
     for (let i = 0; i < allTasks.length; i++) {
         if (allTasks[i].id == id) {
-            if(allTasks[i].level == 'done'){
-                allTasks.splice(i, 1);
-                backendPush();
-                loadBacklogContent();
-            }else{
-                alert('not allowed. The task must be done for delete.');
-            }
+            allTasks.splice(i, 1);
+            backendPush();
+            loadBacklogContent();
+            
         }
     }
 }
@@ -573,7 +581,8 @@ function setValuesTask(title, date, catergory, description, urgency, id){
             'level': 'todo',
             'id': id,
             'user': userArr.join(),
-            'creator': currentUser.id
+            'creator': currentUser.id,
+            'intoBoard': 0
         };
         allTasks.push(task);
         backendPush();

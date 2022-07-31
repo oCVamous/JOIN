@@ -11,7 +11,7 @@ body {
 
 .footerString{
     text-align: center;
-    font-size: 10px;
+    font-size: 14px;
     color: white;
 }
 
@@ -82,6 +82,10 @@ body {
 }
 
 .link span {
+    cursor: pointer;
+}
+
+.hoverPointer {
     cursor: pointer;
 }
 
@@ -486,6 +490,11 @@ li:hover>.active-s {
     display: none;
 }
 
+.uploadBtn {
+    border-radius: 0.3rem;
+    border: solid 2px rgba(0, 0, 0, 0.2);
+}
+
 .editBtn {
     border-radius: 0.3rem;
     border: solid 2px rgba(0, 0, 0, 0.2);
@@ -784,6 +793,16 @@ h2 {
 }
 
 /* Responsive */
+@media screen and (max-width: 1920px) {
+    #addTask-left {
+        width: unset;
+    }
+    
+    #addTask-right {
+        width: unset;
+    }
+}
+
 @media screen and (max-width: 1300px) {
     .taskHeadline {
         font-size: 14px;
@@ -913,6 +932,10 @@ h2 {
     .addTask-main {
         flex-direction: column;
         min-width: none;
+    }
+
+    #addTask-left {
+        padding-right: 0px;
     }
 
     .link span {
