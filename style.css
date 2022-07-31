@@ -508,6 +508,7 @@ li:hover>.active-s {
     padding: 50px;
     border-radius: 25px;
     padding-bottom: 50px;
+    min-width: 950px;
 }
 
 .d-none {
