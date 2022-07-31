@@ -36,7 +36,12 @@ body {
 }
 
 #addTask-left {
+    width: 30rem;
     padding-right: 50px;
+}
+
+#addTask-right {
+    width: 30rem;
 }
 
 .navigation-menu {
@@ -508,7 +513,6 @@ li:hover>.active-s {
     padding: 50px;
     border-radius: 25px;
     padding-bottom: 50px;
-    min-width: 80vw;
 }
 
 .d-none {
@@ -1179,8 +1183,9 @@ p {
 
 /* ADD TASK */
 #persons {
+    display: flex;
     flex-wrap: wrap;
-    justify-content: normal;
+    justify-content: center;
 }
 
 /* BACKLOG */

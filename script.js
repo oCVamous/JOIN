@@ -22,9 +22,28 @@ function init() {
     loadLogin();
 }
 
-function guest() {
-    currentUser = guestInfo
-    loadBoard()
+async function guest() {
+    await userBackendPull();
+    let setEmail = 'guest';
+    let setPassword = '000';
+    let wrongEmail = true;
+    let wrongPassword = true;
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].email == setEmail) {
+            wrongEmail = false;
+            if (users[i].password == setPassword) {
+                userLogin(i);
+                wrongPassword = false;
+            }
+        }
+    }
+    if (!wrongEmail && !wrongPassword) {
+        loadContent();
+    } else if (!wrongEmail && wrongPassword) {
+        alert('wrong Password!');
+    } else if (wrongEmail) {
+        alert('Accound not found. Please register.');
+    }
 }
 
 async function loadContent() {
