@@ -114,6 +114,10 @@ body {
     padding-top: 20px;
 }
 
+#edit-box {
+    width: 80vw;
+}
+
 .example-picture {
     height: 50px;
     width: 50px;

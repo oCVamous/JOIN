@@ -271,6 +271,8 @@ function templateLoadEdit(task) {
     <div class="MODAL edit-task">
 
     <form onsubmit="event.preventDefault(), createTask(${task.id})"> <!-- change to edit -->
+    <div id="edit-box">
+
     <div class="addTask-main">
         
         <div id="addTask-left">
@@ -343,7 +345,9 @@ function templateLoadEdit(task) {
         </div>
     </form>
     </div>
+    </div>
     `;
+    
 }
 
 // Help Page ////////////////////////////////////////////////////////////////////////////////////////////////////
