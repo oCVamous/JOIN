@@ -978,6 +978,10 @@ h2 {
         justify-content: center;
     }
 
+    .btn{
+        padding-top: 10px;
+    }
+
     #date {
         max-width: 100%;
     }
