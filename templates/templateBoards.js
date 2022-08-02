@@ -378,9 +378,6 @@ function templateHelp() {
                         <li>
                             <p>The color of a card in the backlog stands for the category to which the task was assigned.</p>
                         </li>
-                        <li>
-                            <p>You can only delete a task when it is completed.</p>
-                        </li>
                         
                     </ul>
                 </div>
@@ -388,17 +385,24 @@ function templateHelp() {
                     <h2>How do I use the backlog?</h2>
                     <ul>
                         <li>
-                            <p>Create new tasks in the add-task section.</p>
+                            <p>The backlog is a collection of upcoming tasks and ideas that are not yet in the focus of
+                                the
+                                project team.
+                            </p>
                         </li>
+                         
                         <li>
-                            <p> Fill the form and choose by whom the task should be processed.</p>
+                            <p> To upload the task to the board just click on the yellow upload image</p>
                         </li>
-                        <li>
-                            <p> You can create new categories for your individual purpose.</p>
-                        </li>
+
                         <li>
                             <p> The color of a card in the backlog stands for the category to which the task was assigned.</p>
                         </li>
+
+                        <li>
+                            <p>By click on the pen you can see and edit all details.</p>
+                        </li>
+
                         <li>
                             <p> You can only edit tasks if you are also the creator of the task</p>
                         </li>
@@ -408,16 +412,16 @@ function templateHelp() {
                     <h2>How do I use the Add Task?</h2>
                     <ul>
                         <li>
-                            <p>The backlog is a collection of upcoming tasks and ideas that are not yet in the focus of
-                                the
-                                project team.</p>
+                            <p>Create new tasks in the add-task section.</p>
+                        </li>
+                        
+                        <li>
+                            <p> Fill the form and choose by whom the task should be processed.</p>
                         </li>
                         <li>
                             <p>If you want to stop while creating a task, just click cancel</p>
                         </li>
-                        <li>
-                            <p>By click on the pen you can see and edit all details.</p>
-                        </li>
+
                     </ul>
                 </div>
             </div>
