@@ -1,3 +1,43 @@
+// Backend Section ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * This function download the tasks from the server.
+ */
+ async function backendPull() {
+    await downloadFromServer();
+    let tasksAsString = await backend.getItem('allTasks');
+    if (tasksAsString) {
+        allTasks = JSON.parse(tasksAsString);
+    }
+}
+
+/**
+ * This function download the users from the server.
+ */
+async function userBackendPull() {
+    await downloadFromServer();
+    let usersAsString = await backend.getItem('users');
+    if (usersAsString) {
+        users = JSON.parse(usersAsString);
+    }
+}
+
+/**
+ * This function uploads the tasks to the server.
+ */
+async function backendPush() {
+    let tasksAsString = JSON.stringify(allTasks);
+    await backend.setItem('allTasks', tasksAsString);
+}
+
+/**
+ * This function uploads the users to the server.
+ */
+ async function userBackendPush() {
+    let usersAsString = JSON.stringify(users);
+    await backend.setItem('users',usersAsString);
+}
+
 // Login Section ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 async function guest() {
