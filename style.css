@@ -957,6 +957,11 @@ h2 {
         flex-wrap: wrap;
     }
 
+    .MODAL{
+        height: unset;
+        padding: 15px;
+    }
+
     #navigation {
         flex-direction: row;
         width: 100% !important;
