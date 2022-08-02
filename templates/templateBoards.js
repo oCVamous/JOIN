@@ -270,7 +270,7 @@ function templateLoadEdit(task) {
     return /*html*/ `
     <div class="MODAL edit-task">
 
-    <form onsubmit="event.preventDefault(), createTask(${task.id})"> <!-- change to edit -->
+    <form onsubmit="event.preventDefault(), editTask(${task.id})">
     <div id="edit-box">
 
     <div class="addTask-main">
