@@ -958,7 +958,7 @@ h2 {
     }
 
     .MODAL{
-        height: unset;
+        height: unset !important;
         padding: 15px;
     }
 
