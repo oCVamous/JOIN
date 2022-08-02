@@ -537,6 +537,7 @@ li:hover>.active-s {
     justify-content: center;
     padding-bottom: 20px;
     align-items: center;
+    width: 30rem;
 }
 
 .user-box {
@@ -805,6 +806,10 @@ h2 {
     #addTask-right {
         width: unset;
     }
+
+    .persons{
+        width: 20rem;
+    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -814,6 +819,10 @@ h2 {
 }
 
 @media screen and (max-width: 1200px) {
+
+    .persons{
+        width: 17rem;
+    }
 
     #navigation {
         width: 130px;
@@ -982,6 +991,11 @@ h2 {
 }
 
 @media screen and (max-width: 560px) {
+
+    .persons{
+        width: 12rem;
+    }
+
     #content {
         position: relative;
         z-index: 1;
