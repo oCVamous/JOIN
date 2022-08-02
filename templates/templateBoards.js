@@ -269,18 +269,15 @@ function templateBacklogContent(task, hideBtn){
 function templateLoadEdit(task) {
     return /*html*/ `
     <div class="MODAL edit-task">
-
-    <form onsubmit="event.preventDefault(), createTask(${task.id})">
-    <div id="edit-box">
-
+    <div class=" animation basic">
+    <form onsubmit="event.preventDefault(), createTask()">
     <div class="addTask-main">
-        
         <div id="addTask-left">
 
             <div class="input">
                 <label for="formGroupExampleInput" class="form-label">Title</label>
                 <div class="mb-3">
-                    <input id="title" required type="text" class="form-control" id="formGroupExampleInput" value="${task.title}">
+                    <input id="title" required type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
             </div>
 
@@ -288,19 +285,19 @@ function templateLoadEdit(task) {
             <div class="input">
                 <div class="form-floating">
                     <select id="catergory" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option ${select(task.catergory, "1")} value="1">Management</option>
-                        <option ${select(task.catergory, "2")} value="2">Software Development</option>
-                        <option ${select(task.catergory, "3")} value="3">UX/UI Desing</option>
-                        <option ${select(task.catergory, "4")} value="4">Human Resources</option>
+                        <option value="1">Management</option>
+                        <option value="2">Software Development</option>
+                        <option value="3">UX/UI Desing</option>
+                        <option value="4">Human Resources</option>
                     </select>
-                    <label for="floatingSelect">Which department?</label>
+                    <label for="floatingSelect">which department?</label>
                 </div>
             </div>
 
             <label class="form-label" for="floatingTextarea2">Description</label>
             <div class="input">
                 <div class="form-floating">
-                    <textarea class="form-control" required type="text" id="description" style="height: 100px">${task.description}</textarea>
+                    <textarea class="form-control" required type="text" placeholder="Description" id="description" style="height: 100px"></textarea>
                 </div>
             </div>
 
@@ -311,16 +308,16 @@ function templateLoadEdit(task) {
 
             <div class="mb-3">
                 <label class="form-label" for="due date">Due Date</label>
-                <input id="date" required type="date" class="form-control" id="formGroupExampleInput" value="${task.date}">
+                <input id="date" required type="date" class="form-control" id="formGroupExampleInput">
             </div>
 
             <label class="form-label" for="urgency">Urgency</label>
                 
                 <div class="form-floating">
                     <select id="urgency" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option ${select(task.urgency, "1")} value="1">High</option> 
-                        <option ${select(task.urgency, "2")} value="2">Intermediate</option>
-                        <option ${select(task.urgency, "3")} value="3">Low</option>
+                        <option value="1">High</option> 
+                        <option value="2">Intermediate</option>
+                        <option value="3">Low</option>
                     </select>
                     <label class="form-label" for="floatingSelect">What is the priority?</label>
                 </div>
@@ -330,10 +327,10 @@ function templateLoadEdit(task) {
                 <label class="form-label" for="formGroupExampleInput" class="form-label">Assigned</label>
 
                 <div id="btn-box">
-                    <img onload="renderCurrentAvatar(${task.user})" src="img/icon plus.png" style="padding-right:10px">
+                    <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
                         
                     <div>
-                        <button onclick="loadBacklog()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
+                        <button onclick="loadBoard()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
                         <button type="submit" class="btn btn-primary btn-lg">Edit task</button>
                     </div>
                 </div>
@@ -345,7 +342,7 @@ function templateLoadEdit(task) {
         </div>
     </form>
     </div>
-    </div>
+</div>
     `;
     
 }

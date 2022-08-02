@@ -154,7 +154,6 @@ body {
     align-items: center;
     width: 90%;
     justify-content: center;
-    padding: 15px;
 }
 
 .joinlogo {
@@ -248,6 +247,7 @@ li:hover>.active-s {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    padding: 15px;
 }
 
 .boardField {
@@ -750,40 +750,6 @@ h2 {
     color: #000;
 }
 
-
-@media(max-width:560px) {
-    body {
-        flex-wrap: wrap;
-    }
-
-    #navigation {
-        flex-direction: row;
-        width: 100% !important;
-        height: 100%;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    #content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100vw;
-        justify-content: center;
-    }
-
-    #date {
-        max-width: 100%;
-    }
-
-    .addTask-main {
-        display: flex;
-        flex-direction: column;
-        min-width: none;
-    }
-
-}
-
 .link {
     margin-bottom: 5px;
 }
@@ -827,10 +793,6 @@ h2 {
     #navigation {
         width: 130px;
         flex: 0 0 auto;
-    }
-
-    #content {
-        width: calc(100% - 130px);
     }
 
     .boardPage {
@@ -903,7 +865,7 @@ h2 {
 
 @media screen and (max-width: 767px) {
     #backlogField {
-        width: 110%;
+        width: 100%;
     }
     .mobileHide{
         display: none;
@@ -990,8 +952,36 @@ h2 {
 
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 730px) {
+    body {
+        flex-wrap: wrap;
+    }
 
+    #navigation {
+        flex-direction: row;
+        width: 100% !important;
+        height: 100%;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        justify-content: center;
+    }
+
+    #date {
+        max-width: 100%;
+    }
+
+    .addTask-main {
+        display: flex;
+        flex-direction: column;
+        min-width: none;
+    }
     .persons{
         width: 12rem;
     }
@@ -999,10 +989,6 @@ h2 {
     #content {
         position: relative;
         z-index: 1;
-    }
-
-    #content {
-        width: calc(100% - 0px);
     }
 
     .logo-section {
@@ -1077,6 +1063,10 @@ h2 {
         width: 100%;
     }
 
+    .table{
+        font-size: 14px;
+    }
+
 }
 
 .header {
@@ -1089,10 +1079,9 @@ h2 {
 }
 
 .MODAL {
-    position: fixed;
     background-color: #000000c8;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1175,17 +1164,12 @@ p {
 
 @media screen and (max-width: 400px) {
     #backlogField {
-        width: 130%;
+        width: 110%;
     }
 }
 
-
-
-
-
-
-
 /* BOARD */
+
 @media (max-width: 768px) {
     .boardContainer {
         min-height: 500px;
