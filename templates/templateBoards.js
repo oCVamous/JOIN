@@ -7,24 +7,19 @@ function templateContent() {
                 <img class="joinlogo" src="img/logo.png" alt="">
                 <h1>Welcome</h1>
             </div>
-
             <div class="animation-1"><p>This Kanban project was created through teamwork.</p></div>
-            
             <div id="werbetext">
                 <p><img src="img/bullet-point.png" style="height: 10px;"> Here you can create tasks,</p>
                 <p><img src="img/bullet-point.png" style="height: 10px;"> Sort them by urgency</p>
                 <p><img src="img/bullet-point.png" style="height: 10px;"> and assign them to specific employees.</p>
                 <p><img src="img/bullet-point.png" style="height: 10px;"> Under the Help tab you will find all the important information to make the best use of the site.</p>
             </div>
-            
              <br>
             <div id="we">
                 <h2>This code was made with passion</h2>
                     <a class="ourName" href="https://github.com/oCVamous" target="_blank"><h2>© by Patrick Sterz <img src="img/github-icon.svg" style="height: 30px;" alt=""></h2></a> 
                     <a class="ourName" href="https://github.com/ZZDome" target="_blank"><h2>© by Dominik Waldow <img src="img/github-icon.svg" style="height: 30px;" alt=""></h2></a>
-            
             </div>
-            
         </div>
         `;
 }
@@ -39,25 +34,21 @@ function templateBoard() {
         <div class="boardContainer">
             <h3>ToDo</h3>
             <div id="todoField" class="boardContainerField" ondrop="drop('todo')" ondragover="allowDrop(event)">
-                
             </div>
         </div>
         <div class="boardContainer">
             <h3>In Progress</h3>
             <div id="inProgressField" class="boardContainerField" ondrop="drop('inProgress')" ondragover="allowDrop(event)">
-
             </div>
         </div>
         <div class="boardContainer">
             <h3>In Testing</h3>
             <div id="inTestingField" class="boardContainerField" ondrop="drop('inTesting')" ondragover="allowDrop(event)">
-
             </div>
         </div>
         <div class="boardContainer">
             <h3>Done</h3>
-            <div id="doneField" class="boardContainerField" ondrop="drop('done')" ondragover="allowDrop(event)">
-                
+            <div id="doneField" class="boardContainerField" ondrop="drop('done')" ondragover="allowDrop(event)">  
             </div>
         </div>
         </div>
@@ -70,94 +61,76 @@ function templateBoard() {
 function templateAddTask() {
     return /*html*/ `
     <div class="animation basic">
-    <header class="header">
+        <header class="header">
             <h2>Add Task</h2>
         </header>
-    
-
-    <form onsubmit="event.preventDefault(), createTask()">
-    <div class="addTask-main">
-        <div id="addTask-left">
-
-            <div class="input">
-                <label for="formGroupExampleInput" class="form-label">Title</label>
-                <div class="mb-3">
-                    <input id="title" required type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+        <form onsubmit="event.preventDefault(), createTask()">
+            <div class="addTask-main">
+                <div id="addTask-left">
+                    <div class="input">
+                        <label for="formGroupExampleInput" class="form-label">Title</label>
+                        <div class="mb-3">
+                            <input id="title" required type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
+                        </div>
+                    </div>
+                    <label class="form-label" for="category">Category</label>
+                    <div class="input">
+                        <div class="form-floating">
+                            <select id="catergory" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option value="1">Management</option>
+                                <option value="2">Software Development</option>
+                                <option value="3">UX/UI Desing</option>
+                                <option value="4">Human Resources</option>
+                            </select>
+                            <label for="floatingSelect">which department?</label>
+                        </div>
+                    </div>
+                    <label class="form-label" for="floatingTextarea2">Description</label>
+                    <div class="input">
+                        <div class="form-floating">
+                            <textarea class="form-control" required type="text" placeholder="Description" id="description" style="height: 100px"></textarea>
+                        </div>
+                    </div>   
                 </div>
-            </div>
-
-            <label class="form-label" for="category">Category</label>
-            <div class="input">
-                <div class="form-floating">
-                    <select id="catergory" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option value="1">Management</option>
-                        <option value="2">Software Development</option>
-                        <option value="3">UX/UI Desing</option>
-                        <option value="4">Human Resources</option>
-                    </select>
-                    <label for="floatingSelect">which department?</label>
-                </div>
-            </div>
-
-            <label class="form-label" for="floatingTextarea2">Description</label>
-            <div class="input">
-                <div class="form-floating">
-                    <textarea class="form-control" required type="text" placeholder="Description" id="description" style="height: 100px"></textarea>
-                </div>
-            </div>
-
-                
-        </div>
-
-        <div id="addTask-right">
-
-            <div class="mb-3">
-                <label class="form-label" for="due date">Due Date</label>
-                <input id="date" required type="date" class="form-control" id="formGroupExampleInput">
-            </div>
-
-            <label class="form-label" for="urgency">Urgency</label>
-                
-                <div class="form-floating">
-                    <select id="urgency" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option value="1">High</option> 
-                        <option value="2">Intermediate</option>
-                        <option value="3">Low</option>
-                    </select>
-                    <label class="form-label" for="floatingSelect">What is the priority?</label>
-                </div>
-
-                
-            <div class="mb-3">
-                <label class="form-label" for="formGroupExampleInput" class="form-label">Assigned</label>
-
-                <div id="btn-box">
-                    <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
-                        
-                    <div>
-                        <button onclick="loadBoard()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-lg">Add task</button>
+                <div id="addTask-right">
+                    <div class="mb-3">
+                        <label class="form-label" for="due date">Due Date</label>
+                        <input id="date" required type="date" class="form-control" id="formGroupExampleInput">
+                    </div>
+                    <label class="form-label" for="urgency">Urgency</label>
+                    <div class="form-floating">
+                        <select id="urgency" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option value="1">High</option> 
+                            <option value="2">Intermediate</option>
+                            <option value="3">Low</option>
+                        </select>
+                        <label class="form-label" for="floatingSelect">What is the priority?</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="formGroupExampleInput" class="form-label">Assigned</label>
+                        <div id="btn-box">
+                            <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
+                            <div>
+                                <button onclick="loadBoard()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
+                                <button type="submit" class="btn btn-primary btn-lg">Add task</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div id='persons' class="persons">
+                </div>
             </div>
-
-            <div id='persons' class="persons">
-
-            </div>
-        </div>
-    </form>
+        </form>
     </div>
     `;
 }
 
 function templateAvatare(i, avatare, name) {
     return /*html*/ `<img title="${name}" id="user${i}" onclick="selectUser(${i})" src="${avatare}" class="avatar">`;
-
 }
 
 function templateCurrentAvatare(i, avatare, name) {
     return /*html*/ `<img title="${name}" id="user${i}" onload="selectUser(${i})" src="${avatare}" class="avatar">`;
-
 }
 
 // Backlog Page ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -187,7 +160,6 @@ function templateBacklog(){
     <div class="backlogContent animation">
         <h2>Backlog</h2>
         <div id ="backlogField">
-
         </div>
     </div>
 `; 
@@ -204,7 +176,6 @@ function templateEmptyLog(){
 function templateLoadInfo(task){
     return /*html*/ `
     <div class='MODAL-1' onclick='templateHideInfo()'> </div>
-
         <div class="taskInfoContainer" style="background-color: ${categoryColor(task.catergory)}" >
                     <div class="taskHeader">
                         <h5>${task.title}</h5>
@@ -223,6 +194,7 @@ function templateLoadInfo(task){
                 </div>
     `;
 }
+
 function templateHideInfo() {
     document.querySelector('.MODAL-1').remove()
     document.querySelector('.taskInfoContainer').remove()
@@ -262,7 +234,6 @@ function templateBacklogContent(task, hideBtn){
         <button onclick="deleteTask(${task.id})" type="button" class="delBtn btn btn-secondary btn-sm"><img src="img/icons/trash3.svg" alt=""></button>
         </td>
     </tr>
-    
 `; 
 }
 
@@ -273,14 +244,12 @@ function templateLoadEdit(task) {
     <form onsubmit="event.preventDefault(), createTask()">
     <div class="addTask-main">
         <div id="addTask-left">
-
             <div class="input">
                 <label for="formGroupExampleInput" class="form-label">Title</label>
                 <div class="mb-3">
                     <input id="title" required type="text" class="form-control" id="formGroupExampleInput" placeholder="Taskname here">
                 </div>
             </div>
-
             <label class="form-label" for="category">Category</label>
             <div class="input">
                 <div class="form-floating">
@@ -293,26 +262,19 @@ function templateLoadEdit(task) {
                     <label for="floatingSelect">which department?</label>
                 </div>
             </div>
-
             <label class="form-label" for="floatingTextarea2">Description</label>
             <div class="input">
                 <div class="form-floating">
                     <textarea class="form-control" required type="text" placeholder="Description" id="description" style="height: 100px"></textarea>
                 </div>
             </div>
-
-                
         </div>
-
         <div id="addTask-right">
-
             <div class="mb-3">
                 <label class="form-label" for="due date">Due Date</label>
                 <input id="date" required type="date" class="form-control" id="formGroupExampleInput">
             </div>
-
             <label class="form-label" for="urgency">Urgency</label>
-                
                 <div class="form-floating">
                     <select id="urgency" required class="form-select" id="floatingSelect" aria-label="Floating label select example">
                         <option value="1">High</option> 
@@ -321,30 +283,23 @@ function templateLoadEdit(task) {
                     </select>
                     <label class="form-label" for="floatingSelect">What is the priority?</label>
                 </div>
-
-                
             <div class="mb-3">
                 <label class="form-label" for="formGroupExampleInput" class="form-label">Assigned</label>
-
                 <div id="btn-box">
-                    <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px">
-                        
+                    <img onclick="renderAvatar()" src="img/icon plus.png" style="padding-right:10px"> 
                     <div>
                         <button onclick="loadBoard()" type="reset" class="btn btn-secondary btn-lg">Cancel</button>
                         <button type="submit" class="btn btn-primary btn-lg">Edit task</button>
                     </div>
                 </div>
             </div>
-
             <div id='persons' class="persons">
-
             </div>
         </div>
     </form>
     </div>
 </div>
     `;
-    
 }
 
 // Help Page ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -379,7 +334,6 @@ function templateHelp() {
                         <li>
                             <p>The color of a card in the backlog stands for the category to which the task was assigned.</p>
                         </li>
-                        
                     </ul>
                 </div>
                 <div class="help-container">
@@ -391,19 +345,15 @@ function templateHelp() {
                                 project team.
                             </p>
                         </li>
-                         
                         <li>
                             <p> To upload the task to the board just click on the yellow upload image</p>
                         </li>
-
                         <li>
                             <p> The color of a card in the backlog stands for the category to which the task was assigned.</p>
                         </li>
-
                         <li>
                             <p>By click on the pen you can see and edit all details.</p>
                         </li>
-
                         <li>
                             <p> You can only edit tasks if you are also the creator of the task</p>
                         </li>
@@ -415,18 +365,15 @@ function templateHelp() {
                         <li>
                             <p>Create new tasks in the add-task section.</p>
                         </li>
-                        
                         <li>
                             <p> Fill the form and choose by whom the task should be processed.</p>
                         </li>
                         <li>
                             <p>If you want to stop while creating a task, just click cancel</p>
                         </li>
-
                     </ul>
                 </div>
             </div>
-            
         </div>
         </div>
         `;

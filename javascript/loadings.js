@@ -1,7 +1,6 @@
 function loadContent() {
     if (!currentUser) {
-        alert('please Login')
-        loadLogin();
+        showLoginAlert();
     } else {
         console.log(currentUser)
         let content = document.getElementById('content');
@@ -24,8 +23,7 @@ function loadContent() {
  */
  async function loadBoard() {
     if (!currentUser) {
-        alert('please Login')
-        loadLogin();
+        showLoginAlert();
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
@@ -40,8 +38,7 @@ function loadContent() {
  */
  function loadHelp() {
     if (!currentUser) {
-        alert('please Login')
-        loadLogin();
+        showLoginAlert();
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
@@ -55,8 +52,7 @@ function loadContent() {
  */
  function loadBacklog() {
     if (!currentUser) {
-        alert('please Login')
-        loadLogin();
+        showLoginAlert();
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;
@@ -77,8 +73,8 @@ function loadInfoContent(task){
 
  function loadAddTask() {
     if (!currentUser) {
-        alert('please Login')
-        loadLogin();
+        showLoginAlert();
+        
     } else {
         let content = document.getElementById('content');
         content.innerHTML = ``;

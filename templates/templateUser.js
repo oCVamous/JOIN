@@ -4,11 +4,9 @@ function templateLogin() {
     return /*html*/ `
     <div class="login">
         <div id="login-box">
-
             <div id="login-box-left">
                 <img src="img/logo.png" style="height: 50px">
             </div>
-
             <div id="login-box-right">
                 <h2 style="text-align: center;">Login</h2>
                 <div class="mb-3">
@@ -20,13 +18,10 @@ function templateLogin() {
                 <label class="form-label">Password</label>
                 <input type="password" class="form-control" id="password">
             </div>
-             
             <button onclick="login()" class="btn btn-primary my-1">Login</button>
             <button onclick="loadRegister()" class="btn btn-primary my-1">Registrieren</button>
             <button onclick="guest()" class="btn btn-primary my-1">Guest Login</button>
         </div>
-            
-        
     </div>
     `;
 }
@@ -34,15 +29,12 @@ function templateLogin() {
 // Register Section ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function templateRegister() {
-    
     return /*html*/ `
     <div class="login">
         <div id="login-box">
-
             <div id="login-box-left">
                 <img src="img/logo.png" style="height: 50px">
             </div>
-
             <div id="login-box-right">
                 <h2 style="text-align: center;">Registrieren</h2>
                 <div class="mb-3">
@@ -66,8 +58,6 @@ function templateRegister() {
                 <label class="form-label">Confirm Password</label>
                 <input type="password" class="form-control" id="password-confirmed-register">
             </div>
-
-            
             <label class="form-label">Choose you Avatar</label>
             <div id="persons-register" class="persons">  
                 <img id="example-image1" onclick="highlightRegisterAvatar(1, 'img/avatar/default/user1.png')" class="avatar" src='img/avatar/default/user1.png' alt="">
@@ -75,12 +65,9 @@ function templateRegister() {
                 <img id="example-image3" onclick="highlightRegisterAvatar(3, 'img/avatar/default/user3.png')" class="avatar" src='img/avatar/default/user3.png' alt="">
                 <img id="example-image4" onclick="highlightRegisterAvatar(4, 'img/avatar/default/user4.png')" class="avatar" src='img/avatar/default/user4.png' alt="">
             </div>
-             
             <button onclick="loadLogin()" class="btn btn-secondary">Cancel</button>
             <button onclick="register()" class="btn btn-primary">Registrieren</button>
-        </div>
-            
-        
+        </div> 
     </div>
     `;
 }

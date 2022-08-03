@@ -11,9 +11,6 @@ function init() {
     loadLogin();
 }
 
-
-
-
 // Taskboard Section ////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
@@ -108,7 +105,6 @@ function drop(dropzone) {
     resetTasks();
 }
 
-
 // Backlog Section ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function uploadIntoBoard(id){
@@ -124,7 +120,6 @@ function uploadIntoBoard(id){
 function hideUploadBtn(id){
     let btn = document.getElementById('uploadBtn-' + id);
     btn.classList.add('d-none');
-    
 }
 
 /**
@@ -195,7 +190,7 @@ function checkCreator(i){
         let content = document.getElementById('content');
         content.innerHTML = templateLoadEdit(allTasks[i]);
     }else{
-        alert('you are not the creator of this task.')
+        showCreatorAlert();
     }
 }
 
@@ -268,7 +263,6 @@ function clearTask() {
     selectedUsers = [];
     const el = document.querySelector('.avatar');
     el.classList.remove("avatar-selected");
-
 }
 
 async function createTask(currentId) {
@@ -316,7 +310,7 @@ function setValuesTask(title, date, catergory, description, urgency, id){
         clearTask();
         loadBacklog();
     } else {
-        alert('please select a user')
+        showAddTaskUserAlert();
     }
 }
 

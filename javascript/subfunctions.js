@@ -65,3 +65,89 @@ function selectMenu(id){
         }
     }
 }
+
+// Alert functions ////////////////////////////////////////////////////////////////////////////////
+
+function showLoginAlert(){
+    let alert = document.getElementById('loginAlert');
+    alert.classList.remove('d-none');
+}
+
+function hideLoginAlert(){
+    let alert = document.getElementById('loginAlert');
+    alert.classList.add('d-none');
+    loadLogin();
+}
+
+function showLoginPasswordAlert(){
+    let alert = document.getElementById('loginPasswordAlert');
+    alert.classList.remove('d-none');
+}
+
+function hideLoginPasswordAlert(){
+    let alert = document.getElementById('loginPasswordAlert');
+    alert.classList.add('d-none');
+    loadLogin();
+}
+
+function showLoginEmailAlert(){
+    let alert = document.getElementById('loginEmailAlert');
+    alert.classList.remove('d-none');
+}
+
+function hideLoginEmailAlert(){
+    let alert = document.getElementById('loginEmailAlert');
+    alert.classList.add('d-none');
+    loadLogin();
+}
+
+function showRegisterAlert(){
+    let alert = document.getElementById('registerAlert');
+    alert.classList.remove('d-none');
+}
+
+function hideRegisterAlert(){
+    let alert = document.getElementById('registerAlert');
+    alert.classList.add('d-none');
+    loadLogin();
+}
+
+function showRegisterEmailAlert(){
+    let alert = document.getElementById('registerEmailAlert');
+    alert.classList.remove('d-none');
+}
+
+function hideRegisterEmailAlert(){
+    let alert = document.getElementById('registerEmailAlert');
+    alert.classList.add('d-none');
+}
+
+function showRegisterPasswordAlert(){
+    let alert = document.getElementById('registerPasswordAlert');
+    alert.classList.remove('d-none');
+}
+
+function hideRegisterPasswordAlert(){
+    let alert = document.getElementById('registerPasswordAlert');
+    alert.classList.add('d-none');
+}
+
+function showAddTaskUserAlert(){
+    let alert = document.getElementById('AddTaskUserAlert');
+    alert.classList.remove('d-none');
+}
+
+function hideAddTaskUserAlert(){
+    let alert = document.getElementById('AddTaskUserAlert');
+    alert.classList.add('d-none');
+}
+
+function showCreatorAlert(){
+    let alert = document.getElementById('CreatorAlert');
+    alert.classList.remove('d-none');
+}
+
+function hideCreatorAlert(){
+    let alert = document.getElementById('CreatorAlert');
+    alert.classList.add('d-none');
+}

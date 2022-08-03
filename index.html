@@ -123,6 +123,48 @@
 
     <div class="offcanvas-overlay"></div>
     <!--------- Offcanvas area end --------->
+    <!----alerts------------------->
+    
+    <div onclick="hideLoginAlert()" id="loginAlert" class="myAlert d-none">
+        <div class="alert alert-primary myAlertField" role="alert">
+            Please Login!
+        </div>
+    </div>
+    <div onclick="hideLoginPasswordAlert()" id="loginPasswordAlert" class="myAlert d-none">
+        <div class="alert alert-warning myAlertField" role="alert">
+            Wrong password!
+        </div>
+    </div>
+    <div onclick="hideLoginEmailAlert()" id="loginEmailAlert" class="myAlert d-none">
+        <div class="alert alert-warning myAlertField" role="alert">
+            Accound not found. Please register!
+        </div>
+    </div>
+    <div onclick="hideRegisterAlert()" id="registerAlert" class="myAlert d-none">
+        <div class="alert alert-success myAlertField" role="alert">
+            Registration successful!
+        </div>
+    </div>
+    <div onclick="hideRegisterEmailAlert()" id="registerEmailAlert" class="myAlert d-none">
+        <div class="alert alert-warning myAlertField" role="alert">
+            Email is already taken!
+        </div>
+    </div>
+    <div onclick="hideRegisterPasswordAlert()" id="registerPasswordAlert" class="myAlert d-none">
+        <div class="alert alert-warning myAlertField" role="alert">
+            Passwords do not match!
+        </div>
+    </div>
+    <div onclick="hideAddTaskUserAlert()" id="AddTaskUserAlert" class="myAlert d-none">
+        <div class="alert alert-primary myAlertField" role="alert">
+            Please select a user!
+        </div>
+    </div>
+    <div onclick="hideCreatorAlert()" id="CreatorAlert" class="myAlert d-none">
+        <div class="alert alert-primary myAlertField" role="alert">
+            You are not the creator of this task!
+        </div>
+    </div>
 
     <div id="content"></div>
 

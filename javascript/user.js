@@ -58,9 +58,9 @@ async function guest() {
     if (!wrongEmail && !wrongPassword) {
         loadContent();
     } else if (!wrongEmail && wrongPassword) {
-        alert('wrong Password!');
+        showLoginPasswordAlert();
     } else if (wrongEmail) {
-        alert('Accound not found. Please register.');
+        showLoginEmailAlert();
     }
 }
 
@@ -85,9 +85,9 @@ async function login() {
     if (!wrongEmail && !wrongPassword) {
         loadContent();
     } else if (!wrongEmail && wrongPassword) {
-        alert('wrong Password!');
+        showLoginPasswordAlert();
     } else if (wrongEmail) {
-        alert('Accound not found. Please register.');
+        showLoginEmailAlert();
     }
 }
 
@@ -138,7 +138,7 @@ async function register() {
     let emailTaken = await isEmailTaken(email.value)
 
     if(emailTaken) {
-        alert('Email is already taken')
+        showRegisterEmailAlert();
         return
     }
     await userBackendPull();
@@ -156,7 +156,6 @@ async function register() {
         id: newId
       };
       saveUser(newUser);
-      alert('registration successful');
     }
 }
 
@@ -165,7 +164,7 @@ async function saveUser(newUser){
     users.push(newUser);
     await userBackendPush();
     users = [];
-    loadLogin();
+    showRegisterAlert();
 }
 
 function checkPassword() {
@@ -175,7 +174,7 @@ function checkPassword() {
         password = secondPassword;
         return password;
     } else {
-        alert('Passwords do not match');
+        showRegisterPasswordAlert();
     }
     
 }
