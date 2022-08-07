@@ -116,8 +116,8 @@ function templateAddTask() {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id='persons' class="persons">
+                    <div id='persons' class="persons">
+                    </div>
                 </div>
             </div>
         </form>
