@@ -66,7 +66,7 @@ function templateRegister() {
                 <img id="example-image4" onclick="highlightRegisterAvatar(4, 'img/avatar/default/user4.png')" class="avatar" src='img/avatar/default/user4.png' alt="">
             </div>
             <button onclick="loadLogin()" class="btn btn-secondary">Cancel</button>
-            <button onclick="register()" class="btn btn-primary">Registrieren</button>
+            <button onclick="register()" class="btn btn-primary">Register</button>
         </div> 
     </div>
     `;
